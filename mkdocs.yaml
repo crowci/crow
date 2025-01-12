@@ -1,0 +1,122 @@
+site_name: Crow CI
+site_url: https://docs.crowci.dev
+repo_url: https://github.com/crowci/crow
+repo_name: crowci/crow
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/git-alt
+    edit: material/pencil
+    view: material/eye
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: custom-light
+      # accent: yellow
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      # https://github.com/squidfunk/mkdocs-material/issues/5537
+      primary: custom
+      # accent: custom
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to system preference
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.prune
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    # - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - header.autohide
+    - content.action.edit
+    - content.code.copy
+
+extra:
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  version:
+    provider: mike
+  generator: false
+
+copyright: >
+  Copyright &copy; 2025 - 2025 Crow CI –
+  <a href="#__consent">Change cookie settings</a>
+
+plugins:
+  - privacy
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  # https://github.com/blueswen/mkdocs-glightbox#usage
+  - glightbox:
+      width: 80%
+      # effect: fade
+  # - git-committers
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
+  #     # enabled: !ENV [CI, false]
+  # - git-committers:
+  #     repository: crowci/crow
+  #     branch: main
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - footnotes
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+
+nav:
+  - Getting started: index.md
+  - Installation:
+    - installation/index.md
+    - Docker-compose: installation/docker-compose.md
+    - Helm: installation/helm.md
+    - Proxy Setup: installation/proxy.md
+  - Configuration:
+    - configuration/index.md
+    - Server: configuration/server.md
+    - Agent: configuration/agent.md
+    - Autoscaler: configuration/autoscaler.md
+    - All environment variables: configuration/env-vars.md
