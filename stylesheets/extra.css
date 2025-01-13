@@ -1,0 +1,43 @@
+/* color definitions: https://github.com/squidfunk/mkdocs-material/blob/master/src/templates/assets/stylesheets/main/_colors.scss */
+
+/* these colors apply to 'slate' theme as it is a 'built-in' one */
+:root {
+  --md-primary-bg-color: #111317;
+  --md-typeset-a-color: #f47003;
+}
+
+
+
+[data-md-color-scheme='custom-light'] {
+  --md-primary-bg-color: white;
+  /* --md-primary-bg-color--light: green; */
+
+  --md-primary-fg-color: #212121;
+  --md-primary-fg-color-light: white;
+  --md-primary-fg-color-dark: #1d262f;
+
+  /* --md-primary-bg-color: #1d262f; */
+  /* --md-primary-bg-color--light: yellow; */
+
+  --md-typeset-a-color: #f47003;
+
+  /* hover */
+  --md-accent-fg-color: #f47003;
+}
+
+/* must be slate */
+[data-md-color-scheme='slate'] {
+  --md-primary-bg-color: white;
+
+  --md-primary-fg-color: #161616;
+
+  --md-typeset-a-color: #FF9B00;
+
+  /* hover */
+  --md-accent-fg-color: #f47003;
+}
+
+.md-tabs {
+  /* also the footer bg color */
+  background-color: #17181e;
+}
