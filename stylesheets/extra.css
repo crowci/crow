@@ -41,3 +41,8 @@
   /* also the footer bg color */
   background-color: #17181e;
 }
+
+.md-button {
+  color: gray;
+  border: .1rem #161616 solid;
+}
