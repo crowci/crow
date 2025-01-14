@@ -57,3 +57,4 @@ docs_old/openapi.json
 docs_old/swagger.json
 .cache
 site/
+.envrc
