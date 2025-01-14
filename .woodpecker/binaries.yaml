@@ -102,7 +102,7 @@ steps:
     image: woodpeckerci/plugin-release:0.2.2
     settings:
       api_key:
-        from_secret: github_token
+        from_secret: GITHUB_PKGS_TOKEN
       files:
         - dist/*.tar.gz
         - dist/*.zip
