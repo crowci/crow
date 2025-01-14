@@ -8,12 +8,19 @@ BIN_SUFFIX := if TARGETOS == "windows" { ".exe" } else { "" }
 
 DIST_DIR := "dist"
 
-VERSION := "next"
+VERSION := "dev"
 VERSION_NUMBER := "0.0.0"
 CI_COMMIT_SHA := `git rev-parse HEAD`
 
 TAGS := ""
-LDFLAGS := ""
+STATIC_BUILD := "true"
+
+# Conditional assignment for LDFLAGS if STATIC_BUILD is true
+# FIXME: https://github.com/casey/just/issues/11
+LDFLAGS := if STATIC_BUILD == "true" { "-s -w -extldflags '-static'" } else { "" }
+
+# only used to compile server
+CGO_ENABLED := "1"
 
 HAS_GO := `hash go > /dev/null 2>&1 && echo "GO" || echo "NOGO"`
 
@@ -64,11 +71,13 @@ vendor:
     go mod tidy
     go mod vendor
 
-# build for specific platform: `env PLATFORMS='linux|amd64' just cross-compile-server`
+# build for specific platform: env PLATFORMS='linux/amd64' just cross-compile-server
+# build for local platform: just cross-compile-server
 cross-compile-server:
     #!/usr/bin/env bash
     set -euxo pipefail
 
+    PLATFORMS="${PLATFORMS:-{{TARGETOS}}/{{TARGETARCH}}}"
     IFS=',' read -ra PLATFORMS_ARRAY <<< "${PLATFORMS}"
     for platform in "${PLATFORMS_ARRAY[@]}"; do
         IFS='/' read -ra PLATFORM_PARTS <<< "$platform"
@@ -86,19 +95,22 @@ cross-compile-server:
     done
     tree "{{DIST_DIR}}"
 
-# this should not be called standalone - use 'cross-compile-server' instead
-release-server-xgo:
-    #!/usr/bin/env bash
-    set -euxo pipefail
 
-    echo "Building for:"
-    echo "os: ${TARGETOS}"
-    echo "arch orgi: ${TARGETARCH}"
-    echo "arch (xgo): ${TARGETARCH}"
+check-xgo:
+    hash xgo > /dev/null 2>&1 || go install src.techknowlogick.com/xgo@latest
+
+# this should not be called directly - use 'cross-compile-server' instead
+release-server-xgo: check-xgo
+    @echo "------------------"
+    @echo "Building for:"
+    @echo "os: ${TARGETOS}"
+    @echo "arch orgi: ${TARGETARCH}"
+    @echo "arch (xgo): ${TARGETARCH}"
+    @echo "------------------"
     # build via xgo
-    CGO_CFLAGS="{{CGO_CFLAGS}}" xgo -go {{XGO_VERSION}} -dest {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH} -tags 'netgo osusergo grpcnotrace {{TAGS}}' -ldflags '-linkmode external {{LDFLAGS}}' -targets ${TARGETOS}/${TARGETARCH} -out crow-server -pkg cmd/server .
+    CGO_CFLAGS="{{CGO_CFLAGS}}" xgo -go {{XGO_VERSION}} -dest {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH} -tags 'netgo osusergo grpcnotrace {{TAGS}}' -ldflags '-linkmode external {{LDFLAGS}} -X go.woodpecker-ci.org/woodpecker/v3/version.Version={{VERSION}}' -targets ${TARGETOS}/${TARGETARCH} -out crow-server -pkg cmd/server .
     # move binary into subfolder depending on target os and arch
-    if [ "$${XGO_IN_XGO:-0}" -eq "1" ]; then \
+    if [ "${XGO_IN_XGO:-0}" -eq "1" ]; then \
       echo "inside xgo image"; \
       mkdir -p {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH}; \
       mv -vf /build/crow-server* {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH}/crow-server{{BIN_SUFFIX}}; \
@@ -110,17 +122,17 @@ release-server-xgo:
 
 ## images
 
-# env PLATFORMS='linux/amd64,linux/arm64' just image-server-alpine
-image-server-alpine:
-    just cross-compile-server
-    echo $GITHUB_PKGS_TOKEN | docker login ghcr.io -u crowci-bot --password-stdin
-    docker buildx build --platform $PLATFORMS -t ghcr.io/crowci/crow-server:dev-alpine -f docker/Dockerfile.server.alpine.multiarch.rootless --push .
-
 # env PLATFORMS='linux/amd64,linux/arm64' just image-server
 image-server:
     just cross-compile-server
     echo $GITHUB_PKGS_TOKEN | docker login ghcr.io -u crowci-bot --password-stdin
     docker buildx build --platform $PLATFORMS -t ghcr.io/crowci/crow-server:dev -f docker/Dockerfile.server.multiarch.rootless --push .
+
+# env PLATFORMS='linux/amd64,linux/arm64' just image-server-alpine
+image-server-alpine:
+    just cross-compile-server
+    echo $GITHUB_PKGS_TOKEN | docker login ghcr.io -u crowci-bot --password-stdin
+    docker buildx build --platform $PLATFORMS -t ghcr.io/crowci/crow-server:dev-alpine -f docker/Dockerfile.server.alpine.multiarch.rootless --push .
 
 # env PLATFORMS='linux/amd64,linux/arm64' just image-agent
 image-agent:
