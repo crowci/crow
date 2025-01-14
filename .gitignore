@@ -58,3 +58,4 @@ docs_old/swagger.json
 .cache
 site/
 .envrc
+local.sh
