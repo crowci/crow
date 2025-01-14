@@ -260,7 +260,8 @@
     "renovate.json",
     // TODO: remove the following
     "docs/**/*.js",
-    "docs/**/*.ts"
+    "docs/**/*.ts",
+    "docs_old/**/*"
   ],
   // Exclude imports, because they are also strings.
   "ignoreRegExpList": [
