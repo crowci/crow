@@ -42,7 +42,14 @@
   background-color: #17181e;
 }
 
-.md-button {
-  color: gray important!;
+/* .md-button {
+  color: gray !important;
   border: .1rem #161616 solid;
+} */
+
+@media (prefers-color-scheme: dark) {
+  .md-button {
+    color: white !important;
+    border: .1rem #161616 solid !important;
+  }
 }
