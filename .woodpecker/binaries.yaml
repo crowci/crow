@@ -59,7 +59,9 @@ steps:
     commands:
       - apt update
       - apt install -y zip
-      - make release-agent
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just release-agent
 
   build-cli:
     depends_on:
@@ -70,21 +72,11 @@ steps:
       - apt install -y zip
       - make release-cli
 
-  build-deb-rpm:
-    depends_on:
-      - cross-compile-server
-      - build-agent
-      - build-cli
-    image: *golang_image
-    commands:
-      - make bundle
-
   checksums:
     depends_on:
       - cross-compile-server
       - build-agent
       - build-cli
-      - build-deb-rpm
       - build-tarball
     image: *golang_image
     commands:
@@ -108,8 +100,6 @@ steps:
       files:
         - dist/*.tar.gz
         - dist/*.zip
-        - dist/*.deb
-        - dist/*.rpm
         - dist/checksums.txt
       title: ${CI_COMMIT_TAG##v}
     when:
