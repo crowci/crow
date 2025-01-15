@@ -59,6 +59,7 @@ steps:
   ###############
   # S e r v e r #
   ###############
+
   build-web:
     image: *node_image
     directory: web/
@@ -76,7 +77,7 @@ steps:
         event: [push, tag]
         path: *when_path
 
-  cross-compile-server-preview:
+  cross-compile-server-[pr]:
     depends_on:
       - vendor
       - build-web
@@ -89,7 +90,7 @@ steps:
       - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
       - just cross-compile-server
     environment:
-      PLATFORMS: linux|amd64
+      PLATFORMS: linux|amd64;linux/arm64
       TAGS: sqlite sqlite_unlock_notify netgo
     when:
       - event: pull_request
@@ -118,7 +119,7 @@ steps:
       event: [push, tag]
       path: *when_path
 
-  publish-server-alpine-preview:
+  publish-server-alpine-[pr]:
     depends_on:
       - cross-compile-server-preview
     image: *buildx_plugin
@@ -132,11 +133,11 @@ steps:
       evaluate: 'CI_COMMIT_PULL_REQUEST_LABELS contains "build_pr_images"'
       event: pull_request
 
-  build-server-dryrun:
+  build-server-[pr]:
     depends_on:
       - vendor
       - build-web
-      - cross-compile-server-preview
+      - cross-compile-server-[pr]
     image: *buildx_plugin
     settings:
       dry_run: true
@@ -149,7 +150,7 @@ steps:
         event: pull_request
         path: *when_path
 
-  publish-next-server:
+  publish-server-[dev]:
     depends_on:
       - cross-compile-server
     image: *buildx_plugin
@@ -164,7 +165,7 @@ steps:
       event: push
       path: *when_path
 
-  publish-next-server-alpine:
+  publish-server-alpine-[dev]:
     depends_on:
       - cross-compile-server
     image: *buildx_plugin
@@ -205,7 +206,7 @@ steps:
   # A g e n t #
   #############
 
-  publish-agent-preview-alpine:
+  publish-agent-alpine-[pr]:
     depends_on:
       - vendor
     image: *buildx_plugin
@@ -218,7 +219,7 @@ steps:
       logins: *publish_logins
     when: *when-preview
 
-  build-agent-dryrun:
+  build-agent-[pr]:
     depends_on:
       - vendor
     image: *buildx_plugin
@@ -231,12 +232,12 @@ steps:
       build_args: *build_args
     when: *when-dryrun
 
-  publish-next-agent:
+  publish-agent-[dev]:
     depends_on:
       - vendor
       # we also depend on cross-compile-server as we would have to hight
       # ram usage otherwise
-      - cross-compile-server
+      - cross-compile-server-[pr]
     image: *buildx_plugin
     settings:
       repo: *publish_repos_agent
@@ -250,7 +251,7 @@ steps:
       event: push
       path: *when_path
 
-  publish-next-agent-alpine:
+  publish-agent-alpine-[dev]:
     depends_on:
       - vendor
       # we also depend on cross-compile-server as we would have to hight
@@ -269,8 +270,7 @@ steps:
   release-agent:
     depends_on:
       - vendor
-      # we also depend on cross-compile-server as we would have to hight
-      # ram usage otherwise
+      # we also depend on cross-compile-server as we would have to high RAM usage otherwise
       - cross-compile-server
     image: *buildx_plugin
     settings:
@@ -285,8 +285,7 @@ steps:
   release-agent-alpine:
     depends_on:
       - vendor
-      # we also depend on cross-compile-server as we would have to hight
-      # ram usage otherwise
+      # we also depend on cross-compile-server as we would have to high RAM usage otherwise
       - cross-compile-server
     image: *buildx_plugin
     settings:
@@ -302,7 +301,7 @@ steps:
   # C L I #
   #########
 
-  build-cli-dryrun:
+  build-cli-[pr]:
     depends_on:
       - vendor
     image: *buildx_plugin
@@ -315,12 +314,9 @@ steps:
       build_args: *build_args
     when: *when-dryrun
 
-  publish-next-cli:
+  publish-cli-[dev]:
     depends_on:
       - vendor
-      # we also depend on publish-next-agent as we would have to hight
-      # ram usage otherwise
-      - publish-next-agent
     image: *buildx_plugin
     settings:
       repo: *publish_repos_cli
@@ -331,12 +327,9 @@ steps:
       build_args: *build_args
     when: *when-publish-next
 
-  publish-next-cli-alpine:
+  publish-cli-alpine-[dev]:
     depends_on:
       - vendor
-      # we also depend on publish-next-agent as we would have to hight
-      # ram usage otherwise
-      - publish-next-agent
     image: *buildx_plugin
     settings:
       repo: *publish_repos_cli
@@ -350,9 +343,6 @@ steps:
   release-cli:
     depends_on:
       - vendor
-      # we also depend on release-agent as we would have to hight
-      # ram usage otherwise
-      - release-agent
     image: *buildx_plugin
     settings:
       repo: *publish_repos_cli
@@ -366,9 +356,6 @@ steps:
   release-cli-alpine:
     depends_on:
       - vendor
-      # we also depend on release-agent as we would have to hight
-      # ram usage otherwise
-      - release-agent
     image: *buildx_plugin
     settings:
       repo: *publish_repos_cli
