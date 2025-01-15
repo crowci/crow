@@ -75,7 +75,7 @@ cross-compile-server:
     set -euxo pipefail
 
     PLATFORMS="${PLATFORMS:-{{ TARGETOS }}/{{ TARGETARCH }}}"
-    IFS=',' read -ra PLATFORMS_ARRAY <<< "${PLATFORMS}"
+    IFS=';' read -ra PLATFORMS_ARRAY <<< "${PLATFORMS}"
     for platform in "${PLATFORMS_ARRAY[@]}"; do
         IFS='|' read -ra PLATFORM_PARTS <<< "$platform"
         TARGETOS="${PLATFORM_PARTS[0]}"
