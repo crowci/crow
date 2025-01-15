@@ -11,13 +11,13 @@ theme:
     view: material/eye
   palette:
     # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
+    - media: '(prefers-color-scheme)'
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
 
     # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
+    - media: '(prefers-color-scheme: light)'
       scheme: custom-light
       # accent: yellow
       toggle:
@@ -25,7 +25,7 @@ theme:
         name: Switch to dark mode
 
     # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
+    - media: '(prefers-color-scheme: dark)'
       scheme: slate
       # https://github.com/squidfunk/mkdocs-material/issues/5537
       primary: custom
@@ -110,13 +110,15 @@ markdown_extensions:
 nav:
   - Getting started: index.md
   - Installation:
-    - installation/index.md
-    - Docker-compose: installation/docker-compose.md
-    - Helm: installation/helm.md
-    - Proxy Setup: installation/proxy.md
+      - installation/index.md
+      - Docker-compose: installation/docker-compose.md
+      - Helm: installation/helm.md
+      - Proxy Setup: installation/proxy.md
   - Configuration:
-    - configuration/index.md
-    - Server: configuration/server.md
-    - Agent: configuration/agent.md
-    - Autoscaler: configuration/autoscaler.md
-    - All environment variables: configuration/env-vars.md
+      - configuration/index.md
+      - Server: configuration/server.md
+      - Agent: configuration/agent.md
+      - Autoscaler: configuration/autoscaler.md
+      - All environment variables: configuration/env-vars.md
+  - Development:
+      - development/index.md
