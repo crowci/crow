@@ -36,7 +36,9 @@ steps:
     commands:
       - apt update
       - apt install -y tree
-      - make cross-compile-server
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just cross-compile-server
     environment:
       PLATFORMS: linux|arm64/v8;linux|amd64;windows|amd64
       TAGS: bindata sqlite sqlite_unlock_notify netgo
