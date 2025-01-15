@@ -49,7 +49,6 @@ steps:
       - event: pull_request
         path: *when_path
       - event: [tag, deployment]
-        path: *when_path
 
   ###############
   # S e r v e r #
@@ -68,7 +67,6 @@ steps:
       - event: pull_request
         path: *when_path
       - event: [tag, deployment]
-        path: *when_path
 
   cross-compile-server-[pr]:
     depends_on:
@@ -108,7 +106,6 @@ steps:
       TAGS: sqlite sqlite_unlock_notify netgo
     when:
       event: [tag, deployment]
-      path: *when_path
 
   publish-server-alpine-[pr]:
     depends_on:
