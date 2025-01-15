@@ -14,7 +14,7 @@ variables:
 # cspell:words bindata netgo
 
 steps:
-  build-web:
+  build-ui:
     image: *node_image
     directory: web/
     commands:
@@ -30,7 +30,7 @@ steps:
   cross-compile-server:
     depends_on:
       - vendor
-      - build-web
+      - build-ui
     image: *xgo_image
     pull: true
     commands:
@@ -47,7 +47,7 @@ steps:
   build-tarball:
     depends_on:
       - vendor
-      - build-web
+      - build-ui
     image: *golang_image
     commands:
       # install just FIXME: 'apt install -y just' from Debian >= 13

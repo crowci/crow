@@ -60,7 +60,7 @@ steps:
   # S e r v e r #
   ###############
 
-  build-web:
+  build-ui:
     image: *node_image
     directory: web/
     commands:
@@ -80,7 +80,7 @@ steps:
   cross-compile-server-[pr]:
     depends_on:
       - vendor
-      - build-web
+      - build-ui
     image: *xgo_image
     pull: true
     commands:
@@ -101,7 +101,7 @@ steps:
   cross-compile-server:
     depends_on:
       - vendor
-      - build-web
+      - build-ui
     image: *xgo_image
     pull: true
     commands:
@@ -136,7 +136,7 @@ steps:
   build-server-[pr]:
     depends_on:
       - vendor
-      - build-web
+      - build-ui
       - cross-compile-server-[pr]
     image: *buildx_plugin
     settings:
