@@ -153,6 +153,22 @@ release-cli:
     rm -f  {{ DIST_DIR }}/crow-cli_windows_amd64.zip
     zip -j {{ DIST_DIR }}/crow-cli_windows_amd64.zip          {{ DIST_DIR }}/cli/windows_amd64/crow-cli.exe
 
+# Build tar archive
+build-tarball:
+	mkdir -p {{DIST_DIR}} && tar chzvf {{DIST_DIR}}/crow-src.tar.gz \
+	  --exclude="*.exe" \
+	  --exclude="./.pnpm-store" \
+	  --exclude="node_modules" \
+	  --exclude="./dist" \
+	  --exclude="./data" \
+	  --exclude="./build" \
+	  --exclude="./.git" \
+	  .
+
+## Create checksums for all release files
+release-checksums:
+	(cd {{DIST_DIR}}/; sha256sum *.* > checksums.txt)
+
 ## images
 # platforms must be handed over via this syntax for the underlying cross-compile-server step which applies some string splitting on a list of items
 
