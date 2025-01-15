@@ -36,7 +36,6 @@ variables:
 
 when:
   - event: [pull_request, tag, deployment]
-  - event: push
 
 steps:
   vendor:
