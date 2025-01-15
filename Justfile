@@ -1,34 +1,29 @@
 ### Variables
-GO_PACKAGES := `go list ./... | grep -v /vendor/`
 
+GO_PACKAGES := `go list ./... | grep -v /vendor/`
 TARGETOS := `go env GOOS`
 TARGETARCH := `go env GOARCH`
-
 BIN_SUFFIX := if TARGETOS == "windows" { ".exe" } else { "" }
-
 DIST_DIR := "dist"
-
 VERSION := "dev"
 VERSION_NUMBER := "0.0.0"
 CI_COMMIT_SHA := `git rev-parse HEAD`
-
 TAGS := ""
 STATIC_BUILD := "true"
 
 # Conditional assignment for LDFLAGS if STATIC_BUILD is true
 # FIXME: https://github.com/casey/just/issues/11
+
 LDFLAGS := if STATIC_BUILD == "true" { "-s -w -extldflags '-static'" } else { "" }
 
 # only used to compile server
+
 CGO_ENABLED := "1"
-
 HAS_GO := `hash go > /dev/null 2>&1 && echo "GO" || echo "NOGO"`
-
 XGO_VERSION := if HAS_GO == "GO" { "go-1.23.x" } else { "" }
 CGO_CFLAGS := if HAS_GO == "GO" { `go env CGO_CFLAGS` } else { "" }
 
 ### Recipes
-
 ## docs
 
 docs-venv-fish:
@@ -51,18 +46,19 @@ cherry-pick COMMIT:
 
 ## build
 
-[working-directory: 'web']
+[working-directory('web')]
 build-ui:
     pnpm install --frozen-lockfile
     pnpm build
 
 build-agent:
-    CGO_ENABLED=0 GOOS={{TARGETOS}} GOARCH={{TARGETARCH}} go build -tags '{{TAGS}}' -ldflags '{{LDFLAGS}}' -o {{DIST_DIR}}/crow-agent{{BIN_SUFFIX}} go.woodpecker-ci.org/woodpecker/v3/cmd/agent
+    CGO_ENABLED=0 GOOS={{ TARGETOS }} GOARCH={{ TARGETARCH }} go build -tags '{{ TAGS }}' -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/crow-agent{{ BIN_SUFFIX }} go.woodpecker-ci.org/crow/v3/cmd/agent
 
-build-cli: ## Build cli
-	CGO_ENABLED=0 GOOS={{TARGETOS}} GOARCH={{TARGETARCH}} go build -tags '{{TAGS}}' -ldflags '{{LDFLAGS}}' -o {{DIST_DIR}}/crow-cli{BIN_SUFFIX} go.woodpecker-ci.org/woodpecker/v3/cmd/cli
+build-cli:
+    CGO_ENABLED=0 GOOS={{ TARGETOS }} GOARCH={{ TARGETARCH }} go build -tags '{{ TAGS }}' -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/crow-cli{BIN_SUFFIX} go.woodpecker-ci.org/crow/v3/cmd/cli
 
 # build-server
+
 # env PLATFORMS=linux/amd64 just build-server
 build-server: build-ui vendor
     just cross-compile-server
@@ -71,16 +67,17 @@ vendor:
     go mod tidy
     go mod vendor
 
-# build for specific platform: env PLATFORMS='linux/amd64' just cross-compile-server
+# build for specific platform: env PLATFORMS='linux|arm64/v8' just cross-compile-server
+
 # build for local platform: just cross-compile-server
 cross-compile-server:
     #!/usr/bin/env bash
     set -euxo pipefail
 
-    PLATFORMS="${PLATFORMS:-{{TARGETOS}}/{{TARGETARCH}}}"
+    PLATFORMS="${PLATFORMS:-{{ TARGETOS }}/{{ TARGETARCH }}}"
     IFS=',' read -ra PLATFORMS_ARRAY <<< "${PLATFORMS}"
     for platform in "${PLATFORMS_ARRAY[@]}"; do
-        IFS='/' read -ra PLATFORM_PARTS <<< "$platform"
+        IFS='|' read -ra PLATFORM_PARTS <<< "$platform"
         TARGETOS="${PLATFORM_PARTS[0]}"
         if [ -n "${PLATFORM_PARTS[1]:-}" ]; then
             TARGETARCH_XGO="${PLATFORM_PARTS[1]//arm64\/v8/arm64}"
@@ -93,8 +90,7 @@ cross-compile-server:
         fi
         env TARGETOS=$TARGETOS TARGETARCH=$TARGETARCH TARGETARCH_XGO=$TARGETARCH_XGO just release-server-xgo || exit 1
     done
-    tree "{{DIST_DIR}}"
-
+    tree "{{ DIST_DIR }}"
 
 check-xgo:
     hash xgo > /dev/null 2>&1 || go install src.techknowlogick.com/xgo@latest
@@ -107,18 +103,36 @@ release-server-xgo: check-xgo
     @echo "arch orgi: ${TARGETARCH}"
     @echo "arch (xgo): ${TARGETARCH}"
     @echo "------------------"
-    # build via xgo
-    CGO_CFLAGS="{{CGO_CFLAGS}}" xgo -go {{XGO_VERSION}} -dest {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH} -tags 'netgo osusergo grpcnotrace {{TAGS}}' -ldflags '-linkmode external {{LDFLAGS}} -X go.woodpecker-ci.org/woodpecker/v3/version.Version={{VERSION}}' -targets ${TARGETOS}/${TARGETARCH} -out crow-server -pkg cmd/server .
+    CGO_CFLAGS="{{ CGO_CFLAGS }}" xgo -go {{ XGO_VERSION }} -dest {{ DIST_DIR }}/server/${TARGETOS}_${TARGETARCH} -tags 'netgo osusergo grpcnotrace {{ TAGS }}' -ldflags '-linkmode external {{ LDFLAGS }} -X go.woodpecker-ci.org/crow/v3/version.Version={{ VERSION }}' -targets ${TARGETOS}/${TARGETARCH} -out crow-server -pkg cmd/server .
     # move binary into subfolder depending on target os and arch
     if [ "${XGO_IN_XGO:-0}" -eq "1" ]; then \
       echo "inside xgo image"; \
-      mkdir -p {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH}; \
-      mv -vf /build/crow-server* {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH}/crow-server{{BIN_SUFFIX}}; \
+      mkdir -p {{ DIST_DIR }}/server/${TARGETOS}_${TARGETARCH}; \
+      mv -vf /build/crow-server* {{ DIST_DIR }}/server/${TARGETOS}_${TARGETARCH}/crow-server{{ BIN_SUFFIX }}; \
     else \
       echo "outside xgo image"; \
-      [ -f "{{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH}/crow-server{{BIN_SUFFIX}}" ] && rm -v {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH}/crow-server{{BIN_SUFFIX}}; \
-      mv -v {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH}/crow-server* {{DIST_DIR}}/server/${TARGETOS}_${TARGETARCH}/crow-server{{BIN_SUFFIX}}; \
+      [ -f "{{ DIST_DIR }}/server/${TARGETOS}_${TARGETARCH}/crow-server{{ BIN_SUFFIX }}" ] && rm -v {{ DIST_DIR }}/server/${TARGETOS}_${TARGETARCH}/crow-server{{ BIN_SUFFIX }}; \
+      mv -v {{ DIST_DIR }}/server/${TARGETOS}_${TARGETARCH}/crow-server* {{ DIST_DIR }}/server/${TARGETOS}_${TARGETARCH}/crow-server{{ BIN_SUFFIX }}; \
     fi
+
+## agent
+
+release-agent:
+    GOOS=linux   GOARCH=amd64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -tags 'grpcnotrace {{ TAGS }}' -o {{ DIST_DIR }}/agent/linux_amd64/crow-agent       go.woodpecker-ci.org/crow/v3/cmd/agent
+    GOOS=linux   GOARCH=arm64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -tags 'grpcnotrace {{ TAGS }}' -o {{ DIST_DIR }}/agent/linux_arm64/crow-agent       go.woodpecker-ci.org/crow/v3/cmd/agent
+    GOOS=linux   GOARCH=arm   CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -tags 'grpcnotrace {{ TAGS }}' -o {{ DIST_DIR }}/agent/linux_arm/crow-agent         go.woodpecker-ci.org/crow/v3/cmd/agent
+    GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -tags 'grpcnotrace {{ TAGS }}' -o {{ DIST_DIR }}/agent/windows_amd64/crow-agent.exe go.woodpecker-ci.org/crow/v3/cmd/agent
+    GOOS=darwin  GOARCH=amd64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -tags 'grpcnotrace {{ TAGS }}' -o {{ DIST_DIR }}/agent/darwin_amd64/crow-agent      go.woodpecker-ci.org/crow/v3/cmd/agent
+    GOOS=darwin  GOARCH=arm64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -tags 'grpcnotrace {{ TAGS }}' -o {{ DIST_DIR }}/agent/darwin_arm64/crow-agent      go.woodpecker-ci.org/crow/v3/cmd/agent
+    # tar binary files
+    tar -cvzf {{ DIST_DIR }}/crow-agent_linux_amd64.tar.gz   -C {{ DIST_DIR }}/agent/linux_amd64   crow-agent
+    tar -cvzf {{ DIST_DIR }}/crow-agent_linux_arm64.tar.gz   -C {{ DIST_DIR }}/agent/linux_arm64   crow-agent
+    tar -cvzf {{ DIST_DIR }}/crow-agent_linux_arm.tar.gz     -C {{ DIST_DIR }}/agent/linux_arm     crow-agent
+    tar -cvzf {{ DIST_DIR }}/crow-agent_darwin_amd64.tar.gz  -C {{ DIST_DIR }}/agent/darwin_amd64  crow-agent
+    tar -cvzf {{ DIST_DIR }}/crow-agent_darwin_arm64.tar.gz  -C {{ DIST_DIR }}/agent/darwin_arm64  crow-agent
+    # zip binary files
+    rm -f  {{ DIST_DIR }}/crow-agent_windows_amd64.zip
+    zip -j {{ DIST_DIR }}/crow-agent_windows_amd64.zip          {{ DIST_DIR }}/agent/windows_amd64/crow-agent.exe
 
 ## images
 
