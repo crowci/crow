@@ -1,5 +1,5 @@
 site_name: Crow CI
-site_url: https://docs.crowci.dev
+site_url: https://crowci.dev
 repo_url: https://github.com/crowci/crow
 repo_name: crowci/crow
 edit_uri: edit/main/docs/
@@ -82,14 +82,6 @@ plugins:
   # https://github.com/blueswen/mkdocs-glightbox#usage
   - glightbox:
       width: 80%
-      # effect: fade
-  # - git-committers
-  # - git-revision-date-localized:
-  #     enable_creation_date: true
-  #     # enabled: !ENV [CI, false]
-  # - git-committers:
-  #     repository: crowci/crow
-  #     branch: main
 extra_css:
   - stylesheets/extra.css
 
