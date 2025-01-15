@@ -17,9 +17,9 @@ variables:
         username: crowci-bot
         password:
           from_secret: GITHUB_PKGS_TOKEN
-  - &publish_repos_server 'crowci/crow-server,quay.io/crowci/crow-server'
-  - &publish_repos_agent 'crowci/crow-agent,quay.io/crowci/crow-agent'
-  - &publish_repos_cli 'crowci/crow-cli,quay.io/crowci/crow-cli'
+  - &publish_repos_server 'ghcr.io/crowci/crow-server'
+  - &publish_repos_agent 'ghcr.io/crowci/crow-agent'
+  - &publish_repos_cli 'ghcr.io/crowci/crow-cli'
   - path: &when_path # web source code
       - 'web/**'
       # api source code
@@ -106,6 +106,8 @@ steps:
     commands:
       - apt update
       - apt install -y tree
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
       - just cross-compile-server
     environment:
       PLATFORMS: linux|arm/v7;linux|arm64/v8;linux|amd64;linux|ppc64le;linux|riscv64

@@ -55,7 +55,7 @@ build-agent:
     CGO_ENABLED=0 GOOS={{ TARGETOS }} GOARCH={{ TARGETARCH }} go build -tags '{{ TAGS }}' -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/crow-agent{{ BIN_SUFFIX }} go.woodpecker-ci.org/woodpecker/v3/cmd/agent
 
 build-cli:
-    CGO_ENABLED=0 GOOS={{ TARGETOS }} GOARCH={{ TARGETARCH }} go build -tags '{{ TAGS }}' -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/crow-cli{BIN_SUFFIX} go.woodpecker-ci.org/woodpecker/v3/cmd/cli
+    CGO_ENABLED=0 GOOS={{ TARGETOS }} GOARCH={{ TARGETARCH }} go build -tags '{{ TAGS }}' -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/crow-cli{{ BIN_SUFFIX }} go.woodpecker-ci.org/woodpecker/v3/cmd/cli
 
 # build-server
 
@@ -134,9 +134,28 @@ release-agent:
     rm -f  {{ DIST_DIR }}/crow-agent_windows_amd64.zip
     zip -j {{ DIST_DIR }}/crow-agent_windows_amd64.zip          {{ DIST_DIR }}/agent/windows_amd64/crow-agent.exe
 
-## images
+## cli
 
+release-cli:
+    GOOS=linux   GOARCH=amd64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/cli/linux_amd64/crow-cli       go.woodpecker-ci.org/woodpecker/v3/cmd/cli
+    GOOS=linux   GOARCH=arm64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/cli/linux_arm64/crow-cli       go.woodpecker-ci.org/woodpecker/v3/cmd/cli
+    GOOS=linux   GOARCH=arm   CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/cli/linux_arm/crow-cli         go.woodpecker-ci.org/woodpecker/v3/cmd/cli
+    GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/cli/windows_amd64/crow-cli.exe go.woodpecker-ci.org/woodpecker/v3/cmd/cli
+    GOOS=darwin  GOARCH=amd64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/cli/darwin_amd64/crow-cli      go.woodpecker-ci.org/woodpecker/v3/cmd/cli
+    GOOS=darwin  GOARCH=arm64 CGO_ENABLED=0 go build -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/cli/darwin_arm64/crow-cli      go.woodpecker-ci.org/woodpecker/v3/cmd/cli
+    # tar binary files
+    tar -cvzf {{ DIST_DIR }}/crow-cli_linux_amd64.tar.gz   -C {{ DIST_DIR }}/cli/linux_amd64   crow-cli
+    tar -cvzf {{ DIST_DIR }}/crow-cli_linux_arm64.tar.gz   -C {{ DIST_DIR }}/cli/linux_arm64   crow-cli
+    tar -cvzf {{ DIST_DIR }}/crow-cli_linux_arm.tar.gz     -C {{ DIST_DIR }}/cli/linux_arm     crow-cli
+    tar -cvzf {{ DIST_DIR }}/crow-cli_darwin_amd64.tar.gz  -C {{ DIST_DIR }}/cli/darwin_amd64  crow-cli
+    tar -cvzf {{ DIST_DIR }}/crow-cli_darwin_arm64.tar.gz  -C {{ DIST_DIR }}/cli/darwin_arm64  crow-cli
+    # zip binary files
+    rm -f  {{ DIST_DIR }}/crow-cli_windows_amd64.zip
+    zip -j {{ DIST_DIR }}/crow-cli_windows_amd64.zip          {{ DIST_DIR }}/cli/windows_amd64/crow-cli.exe
+
+## images
 # platforms must be handed over via this syntax for the underlying cross-compile-server step which applies some string splitting on a list of items
+
 # env PLATFORMS='linux|amd64;linux|arm64' just image-server
 image-server:
     just cross-compile-server
@@ -158,3 +177,13 @@ image-agent:
 image-agent-alpine:
     echo $GITHUB_PKGS_TOKEN | docker login ghcr.io -u crowci-bot --password-stdin
     docker buildx build --platform $PLATFORMS -t ghcr.io/crowci/crow-agent:dev-alpine -f docker/Dockerfile.agent.alpine.multiarch --push .
+
+# env PLATFORMS='linux/amd64,linux/arm64' just image-cli
+image-cli:
+    echo $GITHUB_PKGS_TOKEN | docker login ghcr.io -u crowci-bot --password-stdin
+    docker buildx build --platform $PLATFORMS -t ghcr.io/crowci/crow-cli:dev -f docker/Dockerfile.cli.multiarch.rootless --push .
+
+# env PLATFORMS='linux/amd64,linux/arm64' just image-cli-alpine
+image-cli-alpine:
+    echo $GITHUB_PKGS_TOKEN | docker login ghcr.io -u crowci-bot --password-stdin
+    docker buildx build --platform $PLATFORMS -t ghcr.io/crowci/crow-cli:dev-alpine -f docker/Dockerfile.cli.alpine.multiarch.rootless --push .
