@@ -35,10 +35,8 @@ variables:
       - '.woodpecker/docker.yaml'
 
 when:
-  - event: [pull_request, tag]
+  - event: [pull_request, tag, deployment]
   - event: push
-    branch: ${CI_REPO_DEFAULT_BRANCH}
-    path: *when_path
 
 steps:
   vendor:
@@ -51,9 +49,7 @@ steps:
         evaluate: 'CI_COMMIT_PULL_REQUEST_LABELS contains "build_pr_images"'
       - event: pull_request
         path: *when_path
-      - branch:
-          - ${CI_REPO_DEFAULT_BRANCH}
-        event: [push, tag]
+      - event: [tag, deployment]
         path: *when_path
 
   ###############
@@ -72,9 +68,7 @@ steps:
         evaluate: 'CI_COMMIT_PULL_REQUEST_LABELS contains "build_pr_images"'
       - event: pull_request
         path: *when_path
-      - branch:
-          - ${CI_REPO_DEFAULT_BRANCH}
-        event: [push, tag]
+      - event: [tag, deployment]
         path: *when_path
 
   cross-compile-server-[pr]:
@@ -114,9 +108,7 @@ steps:
       PLATFORMS: linux|arm/v7;linux|arm64/v8;linux|amd64;linux|ppc64le;linux|riscv64
       TAGS: sqlite sqlite_unlock_notify netgo
     when:
-      branch:
-        - ${CI_REPO_DEFAULT_BRANCH}
-      event: [push, tag]
+      event: [tag, deployment]
       path: *when_path
 
   publish-server-alpine-[pr]:
