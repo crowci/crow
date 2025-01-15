@@ -241,10 +241,8 @@ steps:
       tag: [next, 'next-${CI_COMMIT_SHA:0:10}']
       logins: *publish_logins
       build_args: *build_args
-    when:
-      branch: ${CI_REPO_DEFAULT_BRANCH}
-      event: push
-      path: *when_path
+    when: &when-publish-dev
+      event: deployment
 
   publish-agent-alpine-[dev]:
     depends_on:
@@ -257,8 +255,7 @@ steps:
       tag: [next-alpine, 'next-${CI_COMMIT_SHA:0:10}-alpine']
       logins: *publish_logins
       build_args: *build_args
-    when: &when-publish-dev
-      event: deployment
+    when: *when-publish-dev
 
   release-agent:
     depends_on:
