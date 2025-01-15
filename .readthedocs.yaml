@@ -11,7 +11,7 @@ build:
     python: '3'
   jobs:
     pre_install:
-      - pip install mkdocs-material
+      - pip install -r docs/requirements.txt
 
 # Build documentation with Mkdocs
 mkdocs:
