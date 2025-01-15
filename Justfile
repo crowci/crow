@@ -99,9 +99,8 @@ check-xgo:
 release-server-xgo: check-xgo
     @echo "------------------"
     @echo "Building for:"
-    @echo "os: ${TARGETOS}"
-    @echo "arch orgi: ${TARGETARCH}"
-    @echo "arch (xgo): ${TARGETARCH}"
+    @echo "- os: ${TARGETOS}"
+    @echo "- arch (xgo): ${TARGETARCH}"
     @echo "------------------"
     CGO_CFLAGS="{{ CGO_CFLAGS }}" xgo -go {{ XGO_VERSION }} -dest {{ DIST_DIR }}/server/${TARGETOS}_${TARGETARCH} -tags 'netgo osusergo grpcnotrace {{ TAGS }}' -ldflags '-linkmode external {{ LDFLAGS }} -X go.woodpecker-ci.org/woodpecker/v3/version.Version={{ VERSION }}' -targets ${TARGETOS}/${TARGETARCH} -out crow-server -pkg cmd/server .
     # move binary into subfolder depending on target os and arch
@@ -152,6 +151,22 @@ release-cli:
     # zip binary files
     rm -f  {{ DIST_DIR }}/crow-cli_windows_amd64.zip
     zip -j {{ DIST_DIR }}/crow-cli_windows_amd64.zip          {{ DIST_DIR }}/cli/windows_amd64/crow-cli.exe
+
+# Build tar archive
+build-tarball:
+	mkdir -p {{DIST_DIR}} && tar chzvf {{DIST_DIR}}/crow-src.tar.gz \
+	  --exclude="*.exe" \
+	  --exclude="./.pnpm-store" \
+	  --exclude="node_modules" \
+	  --exclude="./dist" \
+	  --exclude="./data" \
+	  --exclude="./build" \
+	  --exclude="./.git" \
+	  .
+
+## Create checksums for all release files
+release-checksums:
+	(cd {{DIST_DIR}}/; sha256sum *.* > checksums.txt)
 
 ## images
 # platforms must be handed over via this syntax for the underlying cross-compile-server step which applies some string splitting on a list of items

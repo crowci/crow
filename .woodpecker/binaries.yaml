@@ -3,7 +3,7 @@ when:
   - event: pull_request
     branch: ${CI_REPO_DEFAULT_BRANCH}
     path:
-      - Makefile
+      - Justfile
       - .woodpecker/binaries.yaml
 
 variables:
@@ -50,7 +50,9 @@ steps:
       - build-web
     image: *golang_image
     commands:
-      - make build-tarball
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just build-tarball
 
   build-agent:
     depends_on:
@@ -70,7 +72,9 @@ steps:
     commands:
       - apt update
       - apt install -y zip
-      - make release-cli
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just release-cli
 
   checksums:
     depends_on:
@@ -80,7 +84,9 @@ steps:
       - build-tarball
     image: *golang_image
     commands:
-      - make release-checksums
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just release-checksums
 
   release-dryrun:
     depends_on:
