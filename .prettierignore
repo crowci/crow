@@ -6,3 +6,5 @@ CHANGELOG.md
 # to prevent conflicts with different prettier version
 web/
 docs/
+docs_old/
+venv/

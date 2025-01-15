@@ -13,18 +13,13 @@ variables:
 
   # vars used on push / tag events only
   - publish_logins: &publish_logins # Default DockerHub login
-      - registry: https://index.docker.io/v1/
-        username: woodpeckerbot
+      - registry: https://ghcr.io/v2/
+        username: crowci-bot
         password:
-          from_secret: docker_password
-      # Additional Quay.IO login
-      - registry: https://quay.io
-        username: 'woodpeckerci+wp_ci'
-        password:
-          from_secret: QUAY_IO_TOKEN
-  - &publish_repos_server 'woodpeckerci/woodpecker-server,quay.io/woodpeckerci/woodpecker-server'
-  - &publish_repos_agent 'woodpeckerci/woodpecker-agent,quay.io/woodpeckerci/woodpecker-agent'
-  - &publish_repos_cli 'woodpeckerci/woodpecker-cli,quay.io/woodpeckerci/woodpecker-cli'
+          from_secret: GITHUB_PKGS_TOKEN
+  - &publish_repos_server 'crowci/crow-server,quay.io/crowci/crow-server'
+  - &publish_repos_agent 'crowci/crow-agent,quay.io/crowci/crow-agent'
+  - &publish_repos_cli 'crowci/crow-cli,quay.io/crowci/crow-cli'
   - path: &when_path # web source code
       - 'web/**'
       # api source code
@@ -90,7 +85,9 @@ steps:
     commands:
       - apt update
       - apt install -y tree
-      - make cross-compile-server
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just cross-compile-server
     environment:
       PLATFORMS: linux|amd64
       TAGS: sqlite sqlite_unlock_notify netgo
@@ -109,7 +106,7 @@ steps:
     commands:
       - apt update
       - apt install -y tree
-      - make cross-compile-server
+      - just cross-compile-server
     environment:
       PLATFORMS: linux|arm/v7;linux|arm64/v8;linux|amd64;linux|ppc64le;linux|riscv64
       TAGS: sqlite sqlite_unlock_notify netgo
@@ -124,7 +121,7 @@ steps:
       - cross-compile-server-preview
     image: *buildx_plugin
     settings:
-      repo: woodpeckerci/woodpecker-server
+      repo: crowci/crow-server
       dockerfile: docker/Dockerfile.server.alpine.multiarch.rootless
       platforms: *platforms_preview
       tag: pull_${CI_COMMIT_PULL_REQUEST}-alpine
@@ -141,7 +138,7 @@ steps:
     image: *buildx_plugin
     settings:
       dry_run: true
-      repo: woodpeckerci/woodpecker-server
+      repo: crowci/crow-server
       dockerfile: docker/Dockerfile.server.multiarch.rootless
       platforms: *platforms_preview
       tag: pull_${CI_COMMIT_PULL_REQUEST}
@@ -211,7 +208,7 @@ steps:
       - vendor
     image: *buildx_plugin
     settings:
-      repo: woodpeckerci/woodpecker-agent
+      repo: crowci/crow-agent
       dockerfile: docker/Dockerfile.agent.alpine.multiarch
       platforms: *platforms_preview
       tag: pull_${CI_COMMIT_PULL_REQUEST}-alpine
@@ -225,7 +222,7 @@ steps:
     image: *buildx_plugin
     settings:
       dry_run: true
-      repo: woodpeckerci/woodpecker-agent
+      repo: crowci/crow-agent
       dockerfile: docker/Dockerfile.agent.multiarch
       platforms: *platforms_preview
       tag: pull_${CI_COMMIT_PULL_REQUEST}
@@ -309,7 +306,7 @@ steps:
     image: *buildx_plugin
     settings:
       dry_run: true
-      repo: woodpeckerci/woodpecker-cli
+      repo: crowci/crow-cli
       dockerfile: docker/Dockerfile.cli.multiarch.rootless
       platforms: *platforms_preview
       tag: pull_${CI_COMMIT_PULL_REQUEST}
