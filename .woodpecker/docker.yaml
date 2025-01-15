@@ -160,10 +160,8 @@ steps:
       platforms: *platforms_server
       tag: [next, 'next-${CI_COMMIT_SHA:0:10}']
       logins: *publish_logins
-    when: &when-publish-next
-      branch: ${CI_REPO_DEFAULT_BRANCH}
-      event: push
-      path: *when_path
+    when: &when-publish-dev
+      event: deployment
 
   publish-server-alpine-[dev]:
     depends_on:
@@ -175,7 +173,7 @@ steps:
       platforms: *platforms_alpine
       tag: [next-alpine, 'next-${CI_COMMIT_SHA:0:10}-alpine']
       logins: *publish_logins
-    when: *when-publish-next
+    when: *when-publish-dev
 
   release-server:
     depends_on:
@@ -265,7 +263,8 @@ steps:
       tag: [next-alpine, 'next-${CI_COMMIT_SHA:0:10}-alpine']
       logins: *publish_logins
       build_args: *build_args
-    when: *when-publish-next
+    when: &when-publish-dev
+      event: deployment
 
   release-agent:
     depends_on:
@@ -325,7 +324,7 @@ steps:
       tag: [next, 'next-${CI_COMMIT_SHA:0:10}']
       logins: *publish_logins
       build_args: *build_args
-    when: *when-publish-next
+    when: *when-publish-dev
 
   publish-cli-alpine-[dev]:
     depends_on:
@@ -338,7 +337,7 @@ steps:
       tag: [next-alpine, 'next-${CI_COMMIT_SHA:0:10}-alpine']
       logins: *publish_logins
       build_args: *build_args
-    when: *when-publish-next
+    when: *when-publish-dev
 
   release-cli:
     depends_on:
