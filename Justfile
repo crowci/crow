@@ -27,7 +27,7 @@ CGO_CFLAGS := if HAS_GO == "GO" { `go env CGO_CFLAGS` } else { "" }
 ## general
 
 fmt:
-    find . -name '*.go' -exec gci write {} \;
+    find . -name '*.go' -not -path './vendor/*' -exec gci write {} \;
 
 test: test-agent test-server test-server-datastore test-cli test-lib
 
