@@ -94,7 +94,7 @@ cherry-pick COMMIT:
 
 ## build
 
-lint:
+lint: install-tools
     golangci-lint run
 
 [working-directory('web')]
