@@ -20,7 +20,7 @@ import (
 
 	logger "github.com/rs/zerolog/log"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
+	"github.com/crowci/crow/v3/server/model"
 )
 
 // TODO: (bradrydzewski) writing to subscribers is currently a blocking

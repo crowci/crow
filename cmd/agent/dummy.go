@@ -17,7 +17,7 @@
 
 package main
 
-import "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/dummy"
+import "github.com/crowci/crow/v3/pipeline/backend/dummy"
 
 func init() { //nolint:gochecknoinits
 	backends = append(backends, dummy.New())

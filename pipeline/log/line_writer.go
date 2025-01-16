@@ -21,10 +21,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/pipeline/shared"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/shared"
 )
 
 // LineWriter sends logs to the client.

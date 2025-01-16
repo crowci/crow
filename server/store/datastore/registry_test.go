@@ -20,8 +20,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store/types"
 )
 
 func TestRegistryFind(t *testing.T) {

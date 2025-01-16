@@ -17,11 +17,10 @@ package types
 import (
 	"fmt"
 
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/constraint"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/utils"
 	"gopkg.in/yaml.v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/constraint"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/types/base"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/utils"
 )
 
 type (

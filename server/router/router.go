@@ -18,19 +18,18 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/crowci/crow/v3/cmd/server/openapi"
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/api"
+	"github.com/crowci/crow/v3/server/api/metrics"
+	"github.com/crowci/crow/v3/server/router/middleware/header"
+	"github.com/crowci/crow/v3/server/router/middleware/session"
+	"github.com/crowci/crow/v3/server/router/middleware/token"
+	"github.com/crowci/crow/v3/server/web"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
 	openapi_files "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-
-	"go.woodpecker-ci.org/woodpecker/v3/cmd/server/openapi"
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/api"
-	"go.woodpecker-ci.org/woodpecker/v3/server/api/metrics"
-	"go.woodpecker-ci.org/woodpecker/v3/server/router/middleware/header"
-	"go.woodpecker-ci.org/woodpecker/v3/server/router/middleware/session"
-	"go.woodpecker-ci.org/woodpecker/v3/server/router/middleware/token"
-	"go.woodpecker-ci.org/woodpecker/v3/server/web"
 )
 
 // Load loads the router.

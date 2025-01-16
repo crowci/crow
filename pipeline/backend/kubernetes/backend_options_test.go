@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	backend "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 func Test_parseBackendOptions(t *testing.T) {

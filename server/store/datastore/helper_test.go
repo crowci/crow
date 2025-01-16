@@ -20,7 +20,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
+	"github.com/crowci/crow/v3/server/store/types"
 )
 
 func TestWrapGet(t *testing.T) {

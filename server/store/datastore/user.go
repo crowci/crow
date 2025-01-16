@@ -18,10 +18,9 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store/types"
 	"xorm.io/xorm"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 func (s storage) GetUser(id int64) (*model.User, error) {

@@ -19,14 +19,13 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/pipeline"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/gdgvda/cron"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/pipeline"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 const (

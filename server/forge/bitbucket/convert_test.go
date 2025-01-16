@@ -22,8 +22,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/oauth2"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/bitbucket/internal"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
+	"github.com/crowci/crow/v3/server/forge/bitbucket/internal"
+	"github.com/crowci/crow/v3/server/model"
 )
 
 func Test_convertStatus(t *testing.T) {

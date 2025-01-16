@@ -17,11 +17,10 @@ package stepbuilder
 import (
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	"github.com/crowci/crow/v3/server/forge/mocks"
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/mocks"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 func TestMetadataFromStruct(t *testing.T) {

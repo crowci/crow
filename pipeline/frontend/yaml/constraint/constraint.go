@@ -26,8 +26,8 @@ import (
 	"go.uber.org/multierr"
 	"gopkg.in/yaml.v3"
 
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
-	yamlBaseTypes "go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/types/base"
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	yamlBaseTypes "github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 )
 
 type (

@@ -23,9 +23,9 @@ import (
 	"github.com/stretchr/testify/mock"
 	"google.golang.org/grpc/metadata"
 
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	mocks_store "go.woodpecker-ci.org/woodpecker/v3/server/store/mocks"
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/server/model"
+	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
 )
 
 func TestRegisterAgent(t *testing.T) {

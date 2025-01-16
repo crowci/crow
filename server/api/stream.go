@@ -24,15 +24,14 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/logging"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/pubsub"
+	"github.com/crowci/crow/v3/server/router/middleware/session"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/logging"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/pubsub"
-	"go.woodpecker-ci.org/woodpecker/v3/server/router/middleware/session"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 const (

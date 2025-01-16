@@ -19,10 +19,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 func TestPipelines(t *testing.T) {

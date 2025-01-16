@@ -21,17 +21,16 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/queue"
+	queue_mocks "github.com/crowci/crow/v3/server/queue/mocks"
+	mocks_manager "github.com/crowci/crow/v3/server/services/mocks"
+	store_mocks "github.com/crowci/crow/v3/server/store/mocks"
+	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/queue"
-	queue_mocks "go.woodpecker-ci.org/woodpecker/v3/server/queue/mocks"
-	mocks_manager "go.woodpecker-ci.org/woodpecker/v3/server/services/mocks"
-	store_mocks "go.woodpecker-ci.org/woodpecker/v3/server/store/mocks"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 var fakeAgent = &model.Agent{

@@ -21,8 +21,8 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/version"
 )
 
 // Health

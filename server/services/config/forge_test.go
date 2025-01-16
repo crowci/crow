@@ -21,13 +21,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/crowci/crow/v3/server/forge/mocks"
+	forge_types "github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/services/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/mocks"
-	forge_types "go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/config"
 )
 
 func TestFetch(t *testing.T) {

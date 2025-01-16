@@ -19,14 +19,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/crowci/crow/v3/pipeline"
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/server/store/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/mocks"
 )
 
 func mockStoreStep(t *testing.T) store.Store {

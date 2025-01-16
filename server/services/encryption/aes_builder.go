@@ -18,10 +18,9 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/crowci/crow/v3/server/services/encryption/types"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/encryption/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 type aesConfiguration struct {

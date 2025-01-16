@@ -21,10 +21,9 @@ import (
 	"net/http"
 	"strings"
 
-	"gitlab.com/gitlab-org/api/client-go"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/utils"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/shared/utils"
+	gitlab "gitlab.com/gitlab-org/api/client-go"
 )
 
 const (

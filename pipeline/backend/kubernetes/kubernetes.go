@@ -37,7 +37,7 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/cache"
 
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 const (

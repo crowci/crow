@@ -15,9 +15,9 @@
 package grpc
 
 import (
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/queue"
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/queue"
 )
 
 func createFilterFunc(agentFilter rpc.Filter) queue.FilterFn {

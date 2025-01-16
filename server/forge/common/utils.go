@@ -20,10 +20,9 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 func ExtractHostFromCloneURL(cloneURL string) (string, error) {

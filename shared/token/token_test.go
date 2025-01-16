@@ -6,7 +6,7 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/stretchr/testify/assert"
 
-	"go.woodpecker-ci.org/woodpecker/v3/shared/token"
+	"github.com/crowci/crow/v3/shared/token"
 )
 
 const jwtSecret = "secret-to-sign-the-token"

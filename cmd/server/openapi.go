@@ -15,8 +15,8 @@
 package main
 
 import (
-	"go.woodpecker-ci.org/woodpecker/v3/cmd/server/openapi"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
+	"github.com/crowci/crow/v3/cmd/server/openapi"
+	"github.com/crowci/crow/v3/version"
 )
 
 // Generate docs/openapi.json via:

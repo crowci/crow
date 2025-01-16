@@ -24,10 +24,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"
 
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc/proto"
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	woodpeckerGrpcServer "go.woodpecker-ci.org/woodpecker/v3/server/grpc"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
+	"github.com/crowci/crow/v3/pipeline/rpc/proto"
+	"github.com/crowci/crow/v3/server"
+	woodpeckerGrpcServer "github.com/crowci/crow/v3/server/grpc"
+	"github.com/crowci/crow/v3/server/store"
 )
 
 func runGrpcServer(ctx context.Context, c *cli.Command, _store store.Store) error {

@@ -15,11 +15,10 @@
 package repo
 
 import (
+	"github.com/crowci/crow/v3/cli/repo/cron"
+	"github.com/crowci/crow/v3/cli/repo/registry"
+	"github.com/crowci/crow/v3/cli/repo/secret"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/cli/repo/cron"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/repo/registry"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/repo/secret"
 )
 
 // Command exports the repository command.

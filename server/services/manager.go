@@ -18,16 +18,15 @@ import (
 	"crypto"
 	"time"
 
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/services/config"
+	"github.com/crowci/crow/v3/server/services/environment"
+	"github.com/crowci/crow/v3/server/services/registry"
+	"github.com/crowci/crow/v3/server/services/secret"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/jellydator/ttlcache/v3"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/config"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/environment"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/registry"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/secret"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 //go:generate mockery --name Manager --output mocks --case underscore --note "+build test"

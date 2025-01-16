@@ -22,11 +22,10 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/crowci/crow/v3/server/forge/github/fixtures"
+	"github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/github/fixtures"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 const (

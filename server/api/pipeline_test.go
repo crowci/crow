@@ -20,17 +20,16 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	"github.com/crowci/crow/v3/server"
+	forge_mocks "github.com/crowci/crow/v3/server/forge/mocks"
+	"github.com/crowci/crow/v3/server/model"
+	mocks_manager "github.com/crowci/crow/v3/server/services/mocks"
+	store_mocks "github.com/crowci/crow/v3/server/store/mocks"
+	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	forge_mocks "go.woodpecker-ci.org/woodpecker/v3/server/forge/mocks"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	mocks_manager "go.woodpecker-ci.org/woodpecker/v3/server/services/mocks"
-	store_mocks "go.woodpecker-ci.org/woodpecker/v3/server/store/mocks"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 var fakePipeline = &model.Pipeline{

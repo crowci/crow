@@ -23,10 +23,10 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
 
-	backend "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/logger"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/utils"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/shared/logger"
+	"github.com/crowci/crow/v3/shared/utils"
+	"github.com/crowci/crow/v3/version"
 )
 
 func RunAgent(ctx context.Context, backends []backend.Backend) {

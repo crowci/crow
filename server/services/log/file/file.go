@@ -8,11 +8,10 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/crowci/crow/v3/pipeline"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/services/log"
 	logger "github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/log"
 )
 
 const (

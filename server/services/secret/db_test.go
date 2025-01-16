@@ -17,12 +17,11 @@ package secret_test
 import (
 	"testing"
 
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/services/secret"
+	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/secret"
-	mocks_store "go.woodpecker-ci.org/woodpecker/v3/server/store/mocks"
 )
 
 var (

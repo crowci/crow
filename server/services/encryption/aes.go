@@ -19,10 +19,9 @@ import (
 	"encoding/base64"
 	"fmt"
 
+	"github.com/crowci/crow/v3/server/services/encryption/types"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/google/tink/go/subtle/random"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/encryption/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 type aesEncryptionService struct {

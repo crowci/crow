@@ -27,16 +27,15 @@ import (
 	"time"
 
 	"codeberg.org/mvdkleijn/forgejo-sdk/forgejo"
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/forge/common"
+	forge_types "github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store"
+	shared_utils "github.com/crowci/crow/v3/shared/utils"
 	"github.com/rs/zerolog/log"
 	"golang.org/x/oauth2"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/common"
-	forge_types "go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	shared_utils "go.woodpecker-ci.org/woodpecker/v3/shared/utils"
 )
 
 const (

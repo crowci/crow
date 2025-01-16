@@ -19,10 +19,9 @@ import (
 	"testing"
 
 	"codeberg.org/mvdkleijn/forgejo-sdk/forgejo"
+	"github.com/crowci/crow/v3/server/forge/forgejo/fixtures"
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/forgejo/fixtures"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 func Test_parsePush(t *testing.T) {

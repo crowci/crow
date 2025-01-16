@@ -21,8 +21,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v3"
 
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/constraint"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/types/base"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/constraint"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 )
 
 var containerYaml = []byte(`

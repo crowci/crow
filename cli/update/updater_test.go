@@ -8,7 +8,7 @@ import (
 	"os"
 	"testing"
 
-	"go.woodpecker-ci.org/woodpecker/v3/version"
+	"github.com/crowci/crow/v3/version"
 )
 
 func TestCheckForUpdate(t *testing.T) {

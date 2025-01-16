@@ -19,7 +19,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/common"
+	"github.com/crowci/crow/v3/server/forge/common"
 )
 
 func Test_Netrc(t *testing.T) {

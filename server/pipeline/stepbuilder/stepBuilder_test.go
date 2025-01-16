@@ -19,13 +19,12 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/errors"
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/forge/mocks"
+	forge_types "github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/errors"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/mocks"
-	forge_types "go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 func TestGlobalEnvsubst(t *testing.T) {

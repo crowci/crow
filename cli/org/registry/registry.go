@@ -19,7 +19,7 @@ import (
 
 	"github.com/urfave/cli/v3"
 
-	"go.woodpecker-ci.org/woodpecker/v3/woodpecker-go/woodpecker"
+	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
 )
 
 // Command exports the registry command set.

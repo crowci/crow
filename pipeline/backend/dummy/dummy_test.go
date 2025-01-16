@@ -19,10 +19,9 @@ import (
 	"io"
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/backend/dummy"
+	"github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/dummy"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
 )
 
 func TestSmalPipelineDummyRun(t *testing.T) {

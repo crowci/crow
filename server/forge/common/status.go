@@ -19,10 +19,9 @@ import (
 	"fmt"
 	"text/template"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 func GetPipelineStatusContext(repo *model.Repo, pipeline *model.Pipeline, workflow *model.Workflow) string {

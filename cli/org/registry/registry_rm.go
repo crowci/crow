@@ -17,10 +17,9 @@ package registry
 import (
 	"context"
 
+	"github.com/crowci/crow/v3/cli/common"
+	"github.com/crowci/crow/v3/cli/internal"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/cli/common"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/internal"
 )
 
 var registryDeleteCmd = &cli.Command{

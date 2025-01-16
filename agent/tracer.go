@@ -21,10 +21,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/crowci/crow/v3/pipeline"
+	"github.com/crowci/crow/v3/pipeline/rpc"
 	"github.com/rs/zerolog"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
 )
 
 func (r *Runner) createTracer(ctxMeta context.Context, uploads *sync.WaitGroup, logger zerolog.Logger, workflow *rpc.Workflow) pipeline.TraceFunc {

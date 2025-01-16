@@ -23,17 +23,16 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/router/middleware/session"
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/server/store/types"
+	"github.com/crowci/crow/v3/shared/token"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/securecookie"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/router/middleware/session"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/token"
 )
 
 // PostRepo

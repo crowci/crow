@@ -15,19 +15,18 @@
 package main
 
 import (
+	"github.com/crowci/crow/v3/cli/admin"
+	"github.com/crowci/crow/v3/cli/common"
+	"github.com/crowci/crow/v3/cli/exec"
+	"github.com/crowci/crow/v3/cli/info"
+	"github.com/crowci/crow/v3/cli/lint"
+	"github.com/crowci/crow/v3/cli/org"
+	"github.com/crowci/crow/v3/cli/pipeline"
+	"github.com/crowci/crow/v3/cli/repo"
+	"github.com/crowci/crow/v3/cli/setup"
+	"github.com/crowci/crow/v3/cli/update"
+	"github.com/crowci/crow/v3/version"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/cli/admin"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/common"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/exec"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/info"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/lint"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/org"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/pipeline"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/repo"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/setup"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/update"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
 )
 
 //go:generate go run docs.go app.go

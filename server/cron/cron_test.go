@@ -19,14 +19,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/crowci/crow/v3/server"
+	mocks_forge "github.com/crowci/crow/v3/server/forge/mocks"
+	"github.com/crowci/crow/v3/server/model"
+	mocks_manager "github.com/crowci/crow/v3/server/services/mocks"
+	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	mocks_forge "go.woodpecker-ci.org/woodpecker/v3/server/forge/mocks"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	mocks_manager "go.woodpecker-ci.org/woodpecker/v3/server/services/mocks"
-	mocks_store "go.woodpecker-ci.org/woodpecker/v3/server/store/mocks"
 )
 
 func TestCreatePipeline(t *testing.T) {

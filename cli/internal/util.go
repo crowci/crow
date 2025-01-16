@@ -30,7 +30,7 @@ import (
 	"golang.org/x/net/proxy"
 	"golang.org/x/oauth2"
 
-	"go.woodpecker-ci.org/woodpecker/v3/woodpecker-go/woodpecker"
+	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
 )
 
 // NewClient returns a new client from the CLI context.

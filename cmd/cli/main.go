@@ -21,7 +21,7 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/rs/zerolog/log"
 
-	"go.woodpecker-ci.org/woodpecker/v3/shared/utils"
+	"github.com/crowci/crow/v3/shared/utils"
 )
 
 func main() {

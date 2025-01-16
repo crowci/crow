@@ -17,7 +17,7 @@ package datastore
 import (
 	"xorm.io/builder"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
+	"github.com/crowci/crow/v3/server/model"
 )
 
 const orderRegistriesBy = "id"

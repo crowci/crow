@@ -27,9 +27,9 @@ import (
 	"google.golang.org/grpc/status"
 	grpcproto "google.golang.org/protobuf/proto"
 
-	backend "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc/proto"
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/pipeline/rpc/proto"
 )
 
 const (

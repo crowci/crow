@@ -38,14 +38,14 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"go.woodpecker-ci.org/woodpecker/v3/agent"
-	agent_rpc "go.woodpecker-ci.org/woodpecker/v3/agent/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/backend"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/logger"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/utils"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
+	"github.com/crowci/crow/v3/agent"
+	agent_rpc "github.com/crowci/crow/v3/agent/rpc"
+	"github.com/crowci/crow/v3/pipeline/backend"
+	"github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/shared/logger"
+	"github.com/crowci/crow/v3/shared/utils"
+	"github.com/crowci/crow/v3/version"
 )
 
 const (

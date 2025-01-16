@@ -18,11 +18,11 @@ import (
 	"fmt"
 	"path"
 
-	backend_types "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
-	yaml_types "go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/types"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/utils"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/constant"
+	backend_types "github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	yaml_types "github.com/crowci/crow/v3/pipeline/frontend/yaml/types"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/utils"
+	"github.com/crowci/crow/v3/shared/constant"
 )
 
 const (

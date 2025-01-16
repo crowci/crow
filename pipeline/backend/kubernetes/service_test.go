@@ -20,7 +20,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 func TestServiceName(t *testing.T) {

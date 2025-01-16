@@ -14,7 +14,7 @@
 
 package secret
 
-import "go.woodpecker-ci.org/woodpecker/v3/server/model"
+import "github.com/crowci/crow/v3/server/model"
 
 //go:generate mockery --name Service --output mocks --case underscore
 

@@ -22,15 +22,14 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/badges"
+	"github.com/crowci/crow/v3/server/ccmenu"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/badges"
-	"go.woodpecker-ci.org/woodpecker/v3/server/ccmenu"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 // GetBadge
