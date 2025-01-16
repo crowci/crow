@@ -22,6 +22,9 @@ var DefaultConfigOrder = [...]string{
 	".woodpecker/",
 	".woodpecker.yaml",
 	".woodpecker.yml",
+	".crow/",
+	".crow.yaml",
+	".crow.yml",
 }
 
 const (
