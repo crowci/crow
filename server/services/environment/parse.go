@@ -17,9 +17,8 @@ package environment
 import (
 	"strings"
 
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 type builtin struct {

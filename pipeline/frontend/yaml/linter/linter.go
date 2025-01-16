@@ -18,14 +18,13 @@ import (
 	"fmt"
 
 	"codeberg.org/6543/xyaml"
+	"github.com/crowci/crow/v3/pipeline/errors"
+	errorTypes "github.com/crowci/crow/v3/pipeline/errors/types"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter/schema"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/types"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/utils"
+	"github.com/crowci/crow/v3/shared/constant"
 	"go.uber.org/multierr"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/errors"
-	errorTypes "go.woodpecker-ci.org/woodpecker/v3/pipeline/errors/types"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/linter/schema"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/types"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/utils"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/constant"
 )
 
 // A Linter lints a pipeline configuration.

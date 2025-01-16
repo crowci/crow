@@ -17,9 +17,8 @@ package addon
 import (
 	"net/rpc"
 
+	"github.com/crowci/crow/v3/server/forge"
 	"github.com/hashicorp/go-plugin"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
 )
 
 const pluginKey = "forge"

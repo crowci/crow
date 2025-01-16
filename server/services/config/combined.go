@@ -17,9 +17,9 @@ package config
 import (
 	"context"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
 )
 
 type combined struct {

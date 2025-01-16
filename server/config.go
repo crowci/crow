@@ -18,14 +18,14 @@ package server
 import (
 	"time"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/cache"
-	"go.woodpecker-ci.org/woodpecker/v3/server/logging"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/pubsub"
-	"go.woodpecker-ci.org/woodpecker/v3/server/queue"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/log"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/permissions"
+	"github.com/crowci/crow/v3/server/cache"
+	"github.com/crowci/crow/v3/server/logging"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/pubsub"
+	"github.com/crowci/crow/v3/server/queue"
+	"github.com/crowci/crow/v3/server/services"
+	"github.com/crowci/crow/v3/server/services/log"
+	"github.com/crowci/crow/v3/server/services/permissions"
 )
 
 var Config = struct {

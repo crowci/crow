@@ -19,12 +19,11 @@ import (
 	"errors"
 	"time"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/prometheus/client_golang/prometheus"
 	prometheus_auto "github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 func startMetricsCollector(ctx context.Context, _store store.Store) {

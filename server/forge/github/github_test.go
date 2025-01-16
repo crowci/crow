@@ -20,11 +20,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/crowci/crow/v3/server/forge/github/fixtures"
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/github/fixtures"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 func TestNew(t *testing.T) {

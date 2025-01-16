@@ -12,9 +12,8 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/crowci/crow/v3/version"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/version"
 )
 
 func CheckForUpdate(ctx context.Context, force bool) (*NewVersion, error) {

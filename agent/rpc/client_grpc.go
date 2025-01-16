@@ -21,15 +21,14 @@ import (
 	"time"
 
 	"github.com/cenkalti/backoff/v5"
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/pipeline/rpc/proto"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	grpcproto "google.golang.org/protobuf/proto"
-
-	backend "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc/proto"
 )
 
 const (

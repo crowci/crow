@@ -18,9 +18,8 @@ import (
 	"context"
 	"time"
 
+	"github.com/crowci/crow/v3/pipeline/rpc/proto"
 	"google.golang.org/grpc"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc/proto"
 )
 
 const authClientTimeout = time.Second * 5

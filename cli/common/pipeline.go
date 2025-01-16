@@ -20,9 +20,8 @@ import (
 	"os"
 	"strings"
 
+	"github.com/crowci/crow/v3/shared/constant"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/shared/constant"
 )
 
 func DetectPipelineConfig() (isDir bool, config string, _ error) {

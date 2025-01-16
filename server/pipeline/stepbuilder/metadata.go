@@ -19,9 +19,9 @@ import (
 	"net/url"
 	"strings"
 
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/version"
 )
 
 // MetadataFromStruct return the metadata from a pipeline will run with.

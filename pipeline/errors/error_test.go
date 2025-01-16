@@ -4,11 +4,10 @@ import (
 	"errors"
 	"testing"
 
+	pipeline_errors "github.com/crowci/crow/v3/pipeline/errors"
+	"github.com/crowci/crow/v3/pipeline/errors/types"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/multierr"
-
-	pipeline_errors "go.woodpecker-ci.org/woodpecker/v3/pipeline/errors"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/errors/types"
 )
 
 func TestGetPipelineErrors(t *testing.T) {

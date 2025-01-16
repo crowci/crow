@@ -24,13 +24,12 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
 	vsc_url "github.com/gitsight/go-vcsurl"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
 	"golang.org/x/net/proxy"
 	"golang.org/x/oauth2"
-
-	"go.woodpecker-ci.org/woodpecker/v3/woodpecker-go/woodpecker"
 )
 
 // NewClient returns a new client from the CLI context.

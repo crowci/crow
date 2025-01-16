@@ -21,9 +21,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/crowci/crow/v3/pipeline/log"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/log"
 )
 
 type testWriter struct {

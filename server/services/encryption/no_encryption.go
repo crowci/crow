@@ -14,7 +14,7 @@
 
 package encryption
 
-import "go.woodpecker-ci.org/woodpecker/v3/server/services/encryption/types"
+import "github.com/crowci/crow/v3/server/services/encryption/types"
 
 type noEncryptionBuilder struct {
 	clients []types.EncryptionClient

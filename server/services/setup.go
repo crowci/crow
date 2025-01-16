@@ -23,15 +23,14 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/services/config"
+	"github.com/crowci/crow/v3/server/services/registry"
+	"github.com/crowci/crow/v3/server/services/secret"
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/config"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/registry"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/secret"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 func setupRegistryService(store store.Store, dockerConfig string) registry.Service {

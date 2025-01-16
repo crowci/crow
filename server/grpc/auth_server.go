@@ -19,12 +19,11 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/crowci/crow/v3/pipeline/rpc/proto"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc/proto"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 type WoodpeckerAuthServer struct {

@@ -17,10 +17,9 @@ package yaml
 import (
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	yaml_base_types "github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
-	yaml_base_types "go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/types/base"
 )
 
 func TestParse(t *testing.T) {

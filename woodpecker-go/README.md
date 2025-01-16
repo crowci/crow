@@ -2,7 +2,7 @@
 
 ```Go
 import (
-  "go.woodpecker-ci.org/woodpecker/v3/woodpecker-go/woodpecker"
+  "github.com/crowci/crow/v3/woodpecker-go/woodpecker"
   "golang.org/x/oauth2"
 )
 

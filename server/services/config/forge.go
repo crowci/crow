@@ -21,12 +21,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/shared/constant"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/constant"
 )
 
 type forgeFetcher struct {

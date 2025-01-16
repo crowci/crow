@@ -18,8 +18,7 @@ import (
 	"strings"
 
 	"codeberg.org/6543/xyaml"
-
-	errorTypes "go.woodpecker-ci.org/woodpecker/v3/pipeline/errors/types"
+	errorTypes "github.com/crowci/crow/v3/pipeline/errors/types"
 )
 
 const (

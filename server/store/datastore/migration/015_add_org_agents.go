@@ -17,10 +17,9 @@ package migration
 import (
 	"fmt"
 
+	"github.com/crowci/crow/v3/server/model"
 	"src.techknowlogick.com/xormigrate"
 	"xorm.io/xorm"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 var addOrgAgents = xormigrate.Migration{

@@ -18,17 +18,16 @@ import (
 	"context"
 	"encoding/json"
 
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/pipeline/rpc/proto"
+	"github.com/crowci/crow/v3/server/logging"
+	"github.com/crowci/crow/v3/server/pubsub"
+	"github.com/crowci/crow/v3/server/queue"
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/version"
 	"github.com/prometheus/client_golang/prometheus"
 	prometheus_auto "github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc/proto"
-	"go.woodpecker-ci.org/woodpecker/v3/server/logging"
-	"go.woodpecker-ci.org/woodpecker/v3/server/pubsub"
-	"go.woodpecker-ci.org/woodpecker/v3/server/queue"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
 )
 
 // WoodpeckerServer is a grpc server implementation.

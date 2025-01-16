@@ -1,4 +1,4 @@
-module go.woodpecker-ci.org/woodpecker/v3
+module github.com/crowci/crow/v3
 
 go 1.23.4
 

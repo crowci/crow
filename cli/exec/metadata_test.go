@@ -20,12 +20,11 @@ import (
 	"os"
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/matrix"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/matrix"
 )
 
 func TestMetadataFromContext(t *testing.T) {

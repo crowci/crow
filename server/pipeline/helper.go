@@ -17,10 +17,9 @@ package pipeline
 import (
 	"context"
 
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 func updatePipelineStatus(ctx context.Context, forge forge.Forge, pipeline *model.Pipeline, repo *model.Repo, user *model.User) {

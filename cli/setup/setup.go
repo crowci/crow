@@ -5,11 +5,10 @@ import (
 	"errors"
 	"strings"
 
+	"github.com/crowci/crow/v3/cli/internal/config"
+	"github.com/crowci/crow/v3/cli/setup/ui"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/cli/internal/config"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/setup/ui"
 )
 
 // Command exports the setup command.

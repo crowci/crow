@@ -15,8 +15,8 @@
 package linter
 
 import (
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/errors"
-	errorTypes "go.woodpecker-ci.org/woodpecker/v3/pipeline/errors/types"
+	"github.com/crowci/crow/v3/pipeline/errors"
+	errorTypes "github.com/crowci/crow/v3/pipeline/errors/types"
 )
 
 func newLinterError(message, file, field string, isWarning bool) *errorTypes.PipelineError {

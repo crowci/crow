@@ -25,6 +25,7 @@ import (
 	"slices"
 	"time"
 
+	"github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
 	"gopkg.in/yaml.v3"
@@ -36,8 +37,6 @@ import (
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp" // To authenticate to GCP K8s clusters
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/cache"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
 )
 
 const (

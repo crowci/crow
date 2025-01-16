@@ -21,12 +21,11 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/crowci/crow/v3/cli/internal"
+	shared_utils "github.com/crowci/crow/v3/shared/utils"
+	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/cli/internal"
-	shared_utils "go.woodpecker-ci.org/woodpecker/v3/shared/utils"
-	"go.woodpecker-ci.org/woodpecker/v3/woodpecker-go/woodpecker"
 )
 
 //nolint:mnd

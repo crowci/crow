@@ -22,11 +22,10 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/shared/utils"
 	"github.com/google/go-github/v68/github"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/utils"
 )
 
 const (

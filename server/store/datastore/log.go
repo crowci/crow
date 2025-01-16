@@ -15,10 +15,9 @@
 package datastore
 
 import (
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/rs/zerolog/log"
 	"xorm.io/xorm"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 // Maximum number of records to store in one PostgreSQL statement.

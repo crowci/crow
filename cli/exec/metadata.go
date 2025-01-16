@@ -22,11 +22,10 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/matrix"
+	"github.com/crowci/crow/v3/version"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/matrix"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
 )
 
 // return the metadata from the cli context.

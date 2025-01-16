@@ -22,12 +22,11 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/crowci/crow/v3/cli/common"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter"
+	"github.com/crowci/crow/v3/shared/constant"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/cli/common"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/linter"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/constant"
 )
 
 // Command exports the info command.

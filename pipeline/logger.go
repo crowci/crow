@@ -17,7 +17,7 @@ package pipeline
 import (
 	"io"
 
-	backend "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 // Logger handles the process logging.

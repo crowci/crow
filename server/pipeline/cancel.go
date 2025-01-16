@@ -18,13 +18,12 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/forge"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/queue"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/queue"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 // Cancel the pipeline and returns the status.

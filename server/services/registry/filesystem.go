@@ -21,11 +21,10 @@ import (
 	"os"
 	"strings"
 
+	"github.com/crowci/crow/v3/server/model"
+	model_types "github.com/crowci/crow/v3/server/store/types"
 	config_file "github.com/docker/cli/cli/config/configfile"
 	"github.com/docker/cli/cli/config/types"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	model_types "go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 type filesystem struct {

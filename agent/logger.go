@@ -18,12 +18,11 @@ import (
 	"io"
 	"sync"
 
+	"github.com/crowci/crow/v3/pipeline"
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/log"
+	"github.com/crowci/crow/v3/pipeline/rpc"
 	"github.com/rs/zerolog"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline"
-	backend "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/log"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/rpc"
 )
 
 func (r *Runner) createLogger(_logger zerolog.Logger, uploads *sync.WaitGroup, workflow *rpc.Workflow) pipeline.Logger {

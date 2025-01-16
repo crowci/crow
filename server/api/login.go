@@ -23,18 +23,17 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/forge"
+	forge_types "github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/server/store/types"
+	"github.com/crowci/crow/v3/shared/httputil"
+	"github.com/crowci/crow/v3/shared/token"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/securecookie"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	forge_types "go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/httputil"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/token"
 )
 
 const stateTokenDuration = time.Minute * 5

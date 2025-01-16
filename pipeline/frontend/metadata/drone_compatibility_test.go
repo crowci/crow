@@ -18,9 +18,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/metadata"
 )
 
 func TestSetDroneEnvironOnPull(t *testing.T) {

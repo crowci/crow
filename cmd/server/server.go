@@ -25,20 +25,19 @@ import (
 	"strings"
 	"time"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/cron"
+	"github.com/crowci/crow/v3/server/router"
+	"github.com/crowci/crow/v3/server/router/middleware"
+	"github.com/crowci/crow/v3/server/web"
+	"github.com/crowci/crow/v3/shared/logger"
+	"github.com/crowci/crow/v3/version"
 	"github.com/gin-gonic/gin"
 	prometheus_http "github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
 	"golang.org/x/sync/errgroup"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/cron"
-	"go.woodpecker-ci.org/woodpecker/v3/server/router"
-	"go.woodpecker-ci.org/woodpecker/v3/server/router/middleware"
-	"go.woodpecker-ci.org/woodpecker/v3/server/web"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/logger"
-	"go.woodpecker-ci.org/woodpecker/v3/version"
 )
 
 const (

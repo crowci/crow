@@ -26,10 +26,9 @@ import (
 	"sync"
 	"time"
 
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
-
-	backend "go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
 )
 
 type dummy struct {

@@ -19,9 +19,8 @@ import (
 	"os"
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter/schema"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/linter/schema"
 )
 
 func TestSchema(t *testing.T) {

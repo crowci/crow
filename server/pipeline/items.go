@@ -19,16 +19,15 @@ import (
 	"database/sql"
 	"errors"
 
+	pipeline_errors "github.com/crowci/crow/v3/pipeline/errors"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/compiler"
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/forge"
+	forge_types "github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/pipeline/stepbuilder"
+	"github.com/crowci/crow/v3/server/store"
 	"github.com/rs/zerolog/log"
-
-	pipeline_errors "go.woodpecker-ci.org/woodpecker/v3/pipeline/errors"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/compiler"
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge"
-	forge_types "go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/pipeline/stepbuilder"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
 )
 
 func parsePipeline(forge forge.Forge, store store.Store, currentPipeline *model.Pipeline, user *model.User, repo *model.Repo, yamls []*forge_types.FileMeta, envs map[string]string) ([]*stepbuilder.Item, error) {

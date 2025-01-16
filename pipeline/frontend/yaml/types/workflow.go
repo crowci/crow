@@ -15,7 +15,7 @@
 package types
 
 import (
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/constraint"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/constraint"
 )
 
 type (

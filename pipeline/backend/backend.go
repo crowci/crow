@@ -18,7 +18,7 @@ import (
 	"context"
 	"fmt"
 
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 func FindBackend(ctx context.Context, backends []types.Backend, backendName string) (types.Backend, error) {

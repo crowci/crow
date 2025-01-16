@@ -6,12 +6,11 @@ import (
 	"io"
 	"testing"
 
+	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
+	"github.com/crowci/crow/v3/woodpecker-go/woodpecker/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/woodpecker-go/woodpecker"
-	"go.woodpecker-ci.org/woodpecker/v3/woodpecker-go/woodpecker/mocks"
 )
 
 func TestPipelinePurge(t *testing.T) {

@@ -21,14 +21,13 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/crowci/crow/v3/server/forge/forgejo/fixtures"
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store"
+	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/forgejo/fixtures"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	mocks_store "go.woodpecker-ci.org/woodpecker/v3/server/store/mocks"
 )
 
 func TestNew(t *testing.T) {

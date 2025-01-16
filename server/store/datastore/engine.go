@@ -17,12 +17,11 @@ package datastore
 import (
 	"context"
 
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/server/store/datastore/migration"
 	"github.com/rs/zerolog"
 	"xorm.io/xorm"
 	xlog "xorm.io/xorm/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/store"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/datastore/migration"
 )
 
 type storage struct {

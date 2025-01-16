@@ -17,11 +17,10 @@ package linter_test
 import (
 	"testing"
 
+	"github.com/crowci/crow/v3/pipeline/errors"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter"
 	"github.com/stretchr/testify/assert"
-
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/errors"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml"
-	"go.woodpecker-ci.org/woodpecker/v3/pipeline/frontend/yaml/linter"
 )
 
 func TestLint(t *testing.T) {

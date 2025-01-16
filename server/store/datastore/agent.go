@@ -17,7 +17,7 @@ package datastore
 import (
 	"errors"
 
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
+	"github.com/crowci/crow/v3/server/model"
 )
 
 var ErrNoTokenProvided = errors.New("please provide a token")

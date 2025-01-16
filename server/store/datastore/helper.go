@@ -19,10 +19,9 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store/types"
 	"xorm.io/xorm"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	"go.woodpecker-ci.org/woodpecker/v3/server/store/types"
 )
 
 // wrapGet return error if err not nil or if requested entry do not exist.

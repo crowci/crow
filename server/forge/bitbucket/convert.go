@@ -21,10 +21,9 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/crowci/crow/v3/server/forge/bitbucket/internal"
+	"github.com/crowci/crow/v3/server/model"
 	"golang.org/x/oauth2"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/bitbucket/internal"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 const (

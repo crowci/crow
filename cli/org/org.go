@@ -15,10 +15,9 @@
 package org
 
 import (
+	"github.com/crowci/crow/v3/cli/org/registry"
+	"github.com/crowci/crow/v3/cli/org/secret"
 	"github.com/urfave/cli/v3"
-
-	"go.woodpecker-ci.org/woodpecker/v3/cli/org/registry"
-	"go.woodpecker-ci.org/woodpecker/v3/cli/org/secret"
 )
 
 // Command exports the org command set.

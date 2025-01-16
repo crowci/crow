@@ -7,21 +7,20 @@ import (
 	"net/url"
 	"testing"
 
+	"github.com/crowci/crow/v3/server"
+	"github.com/crowci/crow/v3/server/api"
+	mocks_forge "github.com/crowci/crow/v3/server/forge/mocks"
+	"github.com/crowci/crow/v3/server/model"
+	mocks_config_service "github.com/crowci/crow/v3/server/services/config/mocks"
+	mocks_services "github.com/crowci/crow/v3/server/services/mocks"
+	"github.com/crowci/crow/v3/server/services/permissions"
+	mocks_registry_service "github.com/crowci/crow/v3/server/services/registry/mocks"
+	mocks_secret_service "github.com/crowci/crow/v3/server/services/secret/mocks"
+	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
+	"github.com/crowci/crow/v3/shared/token"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server"
-	"go.woodpecker-ci.org/woodpecker/v3/server/api"
-	mocks_forge "go.woodpecker-ci.org/woodpecker/v3/server/forge/mocks"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
-	mocks_config_service "go.woodpecker-ci.org/woodpecker/v3/server/services/config/mocks"
-	mocks_services "go.woodpecker-ci.org/woodpecker/v3/server/services/mocks"
-	"go.woodpecker-ci.org/woodpecker/v3/server/services/permissions"
-	mocks_registry_service "go.woodpecker-ci.org/woodpecker/v3/server/services/registry/mocks"
-	mocks_secret_service "go.woodpecker-ci.org/woodpecker/v3/server/services/secret/mocks"
-	mocks_store "go.woodpecker-ci.org/woodpecker/v3/server/store/mocks"
-	"go.woodpecker-ci.org/woodpecker/v3/shared/token"
 )
 
 func TestHook(t *testing.T) {

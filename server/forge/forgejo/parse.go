@@ -19,10 +19,9 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/crowci/crow/v3/server/forge/types"
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/rs/zerolog/log"
-
-	"go.woodpecker-ci.org/woodpecker/v3/server/forge/types"
-	"go.woodpecker-ci.org/woodpecker/v3/server/model"
 )
 
 const (
