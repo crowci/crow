@@ -18,9 +18,8 @@ package session
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
-
 	"github.com/crowci/crow/v3/shared/token"
+	"github.com/gin-gonic/gin"
 )
 
 // AuthorizeAgent authorizes requests from agent to access the queue.

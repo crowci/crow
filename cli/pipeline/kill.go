@@ -19,9 +19,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/urfave/cli/v3"
-
 	"github.com/crowci/crow/v3/cli/internal"
+	"github.com/urfave/cli/v3"
 )
 
 var pipelineKillCmd = &cli.Command{

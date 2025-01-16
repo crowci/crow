@@ -24,7 +24,6 @@ import (
 	"time"
 
 	"code.gitea.io/sdk/gitea"
-
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/shared/utils"
 )

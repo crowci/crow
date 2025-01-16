@@ -19,11 +19,10 @@ import (
 	"errors"
 	"fmt"
 
-	"xorm.io/builder"
-	"xorm.io/xorm"
-
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store/types"
+	"xorm.io/builder"
+	"xorm.io/xorm"
 )
 
 func (s storage) ConfigsForPipeline(pipelineID int64) ([]*model.Config, error) {

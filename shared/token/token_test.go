@@ -3,10 +3,9 @@ package token_test
 import (
 	"testing"
 
+	"github.com/crowci/crow/v3/shared/token"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/stretchr/testify/assert"
-
-	"github.com/crowci/crow/v3/shared/token"
 )
 
 const jwtSecret = "secret-to-sign-the-token"

@@ -17,9 +17,8 @@ package secret
 import (
 	"strconv"
 
-	"github.com/urfave/cli/v3"
-
 	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
+	"github.com/urfave/cli/v3"
 )
 
 // Command exports the secret command.

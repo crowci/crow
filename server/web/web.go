@@ -24,11 +24,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog/log"
-
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/web"
+	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog/log"
 )
 
 var indexHTML []byte

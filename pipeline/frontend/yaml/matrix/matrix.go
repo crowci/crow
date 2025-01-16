@@ -18,7 +18,6 @@ import (
 	"strings"
 
 	"codeberg.org/6543/xyaml"
-
 	errorTypes "github.com/crowci/crow/v3/pipeline/errors/types"
 )
 

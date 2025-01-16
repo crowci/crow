@@ -22,12 +22,11 @@ import (
 	"strings"
 
 	"github.com/bmatcuk/doublestar/v4"
+	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	yamlBaseTypes "github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 	"github.com/expr-lang/expr"
 	"go.uber.org/multierr"
 	"gopkg.in/yaml.v3"
-
-	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
-	yamlBaseTypes "github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 )
 
 type (

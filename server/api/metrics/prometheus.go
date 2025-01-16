@@ -19,10 +19,9 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/crowci/crow/v3/server"
 	"github.com/gin-gonic/gin"
 	prometheus_http "github.com/prometheus/client_golang/prometheus/promhttp"
-
-	"github.com/crowci/crow/v3/server"
 )
 
 // errInvalidToken is returned when the api request token is invalid.

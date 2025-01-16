@@ -6,11 +6,10 @@ import (
 	"io"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/urfave/cli/v3"
-
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
+	"github.com/stretchr/testify/assert"
+	"github.com/urfave/cli/v3"
 )
 
 func TestPipelineOutput(t *testing.T) {

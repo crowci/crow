@@ -18,9 +18,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
-
 	"github.com/crowci/crow/v3/agent"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestHealthy(t *testing.T) {

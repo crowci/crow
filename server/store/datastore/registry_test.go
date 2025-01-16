@@ -17,11 +17,10 @@ package datastore
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store/types"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestRegistryFind(t *testing.T) {

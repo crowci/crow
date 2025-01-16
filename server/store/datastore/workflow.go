@@ -15,9 +15,8 @@
 package datastore
 
 import (
-	"xorm.io/xorm"
-
 	"github.com/crowci/crow/v3/server/model"
+	"xorm.io/xorm"
 )
 
 func (s storage) WorkflowGetTree(pipeline *model.Pipeline) ([]*model.Workflow, error) {

@@ -6,12 +6,11 @@ import (
 	"io"
 	"testing"
 
+	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
+	"github.com/crowci/crow/v3/woodpecker-go/woodpecker/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/urfave/cli/v3"
-
-	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
-	"github.com/crowci/crow/v3/woodpecker-go/woodpecker/mocks"
 )
 
 func TestPipelineList(t *testing.T) {

@@ -19,9 +19,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
-
 	"github.com/crowci/crow/v3/server/model"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCC(t *testing.T) {

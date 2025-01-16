@@ -20,9 +20,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/urfave/cli/v3"
-
 	"github.com/crowci/crow/v3/shared/constant"
+	"github.com/urfave/cli/v3"
 )
 
 func DetectPipelineConfig() (isDir bool, config string, _ error) {

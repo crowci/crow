@@ -19,13 +19,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"google.golang.org/grpc/metadata"
-
 	"github.com/crowci/crow/v3/pipeline/rpc"
 	"github.com/crowci/crow/v3/server/model"
 	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"google.golang.org/grpc/metadata"
 )
 
 func TestRegisterAgent(t *testing.T) {

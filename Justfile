@@ -26,13 +26,16 @@ CGO_CFLAGS := if HAS_GO == "GO" { `go env CGO_CFLAGS` } else { "" }
 ### Recipes
 ## general
 
+fmt:
+    find . -name '*.go' -exec gci write {} \;
+
 test: test-agent test-server test-server-datastore test-cli test-lib
 
 test-agent:
     go test -race -cover -coverprofile agent-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/agent github.com/crowci/crow/v3/agent/...
 
 test-server:
-    go test -race -cover -coverprofile server-coverage.out -timeout 60s -tags 'test {{TAGS}}' github.com/crowci/crow/v3/cmd/server `go list github.com/crowci/crow/v3/server/... | grep -v '/store'`
+    go test -race -cover -coverprofile server-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/server `go list github.com/crowci/crow/v3/server/... | grep -v '/store'`
 
 test-cli:
     go test -race -cover -coverprofile cli-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/cli github.com/crowci/crow/v3/cli/...
@@ -76,6 +79,9 @@ cherry-pick COMMIT:
     git fetch crow && git cherry-pick {{ COMMIT }}
 
 ## build
+
+lint:
+  golangci-lint run
 
 [working-directory('web')]
 build-ui:

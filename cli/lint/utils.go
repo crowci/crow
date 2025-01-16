@@ -5,9 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	term_env "github.com/muesli/termenv"
-
 	pipeline_errors "github.com/crowci/crow/v3/pipeline/errors"
+	term_env "github.com/muesli/termenv"
 )
 
 func FormatLintError(file string, err error, strict bool) (string, error) {

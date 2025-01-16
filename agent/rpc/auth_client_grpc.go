@@ -18,9 +18,8 @@ import (
 	"context"
 	"time"
 
-	"google.golang.org/grpc"
-
 	"github.com/crowci/crow/v3/pipeline/rpc/proto"
+	"google.golang.org/grpc"
 )
 
 const authClientTimeout = time.Second * 5

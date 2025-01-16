@@ -17,9 +17,8 @@ package common_test
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-
 	"github.com/crowci/crow/v3/server/forge/common"
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_Netrc(t *testing.T) {

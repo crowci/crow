@@ -20,10 +20,9 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/crowci/crow/v3/server/store/types"
 	"golang.org/x/crypto/bcrypt"
 	"golang.org/x/crypto/sha3"
-
-	"github.com/crowci/crow/v3/server/store/types"
 )
 
 func (svc *aesEncryptionService) loadCipher(password string) error {

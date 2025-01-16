@@ -18,10 +18,9 @@ package github
 import (
 	"testing"
 
+	"github.com/crowci/crow/v3/server/model"
 	"github.com/google/go-github/v68/github"
 	"github.com/stretchr/testify/assert"
-
-	"github.com/crowci/crow/v3/server/model"
 )
 
 func Test_convertStatus(t *testing.T) {

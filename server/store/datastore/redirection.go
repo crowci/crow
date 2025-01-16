@@ -15,10 +15,9 @@
 package datastore
 
 import (
+	"github.com/crowci/crow/v3/server/model"
 	"xorm.io/builder"
 	"xorm.io/xorm"
-
-	"github.com/crowci/crow/v3/server/model"
 )
 
 func (s storage) getRedirection(e *xorm.Session, fullName string) (*model.Redirection, error) {

@@ -19,11 +19,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
-	"golang.org/x/oauth2"
-
 	"github.com/crowci/crow/v3/server/forge/bitbucket/internal"
 	"github.com/crowci/crow/v3/server/model"
+	"github.com/stretchr/testify/assert"
+	"golang.org/x/oauth2"
 )
 
 func Test_convertStatus(t *testing.T) {

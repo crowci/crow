@@ -19,11 +19,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gin-gonic/gin"
-	"github.com/stretchr/testify/assert"
-
 	"github.com/crowci/crow/v3/server/forge/bitbucketdatacenter/fixtures"
 	"github.com/crowci/crow/v3/server/model"
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNew(t *testing.T) {

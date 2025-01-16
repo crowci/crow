@@ -19,10 +19,9 @@ import (
 	"encoding/pem"
 	"net/http"
 
+	"github.com/crowci/crow/v3/server"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
-
-	"github.com/crowci/crow/v3/server"
 )
 
 // GetSignaturePublicKey

@@ -18,9 +18,8 @@ import (
 	"fmt"
 	"strings"
 
-	"xorm.io/xorm"
-
 	"github.com/crowci/crow/v3/server/model"
+	"xorm.io/xorm"
 )
 
 func (s storage) OrgCreate(org *model.Org) error {

@@ -15,9 +15,8 @@
 package datastore
 
 import (
-	"xorm.io/builder"
-
 	"github.com/crowci/crow/v3/server/model"
+	"xorm.io/builder"
 )
 
 var feedItemSelect = `repos.id as repo_id,

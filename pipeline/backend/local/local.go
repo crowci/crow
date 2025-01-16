@@ -26,12 +26,11 @@ import (
 	"slices"
 	"sync"
 
+	"github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
 	"golang.org/x/text/encoding/unicode"
 	"golang.org/x/text/transform"
-
-	"github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 type workflowState struct {

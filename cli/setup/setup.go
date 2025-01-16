@@ -5,11 +5,10 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/rs/zerolog/log"
-	"github.com/urfave/cli/v3"
-
 	"github.com/crowci/crow/v3/cli/internal/config"
 	"github.com/crowci/crow/v3/cli/setup/ui"
+	"github.com/rs/zerolog/log"
+	"github.com/urfave/cli/v3"
 )
 
 // Command exports the setup command.

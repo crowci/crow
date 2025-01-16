@@ -18,9 +18,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-
 	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSetDroneEnvironOnPull(t *testing.T) {

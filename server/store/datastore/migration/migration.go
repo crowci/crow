@@ -19,10 +19,9 @@ import (
 	"fmt"
 	"reflect"
 
+	"github.com/crowci/crow/v3/server/model"
 	"src.techknowlogick.com/xormigrate"
 	"xorm.io/xorm"
-
-	"github.com/crowci/crow/v3/server/model"
 )
 
 // APPEND NEW MIGRATIONS

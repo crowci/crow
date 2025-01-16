@@ -12,9 +12,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/rs/zerolog/log"
-
 	"github.com/crowci/crow/v3/version"
+	"github.com/rs/zerolog/log"
 )
 
 func CheckForUpdate(ctx context.Context, force bool) (*NewVersion, error) {

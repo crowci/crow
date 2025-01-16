@@ -20,6 +20,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/utils"
 	"github.com/distribution/reference"
 	config_file "github.com/docker/cli/cli/config/configfile"
 	config_file_types "github.com/docker/cli/cli/config/types"
@@ -27,9 +29,6 @@ import (
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	meta_v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-
-	"github.com/crowci/crow/v3/pipeline/backend/types"
-	"github.com/crowci/crow/v3/pipeline/frontend/yaml/utils"
 )
 
 type nativeSecretsProcessor struct {

@@ -15,9 +15,8 @@
 package datastore
 
 import (
-	"xorm.io/builder"
-
 	"github.com/crowci/crow/v3/server/model"
+	"xorm.io/builder"
 )
 
 const orderRegistriesBy = "id"

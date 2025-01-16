@@ -17,9 +17,8 @@ package badges
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-
 	"github.com/crowci/crow/v3/server/model"
+	"github.com/stretchr/testify/assert"
 )
 
 // Generate an SVG badge based on a pipeline.

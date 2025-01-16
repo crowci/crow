@@ -21,11 +21,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/rs/zerolog/log"
-	"github.com/urfave/cli/v3"
-
 	"github.com/crowci/crow/v3/agent"
 	"github.com/crowci/crow/v3/version"
+	"github.com/rs/zerolog/log"
+	"github.com/urfave/cli/v3"
 )
 
 // The file implements some basic healthcheck logic based on the
