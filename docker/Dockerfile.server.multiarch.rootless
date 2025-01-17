@@ -1,9 +1,9 @@
 FROM --platform=$BUILDPLATFORM docker.io/golang:1.23-alpine3.21 AS build
 
-RUN groupadd -g 1000 crow && \
-  useradd -u 1000 -g 1000 crow && \
-  mkdir -p /var/lib/woodpecker && \
-  chown -R crow:crow /var/lib/woodpecker
+RUN addgroup -g 1000 -S crow && \
+  adduser -u 1000 -G crow -S crow && \
+  mkdir -p /etc/crow && \
+  chown -R crow:crow /etc/crow
 
 FROM scratch
 ARG TARGETOS TARGETARCH
