@@ -5,15 +5,17 @@ COPY . .
 ARG TARGETOS TARGETARCH CI_COMMIT_SHA CI_COMMIT_TAG CI_COMMIT_BRANCH
 RUN apk add --no-cache -q just git
 RUN --mount=type=cache,target=/root/.cache/go-build \
-    --mount=type=cache,target=/go/pkg \
-    just build-agent
+  --mount=type=cache,target=/go/pkg \
+  just build-agent
 
 FROM docker.io/alpine:3.21
 
 RUN apk add -U --no-cache ca-certificates && \
-  adduser -u 1000 -g 1000 crow -D && \
+  addgroup -g 1000 -S crow && \
+  adduser -u 1000 -G crow -S crow && \
   mkdir -p /etc/crow && \
-  chown -R crow:crow /etc/crow
+  ln -s /etc/crow /etc/woodpecker && \
+  chown -R crow:crow /etc/crow /etc/woodpecker
 
 ENV GODEBUG=netdns=go
 # Internal setting do NOT change! Signals that crow is running inside a container
