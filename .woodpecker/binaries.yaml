@@ -35,7 +35,7 @@ steps:
     pull: true
     commands:
       - apt update
-      - apt install -y -q tree
+      - apt install -y tree
       # install just FIXME: 'apt install -y just' from Debian >= 13
       - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
       - just cross-compile-server
@@ -50,8 +50,7 @@ steps:
       - build-ui
     image: *golang_image
     commands:
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just
       - just build-tarball
 
   build-agent:
@@ -61,8 +60,7 @@ steps:
     commands:
       - apt update
       - apt install -y zip
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just
       - just release-agent
 
   build-cli:
@@ -72,8 +70,7 @@ steps:
     commands:
       - apt update
       - apt install -y zip
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just
       - just release-cli
 
   checksums:
@@ -84,8 +81,7 @@ steps:
       - build-tarball
     image: *golang_image
     commands:
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just
       - just release-checksums
 
   release-dryrun:
