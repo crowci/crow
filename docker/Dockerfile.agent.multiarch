@@ -5,7 +5,7 @@ RUN addgroup -g 1000 -S crow && \
   mkdir -p /etc/crow && \
   chown -R crow:crow /etc/crow
 
-RUN apk add --no-cache -q just
+RUN apk add --no-cache -q just git
 
 WORKDIR /src
 COPY . .

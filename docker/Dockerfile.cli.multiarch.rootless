@@ -3,7 +3,7 @@ FROM --platform=$BUILDPLATFORM docker.io/golang:1.23-alpine3.21 AS build
 WORKDIR /src
 COPY . .
 ARG TARGETOS TARGETARCH CI_COMMIT_SHA CI_COMMIT_TAG CI_COMMIT_BRANCH
-RUN apk add --no-cache -q just
+RUN apk add --no-cache -q just git
 RUN --mount=type=cache,target=/root/.cache/go-build \
     --mount=type=cache,target=/go/pkg \
     just build-cli
