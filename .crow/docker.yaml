@@ -2,7 +2,8 @@ variables:
   - &golang_image 'docker.io/golang:1.23'
   - &node_image 'docker.io/node:23-alpine'
   - &xgo_image 'docker.io/techknowlogick/xgo:go-1.23.x'
-  - &buildx_plugin 'docker.io/woodpeckerci/plugin-docker-buildx:5.1.0'
+  # - &buildx_plugin 'docker.io/woodpeckerci/plugin-docker-buildx:5.1.0'
+  - &buildx_plugin 'docker.io/pats22/plugin-docker-buildx:test'
   - &platforms_release 'linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/386,linux/amd64,linux/ppc64le,linux/riscv64,linux/s390x,freebsd/arm64,freebsd/amd64,openbsd/arm64,openbsd/amd64'
   - &platforms_server 'linux/arm/v7,linux/arm64/v8,linux/amd64,linux/ppc64le,linux/riscv64'
   - &platforms_pr 'linux/amd64'
@@ -133,6 +134,7 @@ steps:
       dockerfile: docker/Dockerfile.server.multiarch.rootless
       platforms: *platforms_pr
       tag: pull_${CI_COMMIT_PULL_REQUEST}
+      logins: *publish_logins
     when: &when-dryrun
       - evaluate: 'not (CI_COMMIT_PULL_REQUEST_LABELS contains "build_pr_images")'
         event: pull_request
@@ -209,6 +211,7 @@ steps:
     depends_on:
       - vendor
     image: *buildx_plugin
+    pull: true
     settings:
       dry_run: true
       repo: crowci/crow-agent
@@ -216,6 +219,7 @@ steps:
       platforms: *platforms_pr
       tag: pull_${CI_COMMIT_PULL_REQUEST}
       build_args: *build_args
+      logins: *publish_logins
     when: *when-dryrun
 
   publish-agent-[dev]:
@@ -286,6 +290,7 @@ steps:
       platforms: *platforms_pr
       tag: pull_${CI_COMMIT_PULL_REQUEST}
       build_args: *build_args
+      logins: *publish_logins
     when: *when-dryrun
 
   publish-cli-[dev]:
