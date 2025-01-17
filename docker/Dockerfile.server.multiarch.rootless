@@ -1,9 +1,10 @@
-FROM --platform=$BUILDPLATFORM docker.io/golang:1.23 AS build
+FROM --platform=$BUILDPLATFORM docker.io/golang:1.23-alpine3.21 AS build
 
-RUN groupadd -g 1000 crow && \
-  useradd -u 1000 -g 1000 crow && \
-  mkdir -p /var/lib/woodpecker && \
-  chown -R crow:crow /var/lib/woodpecker
+RUN addgroup -g 1000 -S crow && \
+  adduser -u 1000 -G crow -S crow && \
+  mkdir -p /var/lib/crow && \
+  ln -s /var/lib/crow /var/lib/woodpecker && \
+  chown -R crow:crow /var/lib/crow /var/lib/woodpecker
 
 FROM scratch
 ARG TARGETOS TARGETARCH
@@ -20,7 +21,7 @@ COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certifica
 COPY dist/server/${TARGETOS}_${TARGETARCH}/crow-server /bin/
 COPY --from=build /etc/passwd /etc/passwd
 COPY --from=build /etc/group /etc/group
-COPY --from=build /var/lib/woodpecker /var/lib/woodpecker
+COPY --from=build /var/lib/crow /var/lib/crow
 
 USER crow
 

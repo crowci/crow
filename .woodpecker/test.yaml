@@ -1,5 +1,5 @@
 variables:
-  - &golang_image 'docker.io/golang:1.23'
+  - &golang_image 'docker.io/golang:1.23-alpine'
   - &when
     - path: &when_path # related config files
         - '.woodpecker/test.yaml'
@@ -55,8 +55,7 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just git
       - just lint
     when: *when
 
@@ -65,8 +64,7 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just git
       - 'just generate-openapi'
       - 'DIFF=$(git diff | head)'
       - '[ -n "$DIFF" ] && { echo "openapi not up to date, exec `just generate-openapi` and commit"; exit 1; } || true'
@@ -84,8 +82,7 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just git gcc musl-dev
       - just test-agent
       - just test-server
       - just test-cli
@@ -100,8 +97,7 @@ steps:
     environment:
       WOODPECKER_DATABASE_DRIVER: sqlite3
     commands:
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just git gcc musl-dev
       - just test-server-datastore-coverage
     when:
       - path: *when_path
@@ -114,8 +110,7 @@ steps:
       WOODPECKER_DATABASE_DRIVER: postgres
       WOODPECKER_DATABASE_DATASOURCE: 'host=postgres user=postgres dbname=postgres sslmode=disable' # cspell:disable-line
     commands:
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just git gcc musl-dev
       - just test-server-datastore
     when: *when
 
@@ -127,8 +122,7 @@ steps:
       WOODPECKER_DATABASE_DRIVER: mysql
       WOODPECKER_DATABASE_DATASOURCE: root@tcp(mysql:3306)/test?parseTime=true
     commands:
-      # install just FIXME: 'apt install -y just' from Debian >= 13
-      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - apk add --no-cache -q just git gcc musl-dev
       - just test-server-datastore
     when: *when
 
