@@ -18,7 +18,9 @@
 package datastore
 
 import (
+	// Import MySQL driver for database/sql
 	_ "github.com/go-sql-driver/mysql"
+	// Import PostgreSQL driver for database/sql
 	_ "github.com/lib/pq"
 )
 
