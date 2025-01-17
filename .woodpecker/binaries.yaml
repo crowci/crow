@@ -77,7 +77,7 @@ steps:
       - build-tarball
     image: *golang_image
     commands:
-      - apk add --no-cache -q just
+      - apk add --no-cache -q just git
       - just release-checksums
 
   release-dryrun:
