@@ -55,7 +55,9 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      - make lint
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just lint
     when: *when
 
   check-openapi:
@@ -63,9 +65,11 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      - 'make generate-openapi'
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - 'just generate-openapi'
       - 'DIFF=$(git diff | head)'
-      - '[ -n "$DIFF" ] && { echo "openapi not up to date, exec `make generate-openapi` and commit"; exit 1; } || true'
+      - '[ -n "$DIFF" ] && { echo "openapi not up to date, exec `just generate-openapi` and commit"; exit 1; } || true'
     when: *when
 
   lint-license-header:
@@ -80,10 +84,12 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      - make test-agent
-      - make test-server
-      - make test-cli
-      - make test-lib
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just test-agent
+      - just test-server
+      - just test-cli
+      - just test-lib
     when:
       - path: *when_path
 
@@ -94,7 +100,9 @@ steps:
     environment:
       WOODPECKER_DATABASE_DRIVER: sqlite3
     commands:
-      - make test-server-datastore-coverage
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just test-server-datastore-coverage
     when:
       - path: *when_path
 
@@ -106,7 +114,9 @@ steps:
       WOODPECKER_DATABASE_DRIVER: postgres
       WOODPECKER_DATABASE_DATASOURCE: 'host=postgres user=postgres dbname=postgres sslmode=disable' # cspell:disable-line
     commands:
-      - make test-server-datastore
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just test-server-datastore
     when: *when
 
   mysql:
@@ -117,7 +127,9 @@ steps:
       WOODPECKER_DATABASE_DRIVER: mysql
       WOODPECKER_DATABASE_DATASOURCE: root@tcp(mysql:3306)/test?parseTime=true
     commands:
-      - make test-server-datastore
+      # install just FIXME: 'apt install -y just' from Debian >= 13
+      - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+      - just test-server-datastore
     when: *when
 
 services:

@@ -31,6 +31,20 @@ fmt:
 
 test: test-agent test-server test-server-datastore test-cli test-lib
 
+generate-openapi: install-tools
+    go run github.com/swaggo/swag/cmd/swag fmt
+    CGO_ENABLED=0 go generate cmd/server/openapi.go
+
+install-tools:
+    @hash golangci-lint > /dev/null 2>&1 || go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+    @hash gofumpt > /dev/null 2>&1 || go install mvdan.cc/gofumpt@latest
+    @hash addlicense > /dev/null 2>&1 || go install github.com/google/addlicense@latest
+    @hash mockery > /dev/null 2>&1 || go install github.com/vektra/mockery/v2@latest
+    @hash protoc-gen-go > /dev/null 2>&1 || go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+    @hash protoc-gen-go-grpc > /dev/null 2>&1 || go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+
+## test
+
 test-agent:
     go test -race -cover -coverprofile agent-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/agent github.com/crowci/crow/v3/agent/...
 
@@ -80,8 +94,8 @@ cherry-pick COMMIT:
 
 ## build
 
-lint:
-  golangci-lint run
+lint: install-tools
+    golangci-lint run
 
 [working-directory('web')]
 build-ui:
