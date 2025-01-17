@@ -1,13 +1,12 @@
-FROM --platform=$BUILDPLATFORM docker.io/golang:1.23 AS build
+FROM --platform=$BUILDPLATFORM docker.io/golang:1.23-alpine3.21 AS build
 
-RUN groupadd -g 1000 crow && \
-  useradd -u 1000 -g 1000 crow && \
+RUN addgroup -g 1000 -S crow && \
+  adduser -u 1000 -G crow -S crow && \
   mkdir -p /etc/crow && \
-  chown -R crow:crow /etc/crow
+  ln -s /etc/crow /etc/woodpecker && \
+  chown -R crow:crow /etc/crow /etc/woodpecker
 
-# install just FIXME: 'apt install -y just' from Debian >= 13
-# hadolint ignore=DL4006
-RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/bin/
+RUN apk add --no-cache -q just git
 
 WORKDIR /src
 COPY . .

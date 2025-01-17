@@ -1,6 +1,6 @@
 ### Variables
 
-GO_PACKAGES := `go list ./... | grep -v /vendor/`
+GO_PACKAGES := `go list ./... 2>/dev/null | grep -v /vendor/ || echo ""`
 TARGETOS := `go env GOOS`
 TARGETARCH := `go env GOARCH`
 BIN_SUFFIX := if TARGETOS == "windows" { ".exe" } else { "" }
@@ -46,31 +46,31 @@ install-tools:
 ## test
 
 test-agent:
-    go test -race -cover -coverprofile agent-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/agent github.com/crowci/crow/v3/agent/...
+    CGO_ENABLED=1 go test -race -cover -coverprofile agent-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/agent github.com/crowci/crow/v3/agent/...
 
 test-server:
-    go test -race -cover -coverprofile server-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/server `go list github.com/crowci/crow/v3/server/... | grep -v '/store'`
+    CGO_ENABLED=1 go test -race -cover -coverprofile server-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/server `go list github.com/crowci/crow/v3/server/... | grep -v '/store'`
 
 test-cli:
-    go test -race -cover -coverprofile cli-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/cli github.com/crowci/crow/v3/cli/...
+    CGO_ENABLED=1 go test -race -cover -coverprofile cli-coverage.out -timeout 60s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/cmd/cli github.com/crowci/crow/v3/cli/...
 
 test-server-datastore:
-    go test -timeout 300s -tags 'test {{ TAGS }}' -run TestMigrate github.com/crowci/crow/v3/server/store/...
+    CGO_ENABLED=1 go test -timeout 300s -tags 'test {{ TAGS }}' -run TestMigrate github.com/crowci/crow/v3/server/store/...
     go test -race -timeout 100s -tags 'test {{ TAGS }}' -skip TestMigrate github.com/crowci/crow/v3/server/store/...
 
 test-server-datastore-coverage:
-    go test -race -cover -coverprofile datastore-coverage.out -timeout 300s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/server/store/...
+    CGO_ENABLED=1 go test -race -cover -coverprofile datastore-coverage.out -timeout 300s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/server/store/...
 
-[working-directory('web')]
+# FIXME: feature of 1.38.0 [working-directory('web')]
 test-ui:
-    pnpm install --frozen-lockfile
-    pnpm run lint
-    pnpm run format:check
-    pnpm run typecheck
-    pnpm run test
+    cd web && pnpm install --frozen-lockfile
+    cd web && pnpm run lint
+    cd web && pnpm run format:check
+    cd web && pnpm run typecheck
+    cd web && pnpm run test
 
 test-lib:
-    go test -race -cover -coverprofile coverage.out -timeout 60s -tags 'test {{ TAGS }}' `go list ./... | grep -v '/cmd\|/agent\|/cli\|/server'`
+    CGO_ENABLED=1 go test -race -cover -coverprofile coverage.out -timeout 60s -tags 'test {{ TAGS }}' `go list ./... | grep -v '/cmd\|/agent\|/cli\|/server'`
 
 ## docs
 
@@ -97,10 +97,10 @@ cherry-pick COMMIT:
 lint: install-tools
     golangci-lint run
 
-[working-directory('web')]
+# FIXME: feature of 1.38.0 [working-directory('web')]
 build-ui:
-    pnpm install --frozen-lockfile
-    pnpm build
+    cd web/ && pnpm install --frozen-lockfile
+    cd web/ && pnpm build
 
 build-agent:
     CGO_ENABLED=0 GOOS={{ TARGETOS }} GOARCH={{ TARGETARCH }} go build -tags '{{ TAGS }}' -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/crow-agent{{ BIN_SUFFIX }} github.com/crowci/crow/v3/cmd/agent
