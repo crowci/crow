@@ -82,7 +82,7 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      - apk add --no-cache -q just git gcc
+      - apk add --no-cache -q just git gcc musl-dev
       - just test-agent
       - just test-server
       - just test-cli
@@ -97,7 +97,7 @@ steps:
     environment:
       WOODPECKER_DATABASE_DRIVER: sqlite3
     commands:
-      - apk add --no-cache -q just git gcc
+      - apk add --no-cache -q just git gcc musl-dev
       - just test-server-datastore-coverage
     when:
       - path: *when_path
@@ -110,7 +110,7 @@ steps:
       WOODPECKER_DATABASE_DRIVER: postgres
       WOODPECKER_DATABASE_DATASOURCE: 'host=postgres user=postgres dbname=postgres sslmode=disable' # cspell:disable-line
     commands:
-      - apk add --no-cache -q just git gcc
+      - apk add --no-cache -q just git gcc musl-dev
       - just test-server-datastore
     when: *when
 
@@ -122,7 +122,7 @@ steps:
       WOODPECKER_DATABASE_DRIVER: mysql
       WOODPECKER_DATABASE_DATASOURCE: root@tcp(mysql:3306)/test?parseTime=true
     commands:
-      - apk add --no-cache -q just git gcc
+      - apk add --no-cache -q just git gcc musl-dev
       - just test-server-datastore
     when: *when
 
