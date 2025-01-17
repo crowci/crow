@@ -7,7 +7,7 @@ when:
       - .woodpecker/binaries.yaml
 
 variables:
-  - &golang_image 'docker.io/golang:1.23'
+  - &golang_image 'docker.io/golang:1.23-alpine'
   - &node_image 'docker.io/node:23-alpine'
   - &xgo_image 'docker.io/techknowlogick/xgo:go-1.23.x'
 
@@ -58,9 +58,7 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      - apt update
-      - apt install -y zip
-      - apk add --no-cache -q just
+      - apk add --no-cache -q just zip
       - just release-agent
 
   build-cli:
@@ -68,9 +66,7 @@ steps:
       - vendor
     image: *golang_image
     commands:
-      - apt update
-      - apt install -y zip
-      - apk add --no-cache -q just
+      - apk add --no-cache -q just zip
       - just release-cli
 
   checksums:
