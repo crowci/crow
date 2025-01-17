@@ -61,13 +61,13 @@ test-server-datastore:
 test-server-datastore-coverage:
     go test -race -cover -coverprofile datastore-coverage.out -timeout 300s -tags 'test {{ TAGS }}' github.com/crowci/crow/v3/server/store/...
 
-[working-directory('web')]
+# FIXME: feature of 1.38.0 [working-directory('web')]
 test-ui:
-    pnpm install --frozen-lockfile
-    pnpm run lint
-    pnpm run format:check
-    pnpm run typecheck
-    pnpm run test
+    cd web && pnpm install --frozen-lockfile
+    cd web && pnpm run lint
+    cd web && pnpm run format:check
+    cd web && pnpm run typecheck
+    cd web && pnpm run test
 
 test-lib:
     go test -race -cover -coverprofile coverage.out -timeout 60s -tags 'test {{ TAGS }}' `go list ./... | grep -v '/cmd\|/agent\|/cli\|/server'`
@@ -97,10 +97,10 @@ cherry-pick COMMIT:
 lint: install-tools
     golangci-lint run
 
-[working-directory('web')]
+# FIXME: feature of 1.38.0 [working-directory('web')]
 build-ui:
-    pnpm install --frozen-lockfile
-    pnpm build
+    cd web/ && pnpm install --frozen-lockfile
+    cd web/ && pnpm build
 
 build-agent:
     CGO_ENABLED=0 GOOS={{ TARGETOS }} GOARCH={{ TARGETARCH }} go build -tags '{{ TAGS }}' -ldflags '{{ LDFLAGS }}' -o {{ DIST_DIR }}/crow-agent{{ BIN_SUFFIX }} github.com/crowci/crow/v3/cmd/agent
