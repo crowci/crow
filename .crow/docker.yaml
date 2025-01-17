@@ -146,7 +146,7 @@ steps:
       repo: *publish_repos_server
       dockerfile: docker/Dockerfile.server.multiarch.rootless
       platforms: *platforms_server
-      tag: [next, 'next-${CI_COMMIT_SHA:0:10}']
+      tag: [dev, 'dev-${CI_COMMIT_SHA:0:10}']
       logins: *publish_logins
     when: &when-publish-dev
       event: deployment
@@ -159,7 +159,7 @@ steps:
       repo: *publish_repos_server
       dockerfile: docker/Dockerfile.server.alpine.multiarch.rootless
       platforms: *platforms_alpine
-      tag: [next-alpine, 'next-${CI_COMMIT_SHA:0:10}-alpine']
+      tag: [dev-alpine, 'dev-${CI_COMMIT_SHA:0:10}-alpine']
       logins: *publish_logins
     when: *when-publish-dev
 
@@ -226,7 +226,7 @@ steps:
       repo: *publish_repos_agent
       dockerfile: docker/Dockerfile.agent.multiarch
       platforms: *platforms_release
-      tag: [next, 'next-${CI_COMMIT_SHA:0:10}']
+      tag: [dev, 'dev-${CI_COMMIT_SHA:0:10}']
       logins: *publish_logins
       build_args: *build_args
     when: &when-publish-dev
@@ -240,7 +240,7 @@ steps:
       repo: *publish_repos_agent
       dockerfile: docker/Dockerfile.agent.alpine.multiarch
       platforms: *platforms_alpine
-      tag: [next-alpine, 'next-${CI_COMMIT_SHA:0:10}-alpine']
+      tag: [dev-alpine, 'dev-${CI_COMMIT_SHA:0:10}-alpine']
       logins: *publish_logins
       build_args: *build_args
     when: *when-publish-dev
@@ -296,7 +296,7 @@ steps:
       repo: *publish_repos_cli
       dockerfile: docker/Dockerfile.cli.multiarch.rootless
       platforms: *platforms_release
-      tag: [next, 'next-${CI_COMMIT_SHA:0:10}']
+      tag: [dev, 'dev-${CI_COMMIT_SHA:0:10}']
       logins: *publish_logins
       build_args: *build_args
     when: *when-publish-dev
@@ -309,7 +309,7 @@ steps:
       repo: *publish_repos_cli
       dockerfile: docker/Dockerfile.cli.alpine.multiarch.rootless
       platforms: *platforms_alpine
-      tag: [next-alpine, 'next-${CI_COMMIT_SHA:0:10}-alpine']
+      tag: [dev-alpine, 'dev-${CI_COMMIT_SHA:0:10}-alpine']
       logins: *publish_logins
       build_args: *build_args
     when: *when-publish-dev
