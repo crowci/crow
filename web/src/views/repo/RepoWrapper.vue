@@ -11,10 +11,7 @@
       </span>
     </template>
     <template #headerActions>
-      <!-- <a v-if="badgeUrl" :href="badgeUrl" target="_blank">
-        <img class="w-28" :src="badgeUrl" />
-      </a> -->
-      <IconButton :href="repo.forge_url" :title="$t('repo.open_in_forge')" :icon="forgeIcon" class="w-8 h-8 forge" />
+      <IconButton :href="repo.forge_url" :title="$t('repo.open_in_forge')" :icon="forgeIcon" class="forge h-8 w-8" />
       <IconButton
         v-if="repoPermissions.admin"
         :to="{ name: 'repo-settings' }"
@@ -64,7 +61,6 @@ import Scaffold from '~/components/layout/scaffold/Scaffold.vue';
 import Tab from '~/components/layout/scaffold/Tab.vue';
 import useApiClient from '~/compositions/useApiClient';
 import useAuthentication from '~/compositions/useAuthentication';
-import useConfig from '~/compositions/useConfig';
 import { useForgeStore } from '~/compositions/useForgeStore';
 import useNotifications from '~/compositions/useNotifications';
 import useRepos from '~/compositions/useRepos';
@@ -86,7 +82,6 @@ const { isAuthenticated } = useAuthentication();
 const route = useRoute();
 const router = useRouter();
 const i18n = useI18n();
-const config = useConfig();
 const forgeStore = useForgeStore();
 const { updateLastAccess } = useRepos();
 
@@ -133,6 +128,4 @@ onMounted(() => {
 watch([repositoryId], () => {
   loadRepo();
 });
-
-const badgeUrl = computed(() => repo.value && `${config.rootPath}/api/badges/${repo.value.id}/status.svg`);
 </script>
