@@ -61,7 +61,6 @@ import Scaffold from '~/components/layout/scaffold/Scaffold.vue';
 import Tab from '~/components/layout/scaffold/Tab.vue';
 import useApiClient from '~/compositions/useApiClient';
 import useAuthentication from '~/compositions/useAuthentication';
-import useConfig from '~/compositions/useConfig';
 import { useForgeStore } from '~/compositions/useForgeStore';
 import useNotifications from '~/compositions/useNotifications';
 import useRepos from '~/compositions/useRepos';
@@ -83,7 +82,6 @@ const { isAuthenticated } = useAuthentication();
 const route = useRoute();
 const router = useRouter();
 const i18n = useI18n();
-const config = useConfig();
 const forgeStore = useForgeStore();
 const { updateLastAccess } = useRepos();
 
