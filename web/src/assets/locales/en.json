@@ -2,7 +2,7 @@
   "cancel": "Cancel",
   "login_with": "Login with {forge}",
   "login": "Login",
-  "welcome": "Welcome to Woodpecker",
+  "welcome": "Welcome to Crow CI",
   "repos": "Repos",
   "repositories": "Repositories",
   "docs": "Docs",
@@ -79,7 +79,7 @@
       },
       "internal": {
         "internal": "Internal",
-        "desc": "Only authenticated users of the Woodpecker instance can see this project."
+        "desc": "Only authenticated users of the Crow CI instance can see this project."
       }
     },
     "settings": {
@@ -261,7 +261,7 @@
         "metadata_download_successful": "Metadata downloaded successfully",
         "no_permission": "You are not allowed to access the debug information",
         "metadata_exec_title": "Rerun pipeline locally",
-        "metadata_exec_desc": "Download this pipeline's metadata to run it locally. This allows you to troubleshoot issues and test changes before committing them. `woodpecker-cli` matching the Woodpecker Server version must be installed locally."
+        "metadata_exec_desc": "Download this pipeline's metadata to run it locally. This allows you to troubleshoot issues and test changes before committing them. `woodpecker-cli` matching the Crow CI Server version must be installed locally."
       }
     }
   },
@@ -484,8 +484,8 @@
   },
   "default": "default",
   "info": "Info",
-  "running_version": "You are running Woodpecker {0}",
-  "update_woodpecker": "Please update your Woodpecker instance to {0}",
+  "running_version": "You are running Crow CI {0}",
+  "update_crow": "Please update your Crow CI instance to {0}",
   "global_level_secret": "global secret",
   "org_level_secret": "organization secret",
   "login_to_cli": "Login to CLI",

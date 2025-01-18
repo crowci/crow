@@ -505,7 +505,7 @@
         "internal_error": "Ocorreu um erro interno",
         "access_denied": "Você não tem permissão para fazer login"
     },
-    "update_woodpecker": "Atualize sua instância do Woodpecker para {0}",
+    "update_crow": "Atualize sua instância do Woodpecker para {0}",
     "default": "padrão",
     "info": "Info",
     "running_version": "Você está executando Woodpecker {0}",

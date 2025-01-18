@@ -1,7 +1,7 @@
 <template>
   <div class="m-auto flex flex-col gap-4">
     <div class="text-center text-wp-text-100">
-      <WoodpeckerLogo preserveAspectRatio="xMinYMin slice" class="m-auto mb-8 w-32" />
+      <CrowLogo preserveAspectRatio="xMinYMin slice" class="m-auto mb-8 w-32" />
       <template v-if="state === 'confirm'">
         <h1 class="text-4xl font-bold">{{ $t('login_to_cli') }}</h1>
         <p class="text-2xl">{{ $t('login_to_cli_description') }}</p>
@@ -32,7 +32,7 @@ import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 
-import WoodpeckerLogo from '~/assets/logo.svg?component';
+import CrowLogo from '~/assets/logo.svg?component';
 import Button from '~/components/atomic/Button.vue';
 import useApiClient from '~/compositions/useApiClient';
 

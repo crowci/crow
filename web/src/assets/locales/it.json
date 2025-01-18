@@ -503,7 +503,7 @@
     },
     "default": "predefinito",
     "info": "Dettagli",
-    "update_woodpecker": "Aggiorna la tua istanza Woodpecker a {0}",
+    "update_crow": "Aggiorna la tua istanza Woodpecker a {0}",
     "global_level_secret": "segreto globale",
     "org_level_secret": "segreto organizzazione",
     "login_to_cli": "Accedi alla CLI",

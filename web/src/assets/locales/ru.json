@@ -521,7 +521,7 @@
         "just_now": "только что"
     },
     "unknown_error": "Произошла неизвестная ошибка",
-    "update_woodpecker": "Пожалуйста, обновите свой экземпляр Woodpecker до {0}",
+    "update_crow": "Пожалуйста, обновите свой экземпляр Woodpecker до {0}",
     "url": "URL",
     "user": {
         "access_denied": "У вас нет прав для входа в систему",

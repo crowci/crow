@@ -1,9 +1,9 @@
 <template>
-  <WoodpeckerIcon class="woodpecker h-15" />
+  <CrowIcon class="crow h-15" />
 </template>
 
 <script lang="ts" setup>
-import WoodpeckerIcon from '~/assets/woodpecker.svg?component';
+import CrowIcon from '~/assets/crow.svg?component';
 </script>
 
 <style scoped>
@@ -25,7 +25,7 @@ import WoodpeckerIcon from '~/assets/woodpecker.svg?component';
   }
 }
 
-.woodpecker ::v-deep(path) {
+.crow ::v-deep(path) {
   animation: peck 1s ease infinite;
   @apply fill-wp-text-100;
 }
