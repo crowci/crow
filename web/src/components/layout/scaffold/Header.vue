@@ -43,7 +43,7 @@
 
       <div v-if="enableTabs" class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:py-0">
         <Tabs class="order-2 md:order-none" />
-        <div v-if="$slots.headerActions" class="flex flex-wrap content-start md:justify-end pb-2">
+        <div v-if="$slots.headerActions" class="flex flex-wrap content-start pb-2 md:justify-end">
           <slot name="tabActions" />
         </div>
       </div>
