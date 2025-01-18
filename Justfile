@@ -102,6 +102,10 @@ lint-ui:
     pnpm lint --quiet
 
 # FIXME: feature of 1.38.0 [working-directory('web')]
+lint-ui:
+    cd web/ && pnpm lint --quiet
+
+# FIXME: feature of 1.38.0 [working-directory('web')]
 build-ui:
     cd web/ && pnpm install --frozen-lockfile
     cd web/ && pnpm build
