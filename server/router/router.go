@@ -28,7 +28,7 @@ import (
 	"github.com/crowci/crow/v3/server/web"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
-	openapi_files "github.com/swaggo/files"
+	openapi_files "github.com/swaggo/files/v2"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
