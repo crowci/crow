@@ -1,8 +1,6 @@
 extends: default
 
 ignore-from-file:
-  - docs_old/.gitignore
-  - docs_old/plugins/woodpecker-plugins/.gitignore
   - .gitignore
   - server/store/datastore/migration/test-files/.gitignore
   - web/.gitignore
