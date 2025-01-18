@@ -4,14 +4,14 @@
   >
     <div class="flex items-center space-x-2">
       <router-link :to="{ name: 'home' }" class="-my-2 flex flex-col px-2">
-        <WoodpeckerLogo class="h-8 w-8" />
-        <span class="text-xs" :title="version?.current">{{ version?.currentShort }}</span>
+        <CrowLogo class="h-8 w-8" />
+        <span class="text-center text-xs" :title="version?.current">{{ version?.currentShort }}</span>
       </router-link>
       <router-link v-if="user" :to="{ name: 'repos' }" class="navbar-clickable navbar-link">
         <span class="flex md:hidden">{{ $t('repos') }}</span>
         <span class="hidden md:flex">{{ $t('repositories') }}</span>
       </router-link>
-      <a href="https://woodpecker-ci.org/" target="_blank" class="navbar-clickable navbar-link hidden md:flex">{{
+      <a href="https://crowci.dev/" target="_blank" class="navbar-clickable navbar-link hidden md:flex">{{
         $t('docs')
       }}</a>
       <a v-if="enableSwagger" :href="apiUrl" target="_blank" class="navbar-clickable navbar-link hidden md:flex">{{
@@ -41,7 +41,7 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router';
 
-import WoodpeckerLogo from '~/assets/logo.svg?component';
+import CrowLogo from '~/assets/logo.svg?component';
 import Button from '~/components/atomic/Button.vue';
 import Icon from '~/components/atomic/Icon.vue';
 import IconButton from '~/components/atomic/IconButton.vue';

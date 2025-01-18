@@ -452,7 +452,7 @@
         "weeks_short": "m"
     },
     "unknown_error": "Terjadi sebuah kesalahan yang tidak diketahui",
-    "update_woodpecker": "Mohon tingkatkan server Woodpecker Anda ke {0}",
+    "update_crow": "Mohon tingkatkan server Woodpecker Anda ke {0}",
     "url": "URL",
     "user": {
         "access_denied": "Anda tidak diperbolehkan untuk masuk",

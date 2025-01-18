@@ -103,7 +103,7 @@ const agent = computed({
   set: (value) => emit('update:modelValue', value),
 });
 
-const baseDocsUrl = 'https://woodpecker-ci.org/docs/next/administration/backends/';
+const baseDocsUrl = 'https://crowci.dev/configuration/server/#backend';
 
 const backendDocsUrl = computed(() => {
   let backendUrlSuffix = agent.value.backend?.toLowerCase();

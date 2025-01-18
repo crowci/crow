@@ -298,7 +298,7 @@ func run(ctx context.Context, c *cli.Command, backends []types.Backend) error {
 	}
 
 	log.Info().Msgf(
-		"starting Woodpecker agent with version '%s' and backend '%s' using platform '%s' running up to %d pipelines in parallel",
+		"starting Crow agent with version '%s' and backend '%s' using platform '%s' running up to %d pipelines in parallel",
 		version.String(), backendEngine.Name(), engInfo.Platform, maxWorkflows)
 
 	return serviceWaitingGroup.Wait()

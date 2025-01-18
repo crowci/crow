@@ -62,7 +62,7 @@ const usageWithCurl = computed(() => {
 
 const usageWithCli = `# woodpecker setup --server ${address}`;
 
-const cliDownload = 'https://github.com/woodpecker-ci/woodpecker/releases';
+const cliDownload = 'https://github.com/crowci/crow/releases';
 
 const resetToken = async () => {
   token.value = await apiClient.resetToken();

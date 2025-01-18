@@ -452,7 +452,7 @@
         "weeks_short": "w"
     },
     "unknown_error": "Se ha producido un error desconocido",
-    "update_woodpecker": "Por favor, actualice su instancia de Woodpecker a {0}",
+    "update_crow": "Por favor, actualice su instancia de Woodpecker a {0}",
     "url": "URL",
     "user": {
         "access_denied": "No puede iniciar sesión",

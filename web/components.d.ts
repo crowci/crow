@@ -94,7 +94,6 @@ declare module 'vue' {
     PipelineItem: typeof import('./src/components/repo/pipeline/PipelineItem.vue')['default']
     PipelineList: typeof import('./src/components/repo/pipeline/PipelineList.vue')['default']
     PipelineLog: typeof import('./src/components/repo/pipeline/PipelineLog.vue')['default']
-    PipelineRunningIcon: typeof import('./src/components/repo/pipeline/PipelineRunningIcon.vue')['default']
     PipelineStatusIcon: typeof import('./src/components/repo/pipeline/PipelineStatusIcon.vue')['default']
     PipelineStepDuration: typeof import('./src/components/repo/pipeline/PipelineStepDuration.vue')['default']
     PipelineStepList: typeof import('./src/components/repo/pipeline/PipelineStepList.vue')['default']

@@ -41,7 +41,7 @@ interface PaginationOptions {
   perPage?: number;
 }
 
-export default class WoodpeckerClient extends ApiClient {
+export default class CrowClient extends ApiClient {
   async getRepoList(opts?: RepoListOptions): Promise<Repo[]> {
     const query = encodeQueryString(opts);
     return this._get(`/api/user/repos?${query}`) as Promise<Repo[]>;

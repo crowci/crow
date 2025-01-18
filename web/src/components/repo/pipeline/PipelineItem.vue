@@ -12,8 +12,7 @@
         }"
       />
       <div class="flex h-full w-6 flex-wrap items-center justify-between">
-        <PipelineRunningIcon v-if="pipeline.status === 'started' || pipeline.status === 'running'" />
-        <PipelineStatusIcon v-else class="mx-2 md:mx-3" :status="pipeline.status" />
+        <PipelineStatusIcon class="mx-2 md:mx-3" :status="pipeline.status" />
       </div>
     </div>
 
@@ -78,7 +77,6 @@ import { useI18n } from 'vue-i18n';
 import Icon from '~/components/atomic/Icon.vue';
 import ListItem from '~/components/atomic/ListItem.vue';
 import { pipelineStatusColors } from '~/components/repo/pipeline/pipeline-status';
-import PipelineRunningIcon from '~/components/repo/pipeline/PipelineRunningIcon.vue';
 import PipelineStatusIcon from '~/components/repo/pipeline/PipelineStatusIcon.vue';
 import usePipeline from '~/compositions/usePipeline';
 import type { Pipeline } from '~/lib/api/types';

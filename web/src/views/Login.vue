@@ -17,7 +17,7 @@
       class="flex min-h-sm w-full flex-col overflow-hidden border border-wp-background-400 bg-wp-background-100 shadow dark:bg-wp-background-200 md:m-8 md:w-3xl md:flex-row md:rounded-md"
     >
       <div class="flex min-h-48 items-center justify-center bg-wp-primary-200 dark:bg-wp-primary-300 md:w-3/5">
-        <WoodpeckerLogo preserveAspectRatio="xMinYMin slice" class="h-32 w-32 md:h-48 md:w-48" />
+        <CrowLogo preserveAspectRatio="xMinYMin slice" class="h-32 w-auto md:h-48" />
       </div>
       <div class="flex min-h-48 flex-col items-center justify-center gap-4 p-4 text-center md:w-2/5">
         <h1 class="text-xl text-wp-text-100">{{ $t('welcome') }}</h1>
@@ -42,7 +42,7 @@ import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute, useRouter } from 'vue-router';
 
-import WoodpeckerLogo from '~/assets/logo.svg?component';
+import CrowLogo from '~/assets/logo.svg?component';
 import Button from '~/components/atomic/Button.vue';
 import Error from '~/components/atomic/Error.vue';
 import useApiClient from '~/compositions/useApiClient';

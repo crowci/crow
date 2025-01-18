@@ -21,7 +21,7 @@ const version = ref<{
 
 async function fetchVersion(): Promise<VersionInfo | undefined> {
   try {
-    const resp = await fetch('https://woodpecker-ci.org/version.json');
+    const resp = await fetch('https://crowci.dev/version.json');
     const json = (await resp.json()) as VersionInfo;
     return json;
   } catch (error) {

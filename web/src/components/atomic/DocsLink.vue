@@ -21,5 +21,5 @@ const props = defineProps<{
 
 const url = toRef(props, 'url');
 const topic = toRef(props, 'topic');
-const docsUrl = computed(() => (url.value.startsWith('http') ? url.value : `https://woodpecker-ci.org/${url.value}`));
+const docsUrl = computed(() => (url.value.startsWith('http') ? url.value : `https://crowci.dev/${url.value}`));
 </script>

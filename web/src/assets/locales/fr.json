@@ -504,7 +504,7 @@
         "just_now": "il y a peu de temps"
     },
     "unknown_error": "Une erreur inconnue est survenue",
-    "update_woodpecker": "Merci de mettre à jour votre instance Woodpecker vers la version {0}",
+    "update_crow": "Merci de mettre à jour votre instance Woodpecker vers la version {0}",
     "url": "URL",
     "user": {
         "access_denied": "Vous n'êtes pas autorisé à vous connecter",
