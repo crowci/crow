@@ -1,0 +1,40 @@
+when:
+  - event: tag
+
+clone:
+  git:
+    image: docker.io/woodpeckerci/plugin-git:2.6.0
+    settings:
+      tags: true
+
+depends_on:
+  - docker
+
+steps:
+  changelog:
+    image: docker.io/thegeeklab/git-sv:1.0.9
+    commands:
+      - git sv current-version
+      - git sv release-notes -t ${CI_COMMIT_TAG:-dev} -o CHANGELOG.md
+      - cat CHANGELOG.md
+
+  create_release:
+    image: 'alpine:3.21'
+    environment:
+      GITHUB_TOKEN:
+        from_secret: GITHUB_PKGS_TOKEN
+    commands:
+      - apk add -q --no-cache github-cli
+      - gh release create ${CI_COMMIT_TAG} --title "Crow CI ${CI_COMMIT_TAG}" --notes-file CHANGELOG.md
+    when:
+      event: [tag]
+      branch: ${CI_REPO_DEFAULT_BRANCH}
+    backend_options:
+      kubernetes:
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 100m
+          limits:
+            memory: 300Mi
+            cpu: 1000m
