@@ -22,7 +22,7 @@ steps:
     image: 'alpine:3.21'
     environment:
       GITHUB_TOKEN:
-        from_secret: GITHUB_PKGS_TOKEN
+        from_secret: ISSUE_TOKEN
     commands:
       - apk add -q --no-cache github-cli
       - gh release create ${CI_COMMIT_TAG} --title "Crow CI ${CI_COMMIT_TAG}" --notes-file CHANGELOG.md

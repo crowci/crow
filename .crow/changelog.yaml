@@ -12,7 +12,7 @@ steps:
   - name: 'Upcoming Changelog'
     environment:
       GITHUB_TOKEN:
-        from_secret: GITHUB_PKGS_TOKEN
+        from_secret: ISSUE_TOKEN
     image: docker.io/thegeeklab/git-sv:1.0.9
     commands: |
       apk add -q --no-cache jq github-cli
