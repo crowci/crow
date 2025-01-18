@@ -1,6 +1,8 @@
 clone:
   git:
-    image: docker.io/thegeeklab/wp-git-clone:latest
+    image: docker.io/woodpeckerci/plugin-git:2.6.0
+    settings:
+      tags: true
 
 when:
   event: [push, manual]
