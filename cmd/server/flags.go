@@ -261,7 +261,7 @@ var flags = append([]cli.Flag{
 		Sources: cli.EnvVars("WOODPECKER_STATUS_CONTEXT", "WOODPECKER_GITHUB_CONTEXT", "WOODPECKER_GITEA_CONTEXT"),
 		Name:    "status-context",
 		Usage:   "status context prefix",
-		Value:   "ci/woodpecker",
+		Value:   "ci/crow",
 	},
 	&cli.StringFlag{
 		Sources: cli.EnvVars("WOODPECKER_STATUS_CONTEXT_FORMAT"),
