@@ -1,0 +1,28 @@
+clone:
+  git:
+    image: docker.io/thegeeklab/wp-git-clone:1.0.14
+    settings:
+      tags: true
+
+when:
+  event: [push, manual]
+  branch: ${CI_REPO_DEFAULT_BRANCH}
+
+steps:
+  - name: 'Upcoming Changelog'
+    environment:
+      GITHUB_TOKEN:
+        from_secret: ISSUE_TOKEN
+    image: docker.io/thegeeklab/git-sv:1.0.10
+    commands: |
+      apk add -q --no-cache jq github-cli
+
+      export RELEASE_NOTES=$(git sv rn)
+      echo -e "RELEASE_NOTES: $RELEASE_NOTES"
+      export ISSUE_NUMBER=$(gh issue list --json number --state open --search "Changelog for next version" | jq -r '.[] | .number')
+
+      if [ -z "$ISSUE_NUMBER" ]; then
+        gh issue create --title "Changelog for next version" --body "$RELEASE_NOTES"
+      else
+        gh issue edit $ISSUE_NUMBER --body "$RELEASE_NOTES"
+      fi

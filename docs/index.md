@@ -5,6 +5,7 @@ hide:
 ---
 
 <!-- markdownlint-disable MD041 -->
+
 Crow CI is a _Continuous Integration & Continuous Delivery_ (CI/CD)[^1] application.
 It is designed to be **lightweight**, simple to use and **fast**.
 
@@ -37,7 +38,7 @@ While these can also execute pipelines in containers if desired, they are "host-
 
 Crow in contrast only uses containers and is hence operating-system agnostic, i.e. it does not matter which OS is running on the host which is executing the pipelines.
 
-With respect to well-known CI/CD providers, Crow is mostly comparable to [Circle CI](https://circleci.com/), which is also makeing use of a container-only approach.
+With respect to well-known CI/CD providers, Crow is mostly comparable to [Circle CI](https://circleci.com/), which is also making use of a container-only approach.
 
 ## Target audience
 
