@@ -3,10 +3,11 @@ hide:
   - navigation
   # - toc
 ---
+
 # Introduction
 
 Crow is a *Continuous Integration & Continuous Delivery* (CI/CD)[^1] application.
-It is designed to be lightweight, simple to use and fast. 
+It is designed to be lightweight, simple to use and fast.
 
 A typical CI/CD pipeline usually includes the following steps:
 
@@ -41,7 +42,7 @@ Motivation was built around improving infrastructure-related processes of the pr
 
 Woodpecker itself is a fork of Drone CI (v0.8.91) in April 2019 with the first standalone version being release on September 9th 2019.
 
-### License
+## License
 
 Due to being a fork of Woodpecker and Drone, Crow is licensed under the Apache 2.0 license.
 
@@ -50,3 +51,7 @@ Due to being a fork of Woodpecker and Drone, Crow is licensed under the Apache 2
 [^2]: This is primarily because Crow (still) stores pipeline logs in the DB. A refactoring to storing these outside the DB by default is planned but now yet implemented.
 [^3]: Crow can also be run in public which is successfully shown on Codeberg which uses Woodpecker (which Crow was forked from) as the main CI/CD engine on its platform. Doing so however requires more administration RBAC-work on the admin side (giving permissions, enforcing trusted plugins, caring about secret exposure) than running Crow within a closed private environment.
 <!-- markdownlint-enable -->
+
+## Logo
+
+The logo was designed and kindly contributed by [Bold Crow AI](https://boldcrow.ai/).
