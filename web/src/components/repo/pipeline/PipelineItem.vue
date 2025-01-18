@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="flex min-w-0 flex-grow flex-wrap px-4 py-2 md:flex-nowrap">
+    <div class="flex min-w-0 flex-grow flex-wrap px-4 py-0.5 md:flex-nowrap">
       <div class="hidden flex-shrink-0 items-center md:flex">
         <Icon v-if="pipeline.event === 'cron'" name="stopwatch" class="text-wp-text-100" />
         <img v-else class="w-6 rounded-md" :src="pipeline.author_avatar" />
