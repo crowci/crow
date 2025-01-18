@@ -41,9 +41,9 @@ The token is used to add and remove agents from the server and must be from an a
 Next, the autoscaler configuration must be set.
 You need to define how the scaling should work, i.e. how many servers are allowed to be provisioned and how many (if any) should be running at all times.
 
-Often, allowing only one powerful server is enough, as this one will be able to process many poipelines in parallel (if the chosen instance type has enough resources).
+Often, allowing only one powerful server is enough, as this one will be able to process many pipelines in parallel (if the chosen instance type has enough resources).
 
-Similary, `CROW_WORKFLOWS_PER_AGENT` defines how many workflows can be processed in parallen for each agent (each server has its own unique agent).
+Similar, `CROW_WORKFLOWS_PER_AGENT` defines how many workflows can be processed in parallel for each agent (each server has its own unique agent).
 A good value for this setting depends on the resources of the server and the jobs which run on it, hence it is not possible to give a general recommendation that would fit all use cases.
 
 !!! tip
@@ -81,8 +81,8 @@ To achieve this, two components are required:
 We'll discuss how this can be done further below.
 
 Coming back to the settings which need to be passed to the autoscaler.
-Setting `WOODEPCKER_GRPC_SECURE` is telling the upcoming agent to use SSL for all GRPC-based connections (by default it does not as usually the agent is on the same server as the crow server instance).
-In addition, it needs to know where to connect to, which is why `WOODEPCKER_GRPC_ADDR` is pointing to the public GRPC address of the server instance.
+Setting `CROW_GRPC_SECURE` is telling the upcoming agent to use SSL for all GRPC-based connections (by default it does not as usually the agent is on the same server as the crow server instance).
+In addition, it needs to know where to connect to, which is why `CROW_GRPC_ADDR` is pointing to the public GRPC address of the server instance.
 
 ```yaml hl_lines="13 14"
 [...]
@@ -97,8 +97,8 @@ In addition, it needs to know where to connect to, which is why `WOODEPCKER_GRPC
       - CROW_MIN_AGENTS=0
       - CROW_MAX_AGENTS=1
       - CROW_WORKFLOWS_PER_AGENT=5
-      - WOODEPCKER_GRPC_ADDR=https://grpc.your-crow-server.com # must be a public URL
-      - WOODEPCKER_GRPC_SECURE=true
+      - CROW_GRPC_ADDR=https://grpc.your-crow-server.com # must be a public URL
+      - CROW_GRPC_SECURE=true
 ```
 
 ### Cloud provider configuration
@@ -175,7 +175,7 @@ In this case, the autoscaler will recognize this and shut down the instance to a
 
 Last, there is the option to set arbitrary agent env vars via `CROW_AGENT_ENV`.
 This can be helpful to control logging and other agent-specific settings.
-The values must be passedn as a comma-separated list:
+The values must be passed as a comma-separated list:
 
 ```yaml
 CROW_AGENT_ENV: CROW_HEALTHCHECK=false,CROW_LOG_LEVEL=debug
