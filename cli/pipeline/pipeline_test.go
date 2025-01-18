@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/crowci/crow/v3/cli/common"
-	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
+	"github.com/crowci/crow/v3/crow-go/woodpecker"
 	"github.com/stretchr/testify/assert"
 	"github.com/urfave/cli/v3"
 )

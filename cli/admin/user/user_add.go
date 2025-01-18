@@ -19,7 +19,7 @@ import (
 	"fmt"
 
 	"github.com/crowci/crow/v3/cli/internal"
-	"github.com/crowci/crow/v3/woodpecker-go/woodpecker"
+	"github.com/crowci/crow/v3/crow-go/woodpecker"
 	"github.com/urfave/cli/v3"
 )
 

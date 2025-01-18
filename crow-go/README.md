@@ -1,14 +1,14 @@
-# woodpecker-go
+# crow-go
 
 ```Go
 import (
-  "github.com/crowci/crow/v3/woodpecker-go/woodpecker"
+  "github.com/crowci/crow/v3/crow-go/crow"
   "golang.org/x/oauth2"
 )
 
 const (
   token = "dummyToken"
-  host  = "http://woodpecker.company.tld"
+  host  = "http://crow.company.tld"
 )
 
 func main() {
@@ -21,15 +21,15 @@ func main() {
     },
   )
 
-  // create the woodpecker client with authenticator
-  client := woodpecker.NewClient(host, authenticator)
+  // create the crow client with authenticator
+  client := crow.NewClient(host, authenticator)
 
   // gets the current user
   user, err := client.Self()
   fmt.Println(user, err)
 
   // gets the named repository information
-  repo, err := client.RepoLookup("woodpecker-ci/woodpecker")
+  repo, err := client.RepoLookup("crow-ci/crow")
   fmt.Println(repo, err)
 }
 ```
