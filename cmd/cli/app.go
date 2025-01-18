@@ -32,8 +32,8 @@ import (
 //go:generate go run docs.go app.go
 func newApp() *cli.Command {
 	app := &cli.Command{}
-	app.Name = "woodpecker-cli"
-	app.Description = "Woodpecker command line utility"
+	app.Name = "crow-cli"
+	app.Description = "Crow CI command line utility"
 	app.Version = version.String()
 	app.Usage = "command line utility"
 	app.Flags = common.GlobalFlags

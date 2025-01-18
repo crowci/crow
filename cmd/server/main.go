@@ -35,9 +35,9 @@ func main() {
 	})
 
 	app := cli.Command{}
-	app.Name = "woodpecker-server"
+	app.Name = "crow-server"
 	app.Version = version.String()
-	app.Usage = "woodpecker server"
+	app.Usage = "crow server"
 	app.Action = run
 	app.Commands = []*cli.Command{
 		{
