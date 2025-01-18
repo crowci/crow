@@ -19,7 +19,7 @@ MD004:
 # MD007/ul-indent - Unordered list indentation
 MD007:
   # Spaces for indent
-  indent: 2
+  indent: 4
   # Whether to indent the first level of the list
   start_indented: false
 
@@ -121,7 +121,7 @@ MD036:
 # MD041/first-line-heading/first-line-h1 - First line in a file should be a top-level heading
 MD041:
   # Heading level
-  level: 1
+  level: 2
   # RegExp for matching title in front matter
   front_matter_title: "^\\s*title\\s*[:=]"
 
@@ -133,10 +133,7 @@ MD044:
   code_blocks: false
 
 # MD046/code-block-style - Code block style
-MD046:
-  # Block style
-  style: 'fenced'
-
+MD046: false
 # MD048/code-fence-style - Code fence style
 MD048:
   # Code fence style

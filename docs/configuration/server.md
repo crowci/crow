@@ -20,8 +20,8 @@ Registration is closed by default (`CROW_OPEN=false`).
 If registration is open (`CROW_OPEN=true`) then every user with an account at the configured forge can login and by this register an account.
 
 !!! warning
-    It is highly recommended to restrict login to a specific subset of users, e.g. members of an organization. Otherwise, there is no control about who can register and create repositories to run pipelines. This is also recommended for _private_ Crow instances.
-    Org-based restrictions can be done by setting `CROW_ORGS`:
+It is highly recommended to restrict login to a specific subset of users, e.g. members of an organization. Otherwise, there is no control about who can register and create repositories to run pipelines. This is also recommended for _private_ Crow instances.
+Org-based restrictions can be done by setting `CROW_ORGS`:
 
     ```yaml
     CROW_ORGS=org1
@@ -222,10 +222,10 @@ In the following, special/uncommon settings are explained in more detail.
 ### Local
 
 !!!danger
-    The local backend executes pipelines on the local system without any isolation.
+The local backend executes pipelines on the local system without any isolation.
 
 !!!note
-    This backend does not support 'services'.
+This backend does not support 'services'.
 
 This backend should only be used in private environments where the code and pipeline can be trusted.
 It should not be used for public instances where unknown users can add new repositories and execute code.
@@ -304,7 +304,7 @@ Alternatively, the token can be read from a file:
 
 The following metrics are exposed:
 
-```
+```txt
 # HELP crow_pipeline_count Pipeline count.
 # TYPE crow_pipeline_count counter
 crow_pipeline_count{branch="main",pipeline="total",repo="crow-ci/crow",status="success"} 3
@@ -339,7 +339,8 @@ crow_worker_count 4
 ## SSL
 
 !!!tip
-    Using a [reverse proxy](proxy.md) instead of configuring SSL within Crow provides more flexibility and security and adheres more to "best practices" for deploying applications. 
+
+    Using a [reverse proxy](../installation/proxy.md) instead of configuring SSL within Crow provides more flexibility and security and adheres more to "best practices" for deploying applications.
 
 To enable Crow to terminate TLS directly, the following settings are available:
 
@@ -352,7 +353,7 @@ SSL support is provided using the [ListenAndServeTLS](https://pkg.go.dev/net/htt
 
 ### Container configuration
 
-In addition to the ports shown in [the docker-compose installation](docker-compose.md), port 443 must be exposed:
+In addition to the ports shown in [the docker-compose installation](../installation/docker-compose.md), port 443 must be exposed:
 
 ```yaml
  services:
@@ -383,17 +384,17 @@ The following env vars apply to logging configuration:
 
 ```sh
 # default 'info'
-WOODPECKER_LOG_LEVEL
+CROW_LOG_LEVEL
 # default 'stderr'
-WOODPECKER_LOG_FILE
+CROW_LOG_FILE
 # default 'false'
-WOODPECKER_DATABASE_LOG
+CROW_DATABASE_LOG
 # default 'false'
-WOODPECKER_DATABASE_LOG_SQL
+CROW_DATABASE_LOG_SQL
 # default 'database'
-WOODPECKER_LOG_STORE
+CROW_LOG_STORE
 # not set
-WOODPECKER_LOG_STORE_FILE_PATH
+CROW_LOG_STORE_FILE_PATH
 ```
 
 ### Server & Agent
@@ -401,16 +402,16 @@ WOODPECKER_LOG_STORE_FILE_PATH
 By default, Crow streams the server and agent output to `stderr` and does not persist it.
 
 !!!note
-    There is a difference between Server/Agent logs and Pipeline logs.
-    The former are the logs describing the application runtime itself, the latter are the logs from the executed pipelines.
+There is a difference between Server/Agent logs and Pipeline logs.
+The former are the logs describing the application runtime itself, the latter are the logs from the executed pipelines.
 
-Setting `WOODPECKER_LOG_FILE` alongside with `WOODPECKER_LOG_STORE_FILE_PATH` enables file-based logging.
+Setting `CROW_LOG_FILE` alongside with `CROW_LOG_STORE_FILE_PATH` enables file-based logging.
 
-If `WOODPECKER_DATABASE_LOG=true` is set, logs are written into the configured database.
+If `CROW_DATABASE_LOG=true` is set, logs are written into the configured database.
 
 !!! warning
-    Database logging might quickly increase the size of the DB, depending on the chosen log level.
-    It is recommended to use file-based logging with automatic log-rotation (not configured automatically).
+Database logging might quickly increase the size of the DB, depending on the chosen log level.
+It is recommended to use file-based logging with automatic log-rotation (not configured automatically).
 
 ### Pipeline logs
 
@@ -420,12 +421,12 @@ Depending on the amount of pipelines and their output, this can fill up the data
 An alternative is store logs in an external file which can possibly be auto-rotated:
 
 ```sh
-WOODPECKER_LOG_STORE=file
-WOODPECKER_LOG_STORE_FILE_PATH=<path>
+CROW_LOG_STORE=file
+CROW_LOG_STORE_FILE_PATH=<path>
 ```
 
 !!! info
-    Support for external S3-based logging is planned.
+Support for external S3-based logging is planned.
 
 ## External configuration API
 
@@ -442,7 +443,7 @@ You can get the public key for the verification of the http-signature from http(
 A simplistic example configuration service can be found [here](https://github.com/woodpecker-ci/example-config-service).
 
 !!! warning
-    The external config service must be trusted as it is receiving secret information about the repository and pipeline and has the ability to change pipeline configs that could potentially execute malicious tasks.
+The external config service must be trusted as it is receiving secret information about the repository and pipeline and has the ability to change pipeline configs that could potentially execute malicious tasks.
 
 ### Configuration
 

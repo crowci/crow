@@ -1,5 +1,3 @@
-# Usage 
-
 ## Pipelines
 
 ## Essential elements
@@ -126,7 +124,6 @@ steps:
       - sleep 30s # need to wait for mysql-server init
       - echo 'SHOW VARIABLES LIKE "version"' | mysql -u root -h database test -p example
 ```
-
 
 ### Volumes
 

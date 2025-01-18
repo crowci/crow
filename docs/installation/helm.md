@@ -1,13 +1,16 @@
-# Helm
-
 ## Installation
 
-Crow provides a [helm chart](https://github.com/crowci/helm) for Kubernetes environments:
+Crow provides a [Helm chart](https://github.com/crowci/helm) for Kubernetes environments:
 
 ```sh
 helm repo add crowci oci://ghcr.io/crowci/helm
 helm install crow crowci/crow
 ```
+
+!!! note
+
+    The [Crow CI Autoscaler](../configuration/autoscaler.md) is not needed in Kubernetes environments.
+    Kubernetes provides "native" ways for autoscaling nodes which should be used instead.
 
 ## Metrics
 

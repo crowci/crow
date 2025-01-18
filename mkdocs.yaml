@@ -67,8 +67,8 @@ extra:
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
       make our documentation better.
-  version:
-    provider: mike
+  # version:
+  #   provider: mike
   generator: false
 
 copyright: >
@@ -105,14 +105,23 @@ nav:
   - Getting started: index.md
   - Installation:
       - installation/index.md
-      - Docker-compose: installation/docker-compose.md
+      - Docker compose: installation/docker-compose.md
       - Helm: installation/helm.md
-      - Proxy Setup: installation/proxy.md
+      - Reverse proxy setup: installation/proxy.md
+      - Migration from other apps: installation/migration.md
   - Configuration:
       - configuration/index.md
       - Server: configuration/server.md
       - Agent: configuration/agent.md
       - Autoscaler: configuration/autoscaler.md
       - All environment variables: configuration/env-vars.md
+  - Usage:
+      - usage/index.md
+  - Plugins:
+      - plugins/index.md
+  - Ecosystem:
+      - ecosystem/index.md
+      - Socials: ecosystem/socials.md
+      - Community Assets: ecosystem/community.md
   - Development:
       - development/index.md
