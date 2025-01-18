@@ -26,13 +26,13 @@ import (
 
 // setupOpenAPIStaticConfig initializes static content (version) for the OpenAPI config.
 //
-//	@title			Woodpecker CI API
-//	@description	Woodpecker is a simple, yet powerful CI/CD engine with great extensibility.
-//	@description	To get a personal access token (PAT) for authentication, please log in your Woodpecker server,
+//	@title			Crow CI API
+//	@description	Crow CI is a lightweight, community-driven CI application for self-hosted environments.
+//	@description	To get a personal access token (PAT) for authentication, please log in
 //	@description	and go to you personal profile page, by clicking the user icon at the top right.
 //	@BasePath		/api
-//	@contact.name	Woodpecker CI
-//	@contact.url	https://woodpecker-ci.org/
+//	@contact.name	Crow CI
+//	@contact.url	https://crowci.dev/
 func setupOpenAPIStaticConfig() {
 	openapi.SwaggerInfo.Version = version.String()
 }
