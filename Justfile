@@ -228,11 +228,11 @@ image-server:
     echo $GITHUB_PKGS_TOKEN | docker login ghcr.io -u crowci-bot --password-stdin
     FIXED_PLATFORMS=$(echo $PLATFORMS | sed "s/|/\//g; s/;/,/g") && docker buildx build --platform $FIXED_PLATFORMS -t ghcr.io/crowci/crow-server:dev -f docker/Dockerfile.server.multiarch.rootless --push .
 
-# env PLATFORMS='linux/amd64,linux/arm64' just image-server-alpine
+# env PLATFORMS='linux|amd64;linux|arm64' just image-server-alpine
 image-server-alpine:
     just cross-compile-server
     echo $GITHUB_PKGS_TOKEN | docker login ghcr.io -u crowci-bot --password-stdin
-    FIXED_PLATFORMS=$(echo $PLATFORMS | sed "s/|/\//g; s/;/,/g") && docker buildx build --platform $PLATFORMS -t ghcr.io/crowci/crow-server:dev-alpine -f docker/Dockerfile.server.alpine.multiarch.rootless --push .
+    FIXED_PLATFORMS=$(echo $PLATFORMS | sed "s/|/\//g; s/;/,/g") && docker buildx build --platform $FIXED_PLATFORMS -t ghcr.io/crowci/crow-server:dev-alpine -f docker/Dockerfile.server.alpine.multiarch.rootless --push .
 
 # env PLATFORMS='linux/amd64,linux/arm64' just image-agent
 image-agent:
