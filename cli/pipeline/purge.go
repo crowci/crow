@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/crowci/crow/v3/cli/internal"
-	"github.com/crowci/crow/v3/crow-go/woodpecker"
+	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	shared_utils "github.com/crowci/crow/v3/shared/utils"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"

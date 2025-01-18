@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/crowci/crow/v3/crow-go/woodpecker"
+	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	vsc_url "github.com/gitsight/go-vcsurl"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"

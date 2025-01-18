@@ -8,7 +8,7 @@ package mocks
 import (
 	http "net/http"
 
-	woodpecker "github.com/crowci/crow/v3/crow-go/woodpecker"
+	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	mock "github.com/stretchr/testify/mock"
 )
 

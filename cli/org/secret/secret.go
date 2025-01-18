@@ -17,7 +17,7 @@ package secret
 import (
 	"strconv"
 
-	"github.com/crowci/crow/v3/crow-go/woodpecker"
+	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
 )
 

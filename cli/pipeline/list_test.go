@@ -6,8 +6,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/crowci/crow/v3/crow-go/woodpecker"
-	"github.com/crowci/crow/v3/crow-go/woodpecker/mocks"
+	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	"github.com/crowci/crow/v3/crow-go/crow/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/urfave/cli/v3"

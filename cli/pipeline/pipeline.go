@@ -23,7 +23,7 @@ import (
 	"github.com/crowci/crow/v3/cli/output"
 	"github.com/crowci/crow/v3/cli/pipeline/deploy"
 	"github.com/crowci/crow/v3/cli/pipeline/log"
-	"github.com/crowci/crow/v3/crow-go/woodpecker"
+	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
 )
 
