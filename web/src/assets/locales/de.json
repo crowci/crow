@@ -426,7 +426,7 @@
                 },
                 "visibility": {
                     "internal": {
-                        "desc": "Nur authentifizierte Benutzer der Woodpecker-Instanz können dieses Projekt sehen.",
+                        "desc": "Nur authentifizierte Benutzer der Crow-Instanz können dieses Projekt sehen.",
                         "internal": "Intern"
                     },
                     "private": {
@@ -503,13 +503,13 @@
             },
             "internal": {
                 "internal": "Intern",
-                "desc": "Nur authentifizierte Benutzer der Woodpecker-Instanz können dieses Projekt sehen."
+                "desc": "Nur authentifizierte Benutzer der Crow-Instanz können dieses Projekt sehen."
             }
         }
     },
     "repos": "Repos",
     "repositories": "Repositorys",
-    "running_version": "Du verwendest Woodpecker {0}",
+    "running_version": "Du verwendest Crow {0}",
     "search": "Suche…",
     "time": {
         "days_short": "t",
@@ -522,7 +522,7 @@
         "just_now": "gerade eben"
     },
     "unknown_error": "Ein unbekannter Fehler ist aufgetreten",
-    "update_crow": "Du solltest deine Woodpecker-Instanz auf {0} aktualisieren",
+    "update_crow": "Du solltest deine Crow-Instanz auf {0} aktualisieren",
     "url": "URL",
     "user": {
         "access_denied": "Du bist nicht berechtigt, dich anzumelden",
@@ -593,7 +593,7 @@
         }
     },
     "username": "Benutzername",
-    "welcome": "Willkommen bei Woodpecker",
+    "welcome": "Willkommen bei Crow",
     "login_to_cli": "In CLI anmelden",
     "login_to_cli_description": "Wenn du fortfährst, wirst du im CLI angemeldet.",
     "abort": "Abbrechen",
