@@ -31,9 +31,9 @@ import (
 
 func RunAgent(ctx context.Context, backends []backend.Backend) {
 	app := &cli.Command{}
-	app.Name = "woodpecker-agent"
+	app.Name = "crow-agent"
 	app.Version = version.String()
-	app.Usage = "woodpecker agent"
+	app.Usage = "crow agent"
 	app.Action = runWithRetry(backends)
 	app.Commands = []*cli.Command{
 		{
