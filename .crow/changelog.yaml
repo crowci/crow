@@ -19,10 +19,10 @@ steps:
 
       export RELEASE_NOTES=$(git sv rn)
       echo -e "RELEASE_NOTES: $RELEASE_NOTES"
-      export ISSUE_NUMBER=$(gh issue list --json number --state open --search "Changelog for next version" | jq -r '.[] | .number')
+      export ISSUE_NUMBER=$(gh issue list --json number --state open --search "Changelog for upcoming version" | jq -r '.[] | .number')
 
       if [ -z "$ISSUE_NUMBER" ]; then
-        gh issue create --title "Changelog for next version" --body "$RELEASE_NOTES"
+        gh issue create --title "Changelog for upcoming version" --body "$RELEASE_NOTES"
       else
         gh issue edit $ISSUE_NUMBER --body "$RELEASE_NOTES"
       fi
