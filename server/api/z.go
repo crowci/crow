@@ -51,7 +51,7 @@ func Health(c *gin.Context) {
 //	@Tags			System
 func Version(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
-		"source":  "https://github.com/woodpecker-ci/woodpecker",
+		"source":  "https://github.com/crowci/crow",
 		"version": version.String(),
 	})
 }

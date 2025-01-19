@@ -14,5 +14,5 @@
 
 package proto
 
-//go:generate protoc --go_out=paths=source_relative:. woodpecker.proto
-//go:generate protoc --go-grpc_out=paths=source_relative:. woodpecker.proto
+//go:generate protoc --go_out=paths=source_relative:. crow.proto
+//go:generate protoc --go-grpc_out=paths=source_relative:. crow.proto

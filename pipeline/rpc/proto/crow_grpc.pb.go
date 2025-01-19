@@ -17,7 +17,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.28.3
-// source: woodpecker.proto
+// source: crow.proto
 
 package proto
 
@@ -35,25 +35,25 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Woodpecker_Version_FullMethodName         = "/proto.crow/Version"
-	Woodpecker_Next_FullMethodName            = "/proto.crow/Next"
-	Woodpecker_Init_FullMethodName            = "/proto.crow/Init"
-	Woodpecker_Wait_FullMethodName            = "/proto.crow/Wait"
-	Woodpecker_Done_FullMethodName            = "/proto.crow/Done"
-	Woodpecker_Extend_FullMethodName          = "/proto.crow/Extend"
-	Woodpecker_Update_FullMethodName          = "/proto.crow/Update"
-	Woodpecker_Log_FullMethodName             = "/proto.crow/Log"
-	Woodpecker_RegisterAgent_FullMethodName   = "/proto.crow/RegisterAgent"
-	Woodpecker_UnregisterAgent_FullMethodName = "/proto.crow/UnregisterAgent"
-	Woodpecker_ReportHealth_FullMethodName    = "/proto.crow/ReportHealth"
+	Crow_Version_FullMethodName         = "/proto.crow/Version"
+	Crow_Next_FullMethodName            = "/proto.crow/Next"
+	Crow_Init_FullMethodName            = "/proto.crow/Init"
+	Crow_Wait_FullMethodName            = "/proto.crow/Wait"
+	Crow_Done_FullMethodName            = "/proto.crow/Done"
+	Crow_Extend_FullMethodName          = "/proto.crow/Extend"
+	Crow_Update_FullMethodName          = "/proto.crow/Update"
+	Crow_Log_FullMethodName             = "/proto.crow/Log"
+	Crow_RegisterAgent_FullMethodName   = "/proto.crow/RegisterAgent"
+	Crow_UnregisterAgent_FullMethodName = "/proto.crow/UnregisterAgent"
+	Crow_ReportHealth_FullMethodName    = "/proto.crow/ReportHealth"
 )
 
-// WoodpeckerClient is the client API for Woodpecker service.
+// CrowClient is the client API for Woodpecker service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
 // Woodpecker Server Service
-type WoodpeckerClient interface {
+type CrowClient interface {
 	Version(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*VersionResponse, error)
 	Next(ctx context.Context, in *NextRequest, opts ...grpc.CallOption) (*NextResponse, error)
 	Init(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*Empty, error)
@@ -67,118 +67,118 @@ type WoodpeckerClient interface {
 	ReportHealth(ctx context.Context, in *ReportHealthRequest, opts ...grpc.CallOption) (*Empty, error)
 }
 
-type woodpeckerClient struct {
+type crowClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewWoodpeckerClient(cc grpc.ClientConnInterface) WoodpeckerClient {
-	return &woodpeckerClient{cc}
+func NewCrowClient(cc grpc.ClientConnInterface) CrowClient {
+	return &crowClient{cc}
 }
 
-func (c *woodpeckerClient) Version(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*VersionResponse, error) {
+func (c *crowClient) Version(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*VersionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(VersionResponse)
-	err := c.cc.Invoke(ctx, Woodpecker_Version_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_Version_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) Next(ctx context.Context, in *NextRequest, opts ...grpc.CallOption) (*NextResponse, error) {
+func (c *crowClient) Next(ctx context.Context, in *NextRequest, opts ...grpc.CallOption) (*NextResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(NextResponse)
-	err := c.cc.Invoke(ctx, Woodpecker_Next_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_Next_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) Init(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *crowClient) Init(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, Woodpecker_Init_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_Init_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) Wait(ctx context.Context, in *WaitRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *crowClient) Wait(ctx context.Context, in *WaitRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, Woodpecker_Wait_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_Wait_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) Done(ctx context.Context, in *DoneRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *crowClient) Done(ctx context.Context, in *DoneRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, Woodpecker_Done_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_Done_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) Extend(ctx context.Context, in *ExtendRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *crowClient) Extend(ctx context.Context, in *ExtendRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, Woodpecker_Extend_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_Extend_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *crowClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, Woodpecker_Update_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_Update_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) Log(ctx context.Context, in *LogRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *crowClient) Log(ctx context.Context, in *LogRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, Woodpecker_Log_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_Log_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) RegisterAgent(ctx context.Context, in *RegisterAgentRequest, opts ...grpc.CallOption) (*RegisterAgentResponse, error) {
+func (c *crowClient) RegisterAgent(ctx context.Context, in *RegisterAgentRequest, opts ...grpc.CallOption) (*RegisterAgentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RegisterAgentResponse)
-	err := c.cc.Invoke(ctx, Woodpecker_RegisterAgent_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_RegisterAgent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) UnregisterAgent(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
+func (c *crowClient) UnregisterAgent(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, Woodpecker_UnregisterAgent_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_UnregisterAgent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *woodpeckerClient) ReportHealth(ctx context.Context, in *ReportHealthRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *crowClient) ReportHealth(ctx context.Context, in *ReportHealthRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, Woodpecker_ReportHealth_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Crow_ReportHealth_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -263,10 +263,10 @@ func RegisterWoodpeckerServer(s grpc.ServiceRegistrar, srv WoodpeckerServer) {
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&Woodpecker_ServiceDesc, srv)
+	s.RegisterService(&Crow_ServiceDesc, srv)
 }
 
-func _Woodpecker_Version_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_Version_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -276,7 +276,7 @@ func _Woodpecker_Version_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_Version_FullMethodName,
+		FullMethod: Crow_Version_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).Version(ctx, req.(*Empty))
@@ -284,7 +284,7 @@ func _Woodpecker_Version_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_Next_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_Next_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NextRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -294,7 +294,7 @@ func _Woodpecker_Next_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_Next_FullMethodName,
+		FullMethod: Crow_Next_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).Next(ctx, req.(*NextRequest))
@@ -302,7 +302,7 @@ func _Woodpecker_Next_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_Init_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_Init_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(InitRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -312,7 +312,7 @@ func _Woodpecker_Init_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_Init_FullMethodName,
+		FullMethod: Crow_Init_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).Init(ctx, req.(*InitRequest))
@@ -320,7 +320,7 @@ func _Woodpecker_Init_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_Wait_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_Wait_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WaitRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -330,7 +330,7 @@ func _Woodpecker_Wait_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_Wait_FullMethodName,
+		FullMethod: Crow_Wait_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).Wait(ctx, req.(*WaitRequest))
@@ -338,7 +338,7 @@ func _Woodpecker_Wait_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_Done_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_Done_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DoneRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -348,7 +348,7 @@ func _Woodpecker_Done_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_Done_FullMethodName,
+		FullMethod: Crow_Done_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).Done(ctx, req.(*DoneRequest))
@@ -356,7 +356,7 @@ func _Woodpecker_Done_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_Extend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_Extend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ExtendRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -366,7 +366,7 @@ func _Woodpecker_Extend_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_Extend_FullMethodName,
+		FullMethod: Crow_Extend_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).Extend(ctx, req.(*ExtendRequest))
@@ -374,7 +374,7 @@ func _Woodpecker_Extend_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -384,7 +384,7 @@ func _Woodpecker_Update_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_Update_FullMethodName,
+		FullMethod: Crow_Update_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).Update(ctx, req.(*UpdateRequest))
@@ -392,7 +392,7 @@ func _Woodpecker_Update_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_Log_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_Log_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LogRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -402,7 +402,7 @@ func _Woodpecker_Log_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_Log_FullMethodName,
+		FullMethod: Crow_Log_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).Log(ctx, req.(*LogRequest))
@@ -410,7 +410,7 @@ func _Woodpecker_Log_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_RegisterAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_RegisterAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RegisterAgentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -420,7 +420,7 @@ func _Woodpecker_RegisterAgent_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_RegisterAgent_FullMethodName,
+		FullMethod: Crow_RegisterAgent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).RegisterAgent(ctx, req.(*RegisterAgentRequest))
@@ -428,7 +428,7 @@ func _Woodpecker_RegisterAgent_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_UnregisterAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_UnregisterAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -438,7 +438,7 @@ func _Woodpecker_UnregisterAgent_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_UnregisterAgent_FullMethodName,
+		FullMethod: Crow_UnregisterAgent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).UnregisterAgent(ctx, req.(*Empty))
@@ -446,7 +446,7 @@ func _Woodpecker_UnregisterAgent_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Woodpecker_ReportHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Crow_ReportHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReportHealthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -456,7 +456,7 @@ func _Woodpecker_ReportHealth_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Woodpecker_ReportHealth_FullMethodName,
+		FullMethod: Crow_ReportHealth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WoodpeckerServer).ReportHealth(ctx, req.(*ReportHealthRequest))
@@ -464,56 +464,56 @@ func _Woodpecker_ReportHealth_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-// Woodpecker_ServiceDesc is the grpc.ServiceDesc for Woodpecker service.
+// Crow_ServiceDesc is the grpc.ServiceDesc for Woodpecker service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Woodpecker_ServiceDesc = grpc.ServiceDesc{
+var Crow_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.Woodpecker",
 	HandlerType: (*WoodpeckerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Version",
-			Handler:    _Woodpecker_Version_Handler,
+			Handler:    _Crow_Version_Handler,
 		},
 		{
 			MethodName: "Next",
-			Handler:    _Woodpecker_Next_Handler,
+			Handler:    _Crow_Next_Handler,
 		},
 		{
 			MethodName: "Init",
-			Handler:    _Woodpecker_Init_Handler,
+			Handler:    _Crow_Init_Handler,
 		},
 		{
 			MethodName: "Wait",
-			Handler:    _Woodpecker_Wait_Handler,
+			Handler:    _Crow_Wait_Handler,
 		},
 		{
 			MethodName: "Done",
-			Handler:    _Woodpecker_Done_Handler,
+			Handler:    _Crow_Done_Handler,
 		},
 		{
 			MethodName: "Extend",
-			Handler:    _Woodpecker_Extend_Handler,
+			Handler:    _Crow_Extend_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _Woodpecker_Update_Handler,
+			Handler:    _Crow_Update_Handler,
 		},
 		{
 			MethodName: "Log",
-			Handler:    _Woodpecker_Log_Handler,
+			Handler:    _Crow_Log_Handler,
 		},
 		{
 			MethodName: "RegisterAgent",
-			Handler:    _Woodpecker_RegisterAgent_Handler,
+			Handler:    _Crow_RegisterAgent_Handler,
 		},
 		{
 			MethodName: "UnregisterAgent",
-			Handler:    _Woodpecker_UnregisterAgent_Handler,
+			Handler:    _Crow_UnregisterAgent_Handler,
 		},
 		{
 			MethodName: "ReportHealth",
-			Handler:    _Woodpecker_ReportHealth_Handler,
+			Handler:    _Crow_ReportHealth_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -521,101 +521,101 @@ var Woodpecker_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	WoodpeckerAuth_Auth_FullMethodName = "/proto.WoodpeckerAuth/Auth"
+	CrowAuth_Auth_FullMethodName = "/proto.CrowAuth/Auth"
 )
 
-// WoodpeckerAuthClient is the client API for WoodpeckerAuth service.
+// crowAuthClient is the client API for CrowAuth service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WoodpeckerAuthClient interface {
+type CrowAuthClient interface {
 	Auth(ctx context.Context, in *AuthRequest, opts ...grpc.CallOption) (*AuthResponse, error)
 }
 
-type woodpeckerAuthClient struct {
+type crowAuthClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewWoodpeckerAuthClient(cc grpc.ClientConnInterface) WoodpeckerAuthClient {
-	return &woodpeckerAuthClient{cc}
+func NewCrowAuthClient(cc grpc.ClientConnInterface) CrowAuthClient {
+	return &crowAuthClient{cc}
 }
 
-func (c *woodpeckerAuthClient) Auth(ctx context.Context, in *AuthRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
+func (c *crowAuthClient) Auth(ctx context.Context, in *AuthRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AuthResponse)
-	err := c.cc.Invoke(ctx, WoodpeckerAuth_Auth_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CrowAuth_Auth_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// WoodpeckerAuthServer is the server API for WoodpeckerAuth service.
-// All implementations must embed UnimplementedWoodpeckerAuthServer
+// CrowAuthServer is the server API for CrowAuth service.
+// All implementations must embed UnimplementedCrowAuthServer
 // for forward compatibility.
-type WoodpeckerAuthServer interface {
+type CrowAuthServer interface {
 	Auth(context.Context, *AuthRequest) (*AuthResponse, error)
-	mustEmbedUnimplementedWoodpeckerAuthServer()
+	mustEmbedUnimplementedCrowAuthServer()
 }
 
-// UnimplementedWoodpeckerAuthServer must be embedded to have
+// UnimplementedCrowAuthServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedWoodpeckerAuthServer struct{}
+type UnimplementedCrowAuthServer struct{}
 
-func (UnimplementedWoodpeckerAuthServer) Auth(context.Context, *AuthRequest) (*AuthResponse, error) {
+func (UnimplementedCrowAuthServer) Auth(context.Context, *AuthRequest) (*AuthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Auth not implemented")
 }
-func (UnimplementedWoodpeckerAuthServer) mustEmbedUnimplementedWoodpeckerAuthServer() {}
-func (UnimplementedWoodpeckerAuthServer) testEmbeddedByValue()                        {}
+func (UnimplementedCrowAuthServer) mustEmbedUnimplementedCrowAuthServer() {}
+func (UnimplementedCrowAuthServer) testEmbeddedByValue()                        {}
 
-// UnsafeWoodpeckerAuthServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WoodpeckerAuthServer will
+// UnsafeCrowAuthServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CrowAuthServer will
 // result in compilation errors.
-type UnsafeWoodpeckerAuthServer interface {
-	mustEmbedUnimplementedWoodpeckerAuthServer()
+type UnsafeCrowAuthServer interface {
+	mustEmbedUnimplementedCrowAuthServer()
 }
 
-func RegisterWoodpeckerAuthServer(s grpc.ServiceRegistrar, srv WoodpeckerAuthServer) {
-	// If the following call pancis, it indicates UnimplementedWoodpeckerAuthServer was
+func RegisterCrowAuthServer(s grpc.ServiceRegistrar, srv CrowAuthServer) {
+	// If the following call pancis, it indicates UnimplementedCrowAuthServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&WoodpeckerAuth_ServiceDesc, srv)
+	s.RegisterService(&CrowAuth_ServiceDesc, srv)
 }
 
-func _WoodpeckerAuth_Auth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CrowAuth_Auth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AuthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerAuthServer).Auth(ctx, in)
+		return srv.(CrowAuthServer).Auth(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WoodpeckerAuth_Auth_FullMethodName,
+		FullMethod: CrowAuth_Auth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerAuthServer).Auth(ctx, req.(*AuthRequest))
+		return srv.(CrowAuthServer).Auth(ctx, req.(*AuthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// WoodpeckerAuth_ServiceDesc is the grpc.ServiceDesc for WoodpeckerAuth service.
+// CrowAuth_ServiceDesc is the grpc.ServiceDesc for CrowAuth service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var WoodpeckerAuth_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.WoodpeckerAuth",
-	HandlerType: (*WoodpeckerAuthServer)(nil),
+var CrowAuth_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "proto.CrowAuth",
+	HandlerType: (*CrowAuthServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Auth",
-			Handler:    _WoodpeckerAuth_Auth_Handler,
+			Handler:    _CrowAuth_Auth_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

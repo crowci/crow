@@ -21,7 +21,7 @@ import (
 	"strconv"
 
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
 )
 
@@ -54,7 +54,7 @@ func pipelineStart(ctx context.Context, c *cli.Command) (err error) {
 	var number int64
 	if pipelineArg == "last" {
 		// Fetch the pipeline number from the last pipeline
-		pipeline, err := client.PipelineLast(repoID, woodpecker.PipelineLastOptions{})
+		pipeline, err := client.PipelineLast(repoID, crow.PipelineLastOptions{})
 		if err != nil {
 			return err
 		}
@@ -69,7 +69,7 @@ func pipelineStart(ctx context.Context, c *cli.Command) (err error) {
 		}
 	}
 
-	opt := woodpecker.PipelineStartOptions{
+	opt := crow.PipelineStartOptions{
 		Params: internal.ParseKeyPair(c.StringSlice("param")),
 	}
 

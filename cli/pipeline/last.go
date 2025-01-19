@@ -19,7 +19,7 @@ import (
 
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
 )
 
@@ -48,7 +48,7 @@ func pipelineLast(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	opt := woodpecker.PipelineLastOptions{
+	opt := crow.PipelineLastOptions{
 		Branch: c.String("branch"),
 	}
 
@@ -57,5 +57,5 @@ func pipelineLast(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	return pipelineOutput(c, []*woodpecker.Pipeline{pipeline})
+	return pipelineOutput(c, []*crow.Pipeline{pipeline})
 }

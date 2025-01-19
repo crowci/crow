@@ -28,7 +28,7 @@ func TestClient_QueueInfo(t *testing.T) {
 									"data": "",
 									"labels": {
 											"platform": "linux/amd64",
-											"repo": "woodpecker-ci/woodpecker"
+											"repo": "crowci/crow"
 									},
 									"Dependencies": [],
 									"DepStatus": {},
@@ -52,7 +52,7 @@ func TestClient_QueueInfo(t *testing.T) {
 						ID: "4696",
 						Labels: map[string]string{
 							"platform": "linux/amd64",
-							"repo":     "woodpecker-ci/woodpecker",
+							"repo":     "crowci/crow",
 						},
 						Dependencies: []string{},
 						DepStatus:    nil,

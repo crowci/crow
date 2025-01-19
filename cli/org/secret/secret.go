@@ -17,7 +17,7 @@ package secret
 import (
 	"strconv"
 
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
 )
 
@@ -34,7 +34,7 @@ var Command = &cli.Command{
 	},
 }
 
-func parseTargetArgs(client woodpecker.Client, c *cli.Command) (orgID int64, err error) {
+func parseTargetArgs(client crow.Client, c *cli.Command) (orgID int64, err error) {
 	orgIDOrName := c.String("organization")
 	if orgIDOrName == "" {
 		orgIDOrName = c.Args().First()

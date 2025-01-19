@@ -25,7 +25,7 @@ import (
 const authClientTimeout = time.Second * 5
 
 type AuthClient struct {
-	client     proto.WoodpeckerAuthClient
+	client     proto.CrowAuthClient
 	conn       *grpc.ClientConn
 	agentToken string
 	agentID    int64
@@ -33,7 +33,7 @@ type AuthClient struct {
 
 func NewAuthGrpcClient(conn *grpc.ClientConn, agentToken string, agentID int64) *AuthClient {
 	client := new(AuthClient)
-	client.client = proto.NewWoodpeckerAuthClient(conn)
+	client.client = proto.NewCrowAuthClient(conn)
 	client.conn = conn
 	client.agentToken = agentToken
 	client.agentID = agentID

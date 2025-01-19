@@ -21,7 +21,7 @@ import (
 
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
 )
 
@@ -42,7 +42,7 @@ func registryList(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	opt := woodpecker.RegistryListOptions{}
+	opt := crow.RegistryListOptions{}
 
 	list, err := client.GlobalRegistryList(opt)
 	if err != nil {

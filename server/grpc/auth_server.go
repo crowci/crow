@@ -26,18 +26,18 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-type WoodpeckerAuthServer struct {
-	proto.UnimplementedWoodpeckerAuthServer
+type CrowAuthServer struct {
+	proto.UnimplementedCrowAuthServer
 	jwtManager       *JWTManager
 	agentMasterToken string
 	store            store.Store
 }
 
-func NewWoodpeckerAuthServer(jwtManager *JWTManager, agentMasterToken string, store store.Store) *WoodpeckerAuthServer {
-	return &WoodpeckerAuthServer{jwtManager: jwtManager, agentMasterToken: agentMasterToken, store: store}
+func NewCrowAuthServer(jwtManager *JWTManager, agentMasterToken string, store store.Store) *CrowAuthServer {
+	return &CrowAuthServer{jwtManager: jwtManager, agentMasterToken: agentMasterToken, store: store}
 }
 
-func (s *WoodpeckerAuthServer) Auth(_ context.Context, req *proto.AuthRequest) (*proto.AuthResponse, error) {
+func (s *CrowAuthServer) Auth(_ context.Context, req *proto.AuthRequest) (*proto.AuthResponse, error) {
 	agent, err := s.getAgent(req.AgentId, req.AgentToken)
 	if err != nil {
 		return nil, fmt.Errorf("agent could not auth: %w", err)
@@ -55,7 +55,7 @@ func (s *WoodpeckerAuthServer) Auth(_ context.Context, req *proto.AuthRequest) (
 	}, nil
 }
 
-func (s *WoodpeckerAuthServer) getAgent(agentID int64, agentToken string) (*model.Agent, error) {
+func (s *CrowAuthServer) getAgent(agentID int64, agentToken string) (*model.Agent, error) {
 	// global agent secret auth
 	if s.agentMasterToken != "" {
 		if agentToken == s.agentMasterToken && agentID == -1 {

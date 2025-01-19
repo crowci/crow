@@ -16,7 +16,7 @@ package registry
 
 import (
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
 )
 
@@ -33,7 +33,7 @@ var Command = &cli.Command{
 	},
 }
 
-func parseTargetArgs(client woodpecker.Client, c *cli.Command) (repoID int64, err error) {
+func parseTargetArgs(client crow.Client, c *cli.Command) (repoID int64, err error) {
 	repoIDOrFullName := c.String("repository")
 	if repoIDOrFullName == "" {
 		repoIDOrFullName = c.Args().First()

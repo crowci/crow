@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 	shared_utils "github.com/crowci/crow/v3/shared/utils"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
@@ -61,7 +61,7 @@ func Purge(ctx context.Context, c *cli.Command) error {
 	return pipelinePurge(c, client)
 }
 
-func pipelinePurge(c *cli.Command, client woodpecker.Client) (err error) {
+func pipelinePurge(c *cli.Command, client crow.Client) (err error) {
 	repoIDOrFullName := c.Args().First()
 	if len(repoIDOrFullName) == 0 {
 		return fmt.Errorf("missing required argument repo-id / repo-full-name")
@@ -80,7 +80,7 @@ func pipelinePurge(c *cli.Command, client woodpecker.Client) (err error) {
 		return err
 	}
 
-	var pipelinesKeep []*woodpecker.Pipeline
+	var pipelinesKeep []*crow.Pipeline
 
 	if keepMin > 0 {
 		pipelinesKeep, err = fetchPipelinesToKeep(client, repoID, int(keepMin))
@@ -101,7 +101,7 @@ func pipelinePurge(c *cli.Command, client woodpecker.Client) (err error) {
 	}
 
 	// Filter pipelines to only include those not in keepMap
-	var pipelinesToPurge []*woodpecker.Pipeline
+	var pipelinesToPurge []*crow.Pipeline
 	for _, p := range pipelines {
 		if _, exists := keepMap[p.Number]; !exists {
 			pipelinesToPurge = append(pipelinesToPurge, p)
@@ -122,7 +122,7 @@ func pipelinePurge(c *cli.Command, client woodpecker.Client) (err error) {
 
 		err := client.PipelineDelete(repoID, p.Number)
 		if err != nil {
-			var clientErr *woodpecker.ClientError
+			var clientErr *crow.ClientError
 			if errors.As(err, &clientErr) && clientErr.StatusCode == http.StatusUnprocessableEntity {
 				log.Error().Err(err).Msgf("failed to delete pipeline %d", p.Number)
 				continue
@@ -134,14 +134,14 @@ func pipelinePurge(c *cli.Command, client woodpecker.Client) (err error) {
 	return nil
 }
 
-func fetchPipelinesToKeep(client woodpecker.Client, repoID int64, keepMin int) ([]*woodpecker.Pipeline, error) {
+func fetchPipelinesToKeep(client crow.Client, repoID int64, keepMin int) ([]*crow.Pipeline, error) {
 	if keepMin <= 0 {
 		return nil, nil
 	}
-	return shared_utils.Paginate(func(page int) ([]*woodpecker.Pipeline, error) {
+	return shared_utils.Paginate(func(page int) ([]*crow.Pipeline, error) {
 		return client.PipelineList(repoID,
-			woodpecker.PipelineListOptions{
-				ListOptions: woodpecker.ListOptions{
+			crow.PipelineListOptions{
+				ListOptions: crow.ListOptions{
 					Page: page,
 				},
 			},
@@ -149,11 +149,11 @@ func fetchPipelinesToKeep(client woodpecker.Client, repoID int64, keepMin int) (
 	}, keepMin)
 }
 
-func fetchPipelines(client woodpecker.Client, repoID int64, duration time.Duration) ([]*woodpecker.Pipeline, error) {
-	return shared_utils.Paginate(func(page int) ([]*woodpecker.Pipeline, error) {
+func fetchPipelines(client crow.Client, repoID int64, duration time.Duration) ([]*crow.Pipeline, error) {
+	return shared_utils.Paginate(func(page int) ([]*crow.Pipeline, error) {
 		return client.PipelineList(repoID,
-			woodpecker.PipelineListOptions{
-				ListOptions: woodpecker.ListOptions{
+			crow.PipelineListOptions{
+				ListOptions: crow.ListOptions{
 					Page: page,
 				},
 				Before: time.Now().Add(-duration),

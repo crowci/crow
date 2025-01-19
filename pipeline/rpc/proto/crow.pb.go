@@ -17,7 +17,7 @@
 // versions:
 // 	protoc-gen-go v1.36.1
 // 	protoc        v5.28.3
-// source: woodpecker.proto
+// source: crow.proto
 
 package proto
 
@@ -1364,7 +1364,7 @@ var file_woodpecker_proto_depIdxs = []int32{
 	15, // 17: proto.Woodpecker.RegisterAgent:input_type -> proto.RegisterAgentRequest
 	12, // 18: proto.Woodpecker.UnregisterAgent:input_type -> proto.Empty
 	13, // 19: proto.Woodpecker.ReportHealth:input_type -> proto.ReportHealthRequest
-	19, // 20: proto.WoodpeckerAuth.Auth:input_type -> proto.AuthRequest
+	19, // 20: proto.CrowAuth.Auth:input_type -> proto.AuthRequest
 	16, // 21: proto.Woodpecker.Version:output_type -> proto.VersionResponse
 	17, // 22: proto.Woodpecker.Next:output_type -> proto.NextResponse
 	12, // 23: proto.Woodpecker.Init:output_type -> proto.Empty
@@ -1376,7 +1376,7 @@ var file_woodpecker_proto_depIdxs = []int32{
 	18, // 29: proto.Woodpecker.RegisterAgent:output_type -> proto.RegisterAgentResponse
 	12, // 30: proto.Woodpecker.UnregisterAgent:output_type -> proto.Empty
 	12, // 31: proto.Woodpecker.ReportHealth:output_type -> proto.Empty
-	20, // 32: proto.WoodpeckerAuth.Auth:output_type -> proto.AuthResponse
+	20, // 32: proto.CrowAuth.Auth:output_type -> proto.AuthResponse
 	21, // [21:33] is the sub-list for method output_type
 	9,  // [9:21] is the sub-list for method input_type
 	9,  // [9:9] is the sub-list for extension type_name

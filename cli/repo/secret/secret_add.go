@@ -21,7 +21,7 @@ import (
 
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
 )
 
@@ -57,7 +57,7 @@ func secretCreate(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	secret := &woodpecker.Secret{
+	secret := &crow.Secret{
 		Name:   strings.ToLower(c.String("name")),
 		Value:  c.String("value"),
 		Images: c.StringSlice("image"),
@@ -85,8 +85,8 @@ func secretCreate(ctx context.Context, c *cli.Command) error {
 }
 
 var defaultSecretEvents = []string{
-	woodpecker.EventPush,
-	woodpecker.EventTag,
-	woodpecker.EventRelease,
-	woodpecker.EventDeploy,
+	crow.EventPush,
+	crow.EventTag,
+	crow.EventRelease,
+	crow.EventDeploy,
 }

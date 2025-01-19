@@ -24,16 +24,17 @@ import (
 	"strconv"
 	"strings"
 
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	vsc_url "github.com/gitsight/go-vcsurl"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
 	"golang.org/x/net/proxy"
 	"golang.org/x/oauth2"
+
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 // NewClient returns a new client from the CLI context.
-func NewClient(ctx context.Context, c *cli.Command) (woodpecker.Client, error) {
+func NewClient(ctx context.Context, c *cli.Command) (crow.Client, error) {
 	var (
 		skip     = c.Bool("skip-verify")
 		socks    = c.String("socks-proxy")
@@ -88,7 +89,7 @@ func NewClient(ctx context.Context, c *cli.Command) (woodpecker.Client, error) {
 		}
 	}
 
-	return woodpecker.NewClient(server, client), nil
+	return crow.NewClient(server, client), nil
 }
 
 func getRepoFromGit(remoteName string) (string, error) {
@@ -118,7 +119,7 @@ func getRepoFromGit(remoteName string) (string, error) {
 }
 
 // ParseRepo parses the repository owner and name from a string.
-func ParseRepo(client woodpecker.Client, str string) (repoID int64, err error) {
+func ParseRepo(client crow.Client, str string) (repoID int64, err error) {
 	if str == "" {
 		str, err = getRepoFromGit("upstream")
 		if err != nil {
@@ -170,7 +171,7 @@ These rules apply:
 
 Strictly speaking, this is not parsing, but a lookup.
 */
-func ParseStep(client woodpecker.Client, repoID, number int64, stepArg string) (stepID int64, err error) {
+func ParseStep(client crow.Client, repoID, number int64, stepArg string) (stepID int64, err error) {
 	pipeline, err := client.Pipeline(repoID, number)
 	if err != nil {
 		return 0, err

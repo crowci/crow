@@ -55,12 +55,12 @@ func runGrpcServer(ctx context.Context, c *cli.Command, _store store.Store) erro
 	)
 	proto.RegisterWoodpeckerServer(grpcServer, woodpeckerServer)
 
-	woodpeckerAuthServer := woodpeckerGrpcServer.NewWoodpeckerAuthServer(
+	woodpeckerAuthServer := woodpeckerGrpcServer.NewCrowAuthServer(
 		jwtManager,
 		server.Config.Server.AgentToken,
 		_store,
 	)
-	proto.RegisterWoodpeckerAuthServer(grpcServer, woodpeckerAuthServer)
+	proto.RegisterCrowAuthServer(grpcServer, woodpeckerAuthServer)
 
 	grpcCtx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)
