@@ -376,7 +376,7 @@
                 },
                 "visibility": {
                     "internal": {
-                        "desc": "Sólo los usuarios autentificados de la instancia Woodpecker pueden ver este proyecto.",
+                        "desc": "Sólo los usuarios autentificados de la instancia Crow pueden ver este proyecto.",
                         "internal": "Interno"
                     },
                     "private": {
@@ -440,7 +440,7 @@
     },
     "repos": "Repos",
     "repositories": "Repositorios",
-    "running_version": "Está ejecutando Woodpecker {0}",
+    "running_version": "Está ejecutando Crow {0}",
     "search": "Buscar…",
     "time": {
         "days_short": "d",
@@ -452,7 +452,7 @@
         "weeks_short": "w"
     },
     "unknown_error": "Se ha producido un error desconocido",
-    "update_crow": "Por favor, actualice su instancia de Woodpecker a {0}",
+    "update_crow": "Por favor, actualice su instancia de Crow a {0}",
     "url": "URL",
     "user": {
         "access_denied": "No puede iniciar sesión",
@@ -507,7 +507,7 @@
         }
     },
     "username": "Nombre de usuario",
-    "welcome": "Bienvenidos a Woodpecker",
+    "welcome": "Bienvenidos a Crow",
     "empty_list": "¡No {entidad} encontrado!",
     "org_level_secret": "secreto de organización",
     "global_level_secret": "secreto global"

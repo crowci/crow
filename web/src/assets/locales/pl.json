@@ -349,7 +349,7 @@
                 },
                 "visibility": {
                     "internal": {
-                        "desc": "Tylko zalogowani użytkownicy instancji Woodpecker mogą zobaczyć ten projekt.",
+                        "desc": "Tylko zalogowani użytkownicy instancji Crow mogą zobaczyć ten projekt.",
                         "internal": "Wewnętrzny"
                     },
                     "private": {
@@ -464,7 +464,7 @@
         }
     },
     "username": "Nazwa użytkownika",
-    "welcome": "Witamy w Woodpecker",
+    "welcome": "Witamy w Crow",
     "empty_list": "Nie znaleziono {entity}!",
     "api": "API"
 }

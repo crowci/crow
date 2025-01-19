@@ -485,13 +485,13 @@
             },
             "internal": {
                 "internal": "Interne",
-                "desc": "Seuls les comptes identifiés sur cet instance de Woodpecker peuvent voir ce projet."
+                "desc": "Seuls les comptes identifiés sur cet instance de Crow peuvent voir ce projet."
             }
         }
     },
     "repos": "Dépôt",
     "repositories": "Dépôts",
-    "running_version": "Vous utilisez Woodpecker {0}",
+    "running_version": "Vous utilisez Crow {0}",
     "search": "Rechercher…",
     "time": {
         "days_short": "j",
@@ -504,7 +504,7 @@
         "just_now": "il y a peu de temps"
     },
     "unknown_error": "Une erreur inconnue est survenue",
-    "update_crow": "Merci de mettre à jour votre instance Woodpecker vers la version {0}",
+    "update_crow": "Merci de mettre à jour votre instance Crow vers la version {0}",
     "url": "URL",
     "user": {
         "access_denied": "Vous n'êtes pas autorisé à vous connecter",
@@ -569,7 +569,7 @@
         }
     },
     "username": "Nom d'utilisateur",
-    "welcome": "Bienvenue sur Woodpecker",
+    "welcome": "Bienvenue sur Crow",
     "empty_list": "Aucune {entity} trouvée !",
     "login_to_cli": "Login en ligne de commande",
     "abort": "Abandonner",
