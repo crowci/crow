@@ -31,7 +31,7 @@ import (
 
 const (
 	// The pluginWorkspaceBase should not be changed, only if you are sure what you do.
-	pluginWorkspaceBase = "/woodpecker"
+	pluginWorkspaceBase = "/crow"
 	// DefaultWorkspaceBase is set if not altered by the user.
 	DefaultWorkspaceBase = pluginWorkspaceBase
 )
