@@ -39,6 +39,13 @@ generate-openapi: install-tools
     go run github.com/swaggo/swag/cmd/swag fmt
     CGO_ENABLED=0 go generate cmd/server/openapi.go
 
+mockery: install-tools
+    cd crow-go/crow && mockery --all
+    cd pipeline && mockery --all
+    cd server && mockery --all
+    cd agent && mockery --all
+    cd cli && mockery --all
+
 install-tools:
     @hash golangci-lint > /dev/null 2>&1 || go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
     @hash gofumpt > /dev/null 2>&1 || go install mvdan.cc/gofumpt@latest
