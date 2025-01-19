@@ -29,7 +29,7 @@ import (
 //go:embed schema.json
 var schemaDefinition []byte
 
-// Lint lints an io.Reader against the Woodpecker `schema.json`.
+// Lint lints an io.Reader against the Crow `schema.json`.
 func Lint(r io.Reader) ([]json_schema.ResultError, error) {
 	schemaLoader := json_schema.NewBytesLoader(schemaDefinition)
 

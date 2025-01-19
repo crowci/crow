@@ -301,14 +301,14 @@ func TestPipelineName(t *testing.T) {
 		Regs:  []*model.Registry{},
 		Host:  "",
 		Yamls: []*forge_types.FileMeta{
-			{Name: ".woodpecker/lint.yml", Data: []byte(`
+			{Name: ".crow/lint.yml", Data: []byte(`
 when:
   event: push
 steps:
   build:
     image: scratch
 `)},
-			{Name: ".woodpecker/.test.yml", Data: []byte(`
+			{Name: ".crow/.test.yml", Data: []byte(`
 when:
   event: push
 steps:
@@ -591,7 +591,7 @@ func TestSanitizePath(t *testing.T) {
 		sanitizedPath string
 	}{
 		{
-			path:          ".woodpecker/test.yml",
+			path:          ".crow/test.yml",
 			sanitizedPath: "test",
 		},
 		{
@@ -603,7 +603,7 @@ func TestSanitizePath(t *testing.T) {
 			sanitizedPath: "test",
 		},
 		{
-			path:          ".woodpecker/test.yaml",
+			path:          ".crow/test.yaml",
 			sanitizedPath: "test",
 		},
 		{

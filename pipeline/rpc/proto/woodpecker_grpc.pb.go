@@ -35,17 +35,17 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Woodpecker_Version_FullMethodName         = "/proto.Woodpecker/Version"
-	Woodpecker_Next_FullMethodName            = "/proto.Woodpecker/Next"
-	Woodpecker_Init_FullMethodName            = "/proto.Woodpecker/Init"
-	Woodpecker_Wait_FullMethodName            = "/proto.Woodpecker/Wait"
-	Woodpecker_Done_FullMethodName            = "/proto.Woodpecker/Done"
-	Woodpecker_Extend_FullMethodName          = "/proto.Woodpecker/Extend"
-	Woodpecker_Update_FullMethodName          = "/proto.Woodpecker/Update"
-	Woodpecker_Log_FullMethodName             = "/proto.Woodpecker/Log"
-	Woodpecker_RegisterAgent_FullMethodName   = "/proto.Woodpecker/RegisterAgent"
-	Woodpecker_UnregisterAgent_FullMethodName = "/proto.Woodpecker/UnregisterAgent"
-	Woodpecker_ReportHealth_FullMethodName    = "/proto.Woodpecker/ReportHealth"
+	Woodpecker_Version_FullMethodName         = "/proto.crow/Version"
+	Woodpecker_Next_FullMethodName            = "/proto.crow/Next"
+	Woodpecker_Init_FullMethodName            = "/proto.crow/Init"
+	Woodpecker_Wait_FullMethodName            = "/proto.crow/Wait"
+	Woodpecker_Done_FullMethodName            = "/proto.crow/Done"
+	Woodpecker_Extend_FullMethodName          = "/proto.crow/Extend"
+	Woodpecker_Update_FullMethodName          = "/proto.crow/Update"
+	Woodpecker_Log_FullMethodName             = "/proto.crow/Log"
+	Woodpecker_RegisterAgent_FullMethodName   = "/proto.crow/RegisterAgent"
+	Woodpecker_UnregisterAgent_FullMethodName = "/proto.crow/UnregisterAgent"
+	Woodpecker_ReportHealth_FullMethodName    = "/proto.crow/ReportHealth"
 )
 
 // WoodpeckerClient is the client API for Woodpecker service.

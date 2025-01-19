@@ -2,7 +2,7 @@ variables:
   - &golang_image 'docker.io/golang:1.23-alpine'
   - &when
     - path: &when_path # related config files
-        - '.woodpecker/test.yaml'
+        - '.crow/test.yaml'
         - '.golangci.yaml'
         # go source code
         - '**/*.go'
@@ -25,7 +25,7 @@ steps:
     when:
       path:
         - <<: *when_path
-        - '.woodpecker/**'
+        - '.crow/**'
 
   lint-pipeline:
     depends_on:
@@ -40,7 +40,7 @@ steps:
     when:
       - event: pull_request
         path:
-          - '.woodpecker/**'
+          - '.crow/**'
 
   dummy-web:
     image: *golang_image

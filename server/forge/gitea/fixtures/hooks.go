@@ -282,7 +282,7 @@ const HookPushBranch = `
   "commits": [],
   "head_commit": {
     "id": "28c3613ae62640216bea5e7dc71aa65356e4298b",
-    "message": "Delete '.woodpecker/.check.yml'\n",
+    "message": "Delete '.crow/.check.yml'\n",
     "url": "https://codeberg.org/meisam/woodpecktester/commit/28c3613ae62640216bea5e7dc71aa65356e4298b",
     "author": {
       "name": "meisam",
@@ -298,7 +298,7 @@ const HookPushBranch = `
     "timestamp": "2022-07-12T21:09:27+02:00",
     "added": [],
     "removed": [
-      ".woodpecker/.check.yml"
+      ".crow/.check.yml"
     ],
     "modified": []
   },

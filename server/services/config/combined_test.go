@@ -64,10 +64,10 @@ func TestFetchFromConfigService(t *testing.T) {
 			name:       "Default config - Additional sub-folders",
 			repoConfig: "",
 			files: []file{{
-				name: ".woodpecker/test.yml",
+				name: ".crow/test.yml",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/sub-folder/config.yml",
+				name: ".crow/sub-folder/config.yml",
 				data: dummyData,
 			}},
 			expectedFileNames: []string{"override1", "override2", "override3"},
@@ -77,7 +77,7 @@ func TestFetchFromConfigService(t *testing.T) {
 			name:       "Fetch empty",
 			repoConfig: " ",
 			files: []file{{
-				name: ".woodpecker/.keep",
+				name: ".crow/.keep",
 				data: dummyData,
 			}, {
 				name: ".woodpecker.yml",
@@ -93,7 +93,7 @@ func TestFetchFromConfigService(t *testing.T) {
 			name:       "Use old config",
 			repoConfig: ".my-ci-folder/",
 			files: []file{{
-				name: ".woodpecker/test.yml",
+				name: ".crow/test.yml",
 				data: dummyData,
 			}, {
 				name: ".woodpecker.yml",
