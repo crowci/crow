@@ -1,4 +1,4 @@
-// Copyright 2021 Woodpecker Authors
+// Copyright 2021 Crow Authors
 // Copyright 2011 Drone.IO Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,7 +22,7 @@ package proto;
 // Increased Version in version.go by 1 if you change something here!
 // !IMPORTANT!
 
-// Woodpecker Server Service
+// Crow Server Service
 service Crow {
   rpc Version         (Empty)                returns (VersionResponse) {}
   rpc Next            (NextRequest)          returns (NextResponse) {}
@@ -145,7 +145,7 @@ message RegisterAgentResponse {
   int64 agent_id = 1;
 }
 
-// Woodpecker auth service is a simple service to authenticate agents and acquire a token
+// Crow auth service is a simple service to authenticate agents and acquire a token
 
 service CrowAuth {
   rpc Auth          (AuthRequest)          returns (AuthResponse) {}

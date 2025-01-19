@@ -50,7 +50,7 @@ type StepState struct {
 
 func (x *StepState) Reset() {
 	*x = StepState{}
-	mi := &file_woodpecker_proto_msgTypes[0]
+	mi := &file_crow_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -62,7 +62,7 @@ func (x *StepState) String() string {
 func (*StepState) ProtoMessage() {}
 
 func (x *StepState) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[0]
+	mi := &file_crow_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -75,7 +75,7 @@ func (x *StepState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StepState.ProtoReflect.Descriptor instead.
 func (*StepState) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{0}
+	return file_crow_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *StepState) GetStepUuid() string {
@@ -131,7 +131,7 @@ type WorkflowState struct {
 
 func (x *WorkflowState) Reset() {
 	*x = WorkflowState{}
-	mi := &file_woodpecker_proto_msgTypes[1]
+	mi := &file_crow_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -143,7 +143,7 @@ func (x *WorkflowState) String() string {
 func (*WorkflowState) ProtoMessage() {}
 
 func (x *WorkflowState) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[1]
+	mi := &file_crow_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -156,7 +156,7 @@ func (x *WorkflowState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkflowState.ProtoReflect.Descriptor instead.
 func (*WorkflowState) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{1}
+	return file_crow_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *WorkflowState) GetStarted() int64 {
@@ -193,7 +193,7 @@ type LogEntry struct {
 
 func (x *LogEntry) Reset() {
 	*x = LogEntry{}
-	mi := &file_woodpecker_proto_msgTypes[2]
+	mi := &file_crow_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -205,7 +205,7 @@ func (x *LogEntry) String() string {
 func (*LogEntry) ProtoMessage() {}
 
 func (x *LogEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[2]
+	mi := &file_crow_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -218,7 +218,7 @@ func (x *LogEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogEntry.ProtoReflect.Descriptor instead.
 func (*LogEntry) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{2}
+	return file_crow_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *LogEntry) GetStepUuid() string {
@@ -265,7 +265,7 @@ type Filter struct {
 
 func (x *Filter) Reset() {
 	*x = Filter{}
-	mi := &file_woodpecker_proto_msgTypes[3]
+	mi := &file_crow_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -277,7 +277,7 @@ func (x *Filter) String() string {
 func (*Filter) ProtoMessage() {}
 
 func (x *Filter) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[3]
+	mi := &file_crow_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -290,7 +290,7 @@ func (x *Filter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Filter.ProtoReflect.Descriptor instead.
 func (*Filter) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{3}
+	return file_crow_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Filter) GetLabels() map[string]string {
@@ -311,7 +311,7 @@ type Workflow struct {
 
 func (x *Workflow) Reset() {
 	*x = Workflow{}
-	mi := &file_woodpecker_proto_msgTypes[4]
+	mi := &file_crow_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -323,7 +323,7 @@ func (x *Workflow) String() string {
 func (*Workflow) ProtoMessage() {}
 
 func (x *Workflow) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[4]
+	mi := &file_crow_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -336,7 +336,7 @@ func (x *Workflow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Workflow.ProtoReflect.Descriptor instead.
 func (*Workflow) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{4}
+	return file_crow_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Workflow) GetId() string {
@@ -369,7 +369,7 @@ type NextRequest struct {
 
 func (x *NextRequest) Reset() {
 	*x = NextRequest{}
-	mi := &file_woodpecker_proto_msgTypes[5]
+	mi := &file_crow_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -381,7 +381,7 @@ func (x *NextRequest) String() string {
 func (*NextRequest) ProtoMessage() {}
 
 func (x *NextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[5]
+	mi := &file_crow_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -394,7 +394,7 @@ func (x *NextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NextRequest.ProtoReflect.Descriptor instead.
 func (*NextRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{5}
+	return file_crow_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *NextRequest) GetFilter() *Filter {
@@ -414,7 +414,7 @@ type InitRequest struct {
 
 func (x *InitRequest) Reset() {
 	*x = InitRequest{}
-	mi := &file_woodpecker_proto_msgTypes[6]
+	mi := &file_crow_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -426,7 +426,7 @@ func (x *InitRequest) String() string {
 func (*InitRequest) ProtoMessage() {}
 
 func (x *InitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[6]
+	mi := &file_crow_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -439,7 +439,7 @@ func (x *InitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InitRequest.ProtoReflect.Descriptor instead.
 func (*InitRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{6}
+	return file_crow_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *InitRequest) GetId() string {
@@ -465,7 +465,7 @@ type WaitRequest struct {
 
 func (x *WaitRequest) Reset() {
 	*x = WaitRequest{}
-	mi := &file_woodpecker_proto_msgTypes[7]
+	mi := &file_crow_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -477,7 +477,7 @@ func (x *WaitRequest) String() string {
 func (*WaitRequest) ProtoMessage() {}
 
 func (x *WaitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[7]
+	mi := &file_crow_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -490,7 +490,7 @@ func (x *WaitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WaitRequest.ProtoReflect.Descriptor instead.
 func (*WaitRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{7}
+	return file_crow_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *WaitRequest) GetId() string {
@@ -510,7 +510,7 @@ type DoneRequest struct {
 
 func (x *DoneRequest) Reset() {
 	*x = DoneRequest{}
-	mi := &file_woodpecker_proto_msgTypes[8]
+	mi := &file_crow_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -522,7 +522,7 @@ func (x *DoneRequest) String() string {
 func (*DoneRequest) ProtoMessage() {}
 
 func (x *DoneRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[8]
+	mi := &file_crow_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -535,7 +535,7 @@ func (x *DoneRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DoneRequest.ProtoReflect.Descriptor instead.
 func (*DoneRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{8}
+	return file_crow_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *DoneRequest) GetId() string {
@@ -561,7 +561,7 @@ type ExtendRequest struct {
 
 func (x *ExtendRequest) Reset() {
 	*x = ExtendRequest{}
-	mi := &file_woodpecker_proto_msgTypes[9]
+	mi := &file_crow_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -573,7 +573,7 @@ func (x *ExtendRequest) String() string {
 func (*ExtendRequest) ProtoMessage() {}
 
 func (x *ExtendRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[9]
+	mi := &file_crow_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -586,7 +586,7 @@ func (x *ExtendRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExtendRequest.ProtoReflect.Descriptor instead.
 func (*ExtendRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{9}
+	return file_crow_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ExtendRequest) GetId() string {
@@ -606,7 +606,7 @@ type UpdateRequest struct {
 
 func (x *UpdateRequest) Reset() {
 	*x = UpdateRequest{}
-	mi := &file_woodpecker_proto_msgTypes[10]
+	mi := &file_crow_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -618,7 +618,7 @@ func (x *UpdateRequest) String() string {
 func (*UpdateRequest) ProtoMessage() {}
 
 func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[10]
+	mi := &file_crow_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -631,7 +631,7 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{10}
+	return file_crow_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *UpdateRequest) GetId() string {
@@ -657,7 +657,7 @@ type LogRequest struct {
 
 func (x *LogRequest) Reset() {
 	*x = LogRequest{}
-	mi := &file_woodpecker_proto_msgTypes[11]
+	mi := &file_crow_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -669,7 +669,7 @@ func (x *LogRequest) String() string {
 func (*LogRequest) ProtoMessage() {}
 
 func (x *LogRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[11]
+	mi := &file_crow_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -682,7 +682,7 @@ func (x *LogRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogRequest.ProtoReflect.Descriptor instead.
 func (*LogRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{11}
+	return file_crow_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *LogRequest) GetLogEntries() []*LogEntry {
@@ -700,7 +700,7 @@ type Empty struct {
 
 func (x *Empty) Reset() {
 	*x = Empty{}
-	mi := &file_woodpecker_proto_msgTypes[12]
+	mi := &file_crow_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -712,7 +712,7 @@ func (x *Empty) String() string {
 func (*Empty) ProtoMessage() {}
 
 func (x *Empty) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[12]
+	mi := &file_crow_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -725,7 +725,7 @@ func (x *Empty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Empty.ProtoReflect.Descriptor instead.
 func (*Empty) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{12}
+	return file_crow_proto_rawDescGZIP(), []int{12}
 }
 
 type ReportHealthRequest struct {
@@ -737,7 +737,7 @@ type ReportHealthRequest struct {
 
 func (x *ReportHealthRequest) Reset() {
 	*x = ReportHealthRequest{}
-	mi := &file_woodpecker_proto_msgTypes[13]
+	mi := &file_crow_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -749,7 +749,7 @@ func (x *ReportHealthRequest) String() string {
 func (*ReportHealthRequest) ProtoMessage() {}
 
 func (x *ReportHealthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[13]
+	mi := &file_crow_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -762,7 +762,7 @@ func (x *ReportHealthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportHealthRequest.ProtoReflect.Descriptor instead.
 func (*ReportHealthRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{13}
+	return file_crow_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ReportHealthRequest) GetStatus() string {
@@ -785,7 +785,7 @@ type AgentInfo struct {
 
 func (x *AgentInfo) Reset() {
 	*x = AgentInfo{}
-	mi := &file_woodpecker_proto_msgTypes[14]
+	mi := &file_crow_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -797,7 +797,7 @@ func (x *AgentInfo) String() string {
 func (*AgentInfo) ProtoMessage() {}
 
 func (x *AgentInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[14]
+	mi := &file_crow_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -810,7 +810,7 @@ func (x *AgentInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentInfo.ProtoReflect.Descriptor instead.
 func (*AgentInfo) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{14}
+	return file_crow_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *AgentInfo) GetPlatform() string {
@@ -857,7 +857,7 @@ type RegisterAgentRequest struct {
 
 func (x *RegisterAgentRequest) Reset() {
 	*x = RegisterAgentRequest{}
-	mi := &file_woodpecker_proto_msgTypes[15]
+	mi := &file_crow_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -869,7 +869,7 @@ func (x *RegisterAgentRequest) String() string {
 func (*RegisterAgentRequest) ProtoMessage() {}
 
 func (x *RegisterAgentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[15]
+	mi := &file_crow_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -882,7 +882,7 @@ func (x *RegisterAgentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterAgentRequest.ProtoReflect.Descriptor instead.
 func (*RegisterAgentRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{15}
+	return file_crow_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *RegisterAgentRequest) GetInfo() *AgentInfo {
@@ -902,7 +902,7 @@ type VersionResponse struct {
 
 func (x *VersionResponse) Reset() {
 	*x = VersionResponse{}
-	mi := &file_woodpecker_proto_msgTypes[16]
+	mi := &file_crow_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -914,7 +914,7 @@ func (x *VersionResponse) String() string {
 func (*VersionResponse) ProtoMessage() {}
 
 func (x *VersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[16]
+	mi := &file_crow_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -927,7 +927,7 @@ func (x *VersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VersionResponse.ProtoReflect.Descriptor instead.
 func (*VersionResponse) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{16}
+	return file_crow_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *VersionResponse) GetGrpcVersion() int32 {
@@ -953,7 +953,7 @@ type NextResponse struct {
 
 func (x *NextResponse) Reset() {
 	*x = NextResponse{}
-	mi := &file_woodpecker_proto_msgTypes[17]
+	mi := &file_crow_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -965,7 +965,7 @@ func (x *NextResponse) String() string {
 func (*NextResponse) ProtoMessage() {}
 
 func (x *NextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[17]
+	mi := &file_crow_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -978,7 +978,7 @@ func (x *NextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NextResponse.ProtoReflect.Descriptor instead.
 func (*NextResponse) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{17}
+	return file_crow_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *NextResponse) GetWorkflow() *Workflow {
@@ -997,7 +997,7 @@ type RegisterAgentResponse struct {
 
 func (x *RegisterAgentResponse) Reset() {
 	*x = RegisterAgentResponse{}
-	mi := &file_woodpecker_proto_msgTypes[18]
+	mi := &file_crow_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1009,7 +1009,7 @@ func (x *RegisterAgentResponse) String() string {
 func (*RegisterAgentResponse) ProtoMessage() {}
 
 func (x *RegisterAgentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[18]
+	mi := &file_crow_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1022,7 +1022,7 @@ func (x *RegisterAgentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterAgentResponse.ProtoReflect.Descriptor instead.
 func (*RegisterAgentResponse) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{18}
+	return file_crow_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *RegisterAgentResponse) GetAgentId() int64 {
@@ -1042,7 +1042,7 @@ type AuthRequest struct {
 
 func (x *AuthRequest) Reset() {
 	*x = AuthRequest{}
-	mi := &file_woodpecker_proto_msgTypes[19]
+	mi := &file_crow_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1054,7 +1054,7 @@ func (x *AuthRequest) String() string {
 func (*AuthRequest) ProtoMessage() {}
 
 func (x *AuthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[19]
+	mi := &file_crow_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1067,7 +1067,7 @@ func (x *AuthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthRequest.ProtoReflect.Descriptor instead.
 func (*AuthRequest) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{19}
+	return file_crow_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *AuthRequest) GetAgentToken() string {
@@ -1095,7 +1095,7 @@ type AuthResponse struct {
 
 func (x *AuthResponse) Reset() {
 	*x = AuthResponse{}
-	mi := &file_woodpecker_proto_msgTypes[20]
+	mi := &file_crow_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1107,7 +1107,7 @@ func (x *AuthResponse) String() string {
 func (*AuthResponse) ProtoMessage() {}
 
 func (x *AuthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_woodpecker_proto_msgTypes[20]
+	mi := &file_crow_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1120,7 +1120,7 @@ func (x *AuthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthResponse.ProtoReflect.Descriptor instead.
 func (*AuthResponse) Descriptor() ([]byte, []int) {
-	return file_woodpecker_proto_rawDescGZIP(), []int{20}
+	return file_crow_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *AuthResponse) GetStatus() string {
@@ -1144,9 +1144,9 @@ func (x *AuthResponse) GetAccessToken() string {
 	return ""
 }
 
-var File_woodpecker_proto protoreflect.FileDescriptor
+var File_crow_proto protoreflect.FileDescriptor
 
-var file_woodpecker_proto_rawDesc = []byte{
+var file_crow_proto_rawDesc = []byte{
 	0x0a, 0x10, 0x77, 0x6f, 0x6f, 0x64, 0x70, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x2e, 0x70, 0x72, 0x6f,
 	0x74, 0x6f, 0x12, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xa9, 0x01, 0x0a, 0x09, 0x53, 0x74,
 	0x65, 0x70, 0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x1b, 0x0a, 0x09, 0x73, 0x74, 0x65, 0x70, 0x5f,
@@ -1306,19 +1306,19 @@ var file_woodpecker_proto_rawDesc = []byte{
 }
 
 var (
-	file_woodpecker_proto_rawDescOnce sync.Once
-	file_woodpecker_proto_rawDescData = file_woodpecker_proto_rawDesc
+	file_crow_proto_rawDescOnce sync.Once
+	file_crow_proto_rawDescData = file_crow_proto_rawDesc
 )
 
-func file_woodpecker_proto_rawDescGZIP() []byte {
-	file_woodpecker_proto_rawDescOnce.Do(func() {
-		file_woodpecker_proto_rawDescData = protoimpl.X.CompressGZIP(file_woodpecker_proto_rawDescData)
+func file_crow_proto_rawDescGZIP() []byte {
+	file_crow_proto_rawDescOnce.Do(func() {
+		file_crow_proto_rawDescData = protoimpl.X.CompressGZIP(file_crow_proto_rawDescData)
 	})
-	return file_woodpecker_proto_rawDescData
+	return file_crow_proto_rawDescData
 }
 
-var file_woodpecker_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
-var file_woodpecker_proto_goTypes = []any{
+var file_crow_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
+var file_crow_proto_goTypes = []any{
 	(*StepState)(nil),             // 0: proto.StepState
 	(*WorkflowState)(nil),         // 1: proto.WorkflowState
 	(*LogEntry)(nil),              // 2: proto.LogEntry
@@ -1343,7 +1343,7 @@ var file_woodpecker_proto_goTypes = []any{
 	nil,                           // 21: proto.Filter.LabelsEntry
 	nil,                           // 22: proto.AgentInfo.CustomLabelsEntry
 }
-var file_woodpecker_proto_depIdxs = []int32{
+var file_crow_proto_depIdxs = []int32{
 	21, // 0: proto.Filter.labels:type_name -> proto.Filter.LabelsEntry
 	3,  // 1: proto.NextRequest.filter:type_name -> proto.Filter
 	1,  // 2: proto.InitRequest.state:type_name -> proto.WorkflowState
@@ -1384,27 +1384,27 @@ var file_woodpecker_proto_depIdxs = []int32{
 	0,  // [0:9] is the sub-list for field type_name
 }
 
-func init() { file_woodpecker_proto_init() }
-func file_woodpecker_proto_init() {
-	if File_woodpecker_proto != nil {
+func init() { file_crow_proto_init() }
+func file_crow_proto_init() {
+	if File_crow_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_woodpecker_proto_rawDesc,
+			RawDescriptor: file_crow_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   23,
 			NumExtensions: 0,
 			NumServices:   2,
 		},
-		GoTypes:           file_woodpecker_proto_goTypes,
-		DependencyIndexes: file_woodpecker_proto_depIdxs,
-		MessageInfos:      file_woodpecker_proto_msgTypes,
+		GoTypes:           file_crow_proto_goTypes,
+		DependencyIndexes: file_crow_proto_depIdxs,
+		MessageInfos:      file_crow_proto_msgTypes,
 	}.Build()
-	File_woodpecker_proto = out.File
-	file_woodpecker_proto_rawDesc = nil
-	file_woodpecker_proto_goTypes = nil
-	file_woodpecker_proto_depIdxs = nil
+	File_crow_proto = out.File
+	file_crow_proto_rawDesc = nil
+	file_crow_proto_goTypes = nil
+	file_crow_proto_depIdxs = nil
 }

@@ -26,7 +26,7 @@ import (
 
 	"github.com/crowci/crow/v3/pipeline/rpc/proto"
 	"github.com/crowci/crow/v3/server"
-	woodpeckerGrpcServer "github.com/crowci/crow/v3/server/grpc"
+	crowGrpcServer "github.com/crowci/crow/v3/server/grpc"
 	"github.com/crowci/crow/v3/server/store"
 )
 
@@ -37,9 +37,9 @@ func runGrpcServer(ctx context.Context, c *cli.Command, _store store.Store) erro
 	}
 
 	jwtSecret := c.String("grpc-secret")
-	jwtManager := woodpeckerGrpcServer.NewJWTManager(jwtSecret)
+	jwtManager := crowGrpcServer.NewJWTManager(jwtSecret)
 
-	authorizer := woodpeckerGrpcServer.NewAuthorizer(jwtManager)
+	authorizer := crowGrpcServer.NewAuthorizer(jwtManager)
 	grpcServer := grpc.NewServer(
 		grpc.StreamInterceptor(authorizer.StreamInterceptor),
 		grpc.UnaryInterceptor(authorizer.UnaryInterceptor),
@@ -48,20 +48,20 @@ func runGrpcServer(ctx context.Context, c *cli.Command, _store store.Store) erro
 		}),
 	)
 
-	woodpeckerServer := woodpeckerGrpcServer.NewWoodpeckerServer(
+	crowServer := crowGrpcServer.NewCrowServer(
 		server.Config.Services.Queue,
 		server.Config.Services.Logs,
 		server.Config.Services.Pubsub,
 		_store,
 	)
-	proto.RegisterWoodpeckerServer(grpcServer, woodpeckerServer)
+	proto.RegisterCrowServer(grpcServer, crowServer)
 
-	woodpeckerAuthServer := woodpeckerGrpcServer.NewCrowAuthServer(
+	crowAuthServer := crowGrpcServer.NewCrowAuthServer(
 		jwtManager,
 		server.Config.Server.AgentToken,
 		_store,
 	)
-	proto.RegisterCrowAuthServer(grpcServer, woodpeckerAuthServer)
+	proto.RegisterCrowAuthServer(grpcServer, crowAuthServer)
 
 	grpcCtx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)

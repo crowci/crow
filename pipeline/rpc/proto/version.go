@@ -16,4 +16,4 @@ package proto
 
 // Version is the version of the crow.proto file,
 // IMPORTANT: increased by 1 each time it get changed.
-const Version int32 = 12
+const Version int32 = 13

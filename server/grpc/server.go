@@ -1,4 +1,4 @@
-// Copyright 2022 Woodpecker Authors
+// Copyright 2022 crow Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -31,20 +31,20 @@ import (
 	"github.com/crowci/crow/v3/version"
 )
 
-// WoodpeckerServer is a grpc server implementation.
-type WoodpeckerServer struct {
-	proto.UnimplementedWoodpeckerServer
+// CrowServer is a grpc server implementation.
+type CrowServer struct {
+	proto.UnimplementedCrowServer
 	peer RPC
 }
 
-func NewWoodpeckerServer(queue queue.Queue, logger logging.Log, pubsub *pubsub.Publisher, store store.Store) proto.WoodpeckerServer {
+func NewCrowServer(queue queue.Queue, logger logging.Log, pubsub *pubsub.Publisher, store store.Store) proto.CrowServer {
 	pipelineTime := prometheus_auto.NewGaugeVec(prometheus.GaugeOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "pipeline_time",
 		Help:      "Pipeline time.",
 	}, []string{"repo", "branch", "status", "pipeline"})
 	pipelineCount := prometheus_auto.NewCounterVec(prometheus.CounterOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "pipeline_count",
 		Help:      "Pipeline count.",
 	}, []string{"repo", "branch", "status", "pipeline"})
@@ -56,17 +56,17 @@ func NewWoodpeckerServer(queue queue.Queue, logger logging.Log, pubsub *pubsub.P
 		pipelineTime:  pipelineTime,
 		pipelineCount: pipelineCount,
 	}
-	return &WoodpeckerServer{peer: peer}
+	return &CrowServer{peer: peer}
 }
 
-func (s *WoodpeckerServer) Version(_ context.Context, _ *proto.Empty) (*proto.VersionResponse, error) {
+func (s *CrowServer) Version(_ context.Context, _ *proto.Empty) (*proto.VersionResponse, error) {
 	return &proto.VersionResponse{
 		GrpcVersion:   proto.Version,
 		ServerVersion: version.String(),
 	}, nil
 }
 
-func (s *WoodpeckerServer) Next(c context.Context, req *proto.NextRequest) (*proto.NextResponse, error) {
+func (s *CrowServer) Next(c context.Context, req *proto.NextRequest) (*proto.NextResponse, error) {
 	filter := rpc.Filter{
 		Labels: req.GetFilter().GetLabels(),
 	}
@@ -85,7 +85,7 @@ func (s *WoodpeckerServer) Next(c context.Context, req *proto.NextRequest) (*pro
 	return res, err
 }
 
-func (s *WoodpeckerServer) Init(c context.Context, req *proto.InitRequest) (*proto.Empty, error) {
+func (s *CrowServer) Init(c context.Context, req *proto.InitRequest) (*proto.Empty, error) {
 	state := rpc.WorkflowState{
 		Started:  req.GetState().GetStarted(),
 		Finished: req.GetState().GetFinished(),
@@ -96,7 +96,7 @@ func (s *WoodpeckerServer) Init(c context.Context, req *proto.InitRequest) (*pro
 	return res, err
 }
 
-func (s *WoodpeckerServer) Update(c context.Context, req *proto.UpdateRequest) (*proto.Empty, error) {
+func (s *CrowServer) Update(c context.Context, req *proto.UpdateRequest) (*proto.Empty, error) {
 	state := rpc.StepState{
 		StepUUID: req.GetState().GetStepUuid(),
 		Started:  req.GetState().GetStarted(),
@@ -110,7 +110,7 @@ func (s *WoodpeckerServer) Update(c context.Context, req *proto.UpdateRequest) (
 	return res, err
 }
 
-func (s *WoodpeckerServer) Done(c context.Context, req *proto.DoneRequest) (*proto.Empty, error) {
+func (s *CrowServer) Done(c context.Context, req *proto.DoneRequest) (*proto.Empty, error) {
 	state := rpc.WorkflowState{
 		Started:  req.GetState().GetStarted(),
 		Finished: req.GetState().GetFinished(),
@@ -121,19 +121,19 @@ func (s *WoodpeckerServer) Done(c context.Context, req *proto.DoneRequest) (*pro
 	return res, err
 }
 
-func (s *WoodpeckerServer) Wait(c context.Context, req *proto.WaitRequest) (*proto.Empty, error) {
+func (s *CrowServer) Wait(c context.Context, req *proto.WaitRequest) (*proto.Empty, error) {
 	res := new(proto.Empty)
 	err := s.peer.Wait(c, req.GetId())
 	return res, err
 }
 
-func (s *WoodpeckerServer) Extend(c context.Context, req *proto.ExtendRequest) (*proto.Empty, error) {
+func (s *CrowServer) Extend(c context.Context, req *proto.ExtendRequest) (*proto.Empty, error) {
 	res := new(proto.Empty)
 	err := s.peer.Extend(c, req.GetId())
 	return res, err
 }
 
-func (s *WoodpeckerServer) Log(c context.Context, req *proto.LogRequest) (*proto.Empty, error) {
+func (s *CrowServer) Log(c context.Context, req *proto.LogRequest) (*proto.Empty, error) {
 	var (
 		entries  []*rpc.LogEntry
 		stepUUID string
@@ -170,7 +170,7 @@ func (s *WoodpeckerServer) Log(c context.Context, req *proto.LogRequest) (*proto
 	return res, err
 }
 
-func (s *WoodpeckerServer) RegisterAgent(c context.Context, req *proto.RegisterAgentRequest) (*proto.RegisterAgentResponse, error) {
+func (s *CrowServer) RegisterAgent(c context.Context, req *proto.RegisterAgentRequest) (*proto.RegisterAgentResponse, error) {
 	res := new(proto.RegisterAgentResponse)
 	agentInfo := req.GetInfo()
 	agentID, err := s.peer.RegisterAgent(c, rpc.AgentInfo{
@@ -184,12 +184,12 @@ func (s *WoodpeckerServer) RegisterAgent(c context.Context, req *proto.RegisterA
 	return res, err
 }
 
-func (s *WoodpeckerServer) UnregisterAgent(ctx context.Context, _ *proto.Empty) (*proto.Empty, error) {
+func (s *CrowServer) UnregisterAgent(ctx context.Context, _ *proto.Empty) (*proto.Empty, error) {
 	err := s.peer.UnregisterAgent(ctx)
 	return new(proto.Empty), err
 }
 
-func (s *WoodpeckerServer) ReportHealth(c context.Context, req *proto.ReportHealthRequest) (*proto.Empty, error) {
+func (s *CrowServer) ReportHealth(c context.Context, req *proto.ReportHealthRequest) (*proto.Empty, error) {
 	res := new(proto.Empty)
 	err := s.peer.ReportHealth(c, req.GetStatus())
 	return res, err

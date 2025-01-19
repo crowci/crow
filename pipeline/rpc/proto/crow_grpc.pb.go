@@ -48,11 +48,11 @@ const (
 	Crow_ReportHealth_FullMethodName    = "/proto.crow/ReportHealth"
 )
 
-// CrowClient is the client API for Woodpecker service.
+// CrowClient is the client API for Crow service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// Woodpecker Server Service
+// Crow Server Service
 type CrowClient interface {
 	Version(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*VersionResponse, error)
 	Next(ctx context.Context, in *NextRequest, opts ...grpc.CallOption) (*NextResponse, error)
@@ -185,12 +185,12 @@ func (c *crowClient) ReportHealth(ctx context.Context, in *ReportHealthRequest, 
 	return out, nil
 }
 
-// WoodpeckerServer is the server API for Woodpecker service.
-// All implementations must embed UnimplementedWoodpeckerServer
+// CrowServer is the server API for Crow service.
+// All implementations must embed UnimplementedCrowServer
 // for forward compatibility.
 //
-// Woodpecker Server Service
-type WoodpeckerServer interface {
+// Crow Server Service
+type CrowServer interface {
 	Version(context.Context, *Empty) (*VersionResponse, error)
 	Next(context.Context, *NextRequest) (*NextResponse, error)
 	Init(context.Context, *InitRequest) (*Empty, error)
@@ -202,61 +202,61 @@ type WoodpeckerServer interface {
 	RegisterAgent(context.Context, *RegisterAgentRequest) (*RegisterAgentResponse, error)
 	UnregisterAgent(context.Context, *Empty) (*Empty, error)
 	ReportHealth(context.Context, *ReportHealthRequest) (*Empty, error)
-	mustEmbedUnimplementedWoodpeckerServer()
+	mustEmbedUnimplementedCrowServer()
 }
 
-// UnimplementedWoodpeckerServer must be embedded to have
+// UnimplementedCrowServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedWoodpeckerServer struct{}
+type UnimplementedCrowServer struct{}
 
-func (UnimplementedWoodpeckerServer) Version(context.Context, *Empty) (*VersionResponse, error) {
+func (UnimplementedCrowServer) Version(context.Context, *Empty) (*VersionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Version not implemented")
 }
-func (UnimplementedWoodpeckerServer) Next(context.Context, *NextRequest) (*NextResponse, error) {
+func (UnimplementedCrowServer) Next(context.Context, *NextRequest) (*NextResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Next not implemented")
 }
-func (UnimplementedWoodpeckerServer) Init(context.Context, *InitRequest) (*Empty, error) {
+func (UnimplementedCrowServer) Init(context.Context, *InitRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Init not implemented")
 }
-func (UnimplementedWoodpeckerServer) Wait(context.Context, *WaitRequest) (*Empty, error) {
+func (UnimplementedCrowServer) Wait(context.Context, *WaitRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Wait not implemented")
 }
-func (UnimplementedWoodpeckerServer) Done(context.Context, *DoneRequest) (*Empty, error) {
+func (UnimplementedCrowServer) Done(context.Context, *DoneRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Done not implemented")
 }
-func (UnimplementedWoodpeckerServer) Extend(context.Context, *ExtendRequest) (*Empty, error) {
+func (UnimplementedCrowServer) Extend(context.Context, *ExtendRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Extend not implemented")
 }
-func (UnimplementedWoodpeckerServer) Update(context.Context, *UpdateRequest) (*Empty, error) {
+func (UnimplementedCrowServer) Update(context.Context, *UpdateRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedWoodpeckerServer) Log(context.Context, *LogRequest) (*Empty, error) {
+func (UnimplementedCrowServer) Log(context.Context, *LogRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Log not implemented")
 }
-func (UnimplementedWoodpeckerServer) RegisterAgent(context.Context, *RegisterAgentRequest) (*RegisterAgentResponse, error) {
+func (UnimplementedCrowServer) RegisterAgent(context.Context, *RegisterAgentRequest) (*RegisterAgentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterAgent not implemented")
 }
-func (UnimplementedWoodpeckerServer) UnregisterAgent(context.Context, *Empty) (*Empty, error) {
+func (UnimplementedCrowServer) UnregisterAgent(context.Context, *Empty) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnregisterAgent not implemented")
 }
-func (UnimplementedWoodpeckerServer) ReportHealth(context.Context, *ReportHealthRequest) (*Empty, error) {
+func (UnimplementedCrowServer) ReportHealth(context.Context, *ReportHealthRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReportHealth not implemented")
 }
-func (UnimplementedWoodpeckerServer) mustEmbedUnimplementedWoodpeckerServer() {}
-func (UnimplementedWoodpeckerServer) testEmbeddedByValue()                    {}
+func (UnimplementedCrowServer) mustEmbedUnimplementedCrowServer() {}
+func (UnimplementedCrowServer) testEmbeddedByValue()                    {}
 
-// UnsafeWoodpeckerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WoodpeckerServer will
+// UnsafeCrowServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CrowServer will
 // result in compilation errors.
-type UnsafeWoodpeckerServer interface {
-	mustEmbedUnimplementedWoodpeckerServer()
+type UnsafeCrowServer interface {
+	mustEmbedUnimplementedCrowServer()
 }
 
-func RegisterWoodpeckerServer(s grpc.ServiceRegistrar, srv WoodpeckerServer) {
-	// If the following call pancis, it indicates UnimplementedWoodpeckerServer was
+func RegisterCrowServer(s grpc.ServiceRegistrar, srv CrowServer) {
+	// If the following call pancis, it indicates UnimplementedCrowServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
@@ -272,14 +272,14 @@ func _Crow_Version_Handler(srv interface{}, ctx context.Context, dec func(interf
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).Version(ctx, in)
+		return srv.(CrowServer).Version(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_Version_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).Version(ctx, req.(*Empty))
+		return srv.(CrowServer).Version(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -290,14 +290,14 @@ func _Crow_Next_Handler(srv interface{}, ctx context.Context, dec func(interface
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).Next(ctx, in)
+		return srv.(CrowServer).Next(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_Next_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).Next(ctx, req.(*NextRequest))
+		return srv.(CrowServer).Next(ctx, req.(*NextRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -308,14 +308,14 @@ func _Crow_Init_Handler(srv interface{}, ctx context.Context, dec func(interface
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).Init(ctx, in)
+		return srv.(CrowServer).Init(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_Init_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).Init(ctx, req.(*InitRequest))
+		return srv.(CrowServer).Init(ctx, req.(*InitRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -326,14 +326,14 @@ func _Crow_Wait_Handler(srv interface{}, ctx context.Context, dec func(interface
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).Wait(ctx, in)
+		return srv.(CrowServer).Wait(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_Wait_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).Wait(ctx, req.(*WaitRequest))
+		return srv.(CrowServer).Wait(ctx, req.(*WaitRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -344,14 +344,14 @@ func _Crow_Done_Handler(srv interface{}, ctx context.Context, dec func(interface
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).Done(ctx, in)
+		return srv.(CrowServer).Done(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_Done_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).Done(ctx, req.(*DoneRequest))
+		return srv.(CrowServer).Done(ctx, req.(*DoneRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -362,14 +362,14 @@ func _Crow_Extend_Handler(srv interface{}, ctx context.Context, dec func(interfa
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).Extend(ctx, in)
+		return srv.(CrowServer).Extend(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_Extend_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).Extend(ctx, req.(*ExtendRequest))
+		return srv.(CrowServer).Extend(ctx, req.(*ExtendRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -380,14 +380,14 @@ func _Crow_Update_Handler(srv interface{}, ctx context.Context, dec func(interfa
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).Update(ctx, in)
+		return srv.(CrowServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_Update_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).Update(ctx, req.(*UpdateRequest))
+		return srv.(CrowServer).Update(ctx, req.(*UpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -398,14 +398,14 @@ func _Crow_Log_Handler(srv interface{}, ctx context.Context, dec func(interface{
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).Log(ctx, in)
+		return srv.(CrowServer).Log(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_Log_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).Log(ctx, req.(*LogRequest))
+		return srv.(CrowServer).Log(ctx, req.(*LogRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -416,14 +416,14 @@ func _Crow_RegisterAgent_Handler(srv interface{}, ctx context.Context, dec func(
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).RegisterAgent(ctx, in)
+		return srv.(CrowServer).RegisterAgent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_RegisterAgent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).RegisterAgent(ctx, req.(*RegisterAgentRequest))
+		return srv.(CrowServer).RegisterAgent(ctx, req.(*RegisterAgentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -434,14 +434,14 @@ func _Crow_UnregisterAgent_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).UnregisterAgent(ctx, in)
+		return srv.(CrowServer).UnregisterAgent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_UnregisterAgent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).UnregisterAgent(ctx, req.(*Empty))
+		return srv.(CrowServer).UnregisterAgent(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -452,24 +452,24 @@ func _Crow_ReportHealth_Handler(srv interface{}, ctx context.Context, dec func(i
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WoodpeckerServer).ReportHealth(ctx, in)
+		return srv.(CrowServer).ReportHealth(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
 		FullMethod: Crow_ReportHealth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WoodpeckerServer).ReportHealth(ctx, req.(*ReportHealthRequest))
+		return srv.(CrowServer).ReportHealth(ctx, req.(*ReportHealthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Crow_ServiceDesc is the grpc.ServiceDesc for Woodpecker service.
+// Crow_ServiceDesc is the grpc.ServiceDesc for Crow service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Crow_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.Woodpecker",
-	HandlerType: (*WoodpeckerServer)(nil),
+	ServiceName: "proto.Crow",
+	HandlerType: (*CrowServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Version",
@@ -517,7 +517,7 @@ var Crow_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "woodpecker.proto",
+	Metadata: "crow.proto",
 }
 
 const (
@@ -619,5 +619,5 @@ var CrowAuth_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "woodpecker.proto",
+	Metadata: "crow.proto",
 }
