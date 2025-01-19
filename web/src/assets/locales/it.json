@@ -254,7 +254,7 @@
                 "metadata_download_successful": "Metadati scaricati correttamente",
                 "no_permission": "Non si dispone dell'autorizzazione per accedere alle informazioni di diagnostica.",
                 "metadata_exec_title": "Riesegui pipeline localmente",
-                "metadata_exec_desc": "Scarica i metadati di questa pipeline per eseguirla in locale. In questo modo è possibile risolvere i problemi e testare le modifiche prima di eseguirne il commit. 'woodpecker-cli' deve essere installato localmente, alla stessa versione del Server Woodpecker."
+                "metadata_exec_desc": "Scarica i metadati di questa pipeline per eseguirla in locale. In questo modo è possibile risolvere i problemi e testare le modifiche prima di eseguirne il commit. 'woodpecker-cli' deve essere installato localmente, alla stessa versione del Server Crow."
             }
         },
         "pull_requests": "Richieste di modifica",
@@ -328,7 +328,7 @@
                 },
                 "visibility": {
                     "internal": {
-                        "desc": "Solo gli utenti autenticati dell'istanza Woodpecker possono vedere questo progetto.",
+                        "desc": "Solo gli utenti autenticati dell'istanza Crow possono vedere questo progetto.",
                         "internal": "Interno"
                     },
                     "private": {
@@ -420,7 +420,7 @@
             },
             "internal": {
                 "internal": "Interno",
-                "desc": "Solo gli utenti autenticati dell'istanza di Woodpecker possono visualizzare questo progetto."
+                "desc": "Solo gli utenti autenticati dell'istanza di Crow possono visualizzare questo progetto."
             }
         }
     },
@@ -472,7 +472,7 @@
         }
     },
     "username": "Nome utente",
-    "welcome": "Benvenuti in Woodpecker",
+    "welcome": "Benvenuti in Crow",
     "secrets": {
         "created": "Segreto creato",
         "saved": "Segreto salvato",
@@ -503,7 +503,7 @@
     },
     "default": "predefinito",
     "info": "Dettagli",
-    "update_crow": "Aggiorna la tua istanza Woodpecker a {0}",
+    "update_crow": "Aggiorna la tua istanza Crow a {0}",
     "global_level_secret": "segreto globale",
     "org_level_secret": "segreto organizzazione",
     "login_to_cli": "Accedi alla CLI",
@@ -535,7 +535,7 @@
             }
         }
     },
-    "running_version": "Stai eseguendo Woodpecker {0}",
+    "running_version": "Stai eseguendo Crow {0}",
     "registries": {
         "delete_confirm": "Vuoi davvero eliminare questo registro?",
         "registries": "Registri",

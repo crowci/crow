@@ -460,7 +460,7 @@
     },
     "repos": "Repozitorijas",
     "repositories": "Repozitoriji",
-    "running_version": "Tiek izmantota Woodpecker {0}",
+    "running_version": "Tiek izmantota Crow {0}",
     "search": "Meklēt…",
     "time": {
         "days_short": "dien.",
@@ -472,7 +472,7 @@
         "weeks_short": "ned."
     },
     "unknown_error": "Notika neparedzēta kļūda",
-    "update_crow": "Lūdzu atjauniniet Woodpecker instanci uz {0}",
+    "update_crow": "Lūdzu atjauniniet Crow instanci uz {0}",
     "url": "URL",
     "user": {
         "access_denied": "Jums nav tiesību autorizēties",
@@ -540,7 +540,7 @@
         }
     },
     "username": "Lietotājvārds",
-    "welcome": "Woodpecker",
+    "welcome": "Crow",
     "secrets": {
         "secrets": "Noslēpumi",
         "none": "Pašlaik nav vides noslēpumu.",

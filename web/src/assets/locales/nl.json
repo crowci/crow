@@ -66,7 +66,7 @@
         },
         "visibility": {
           "internal": {
-            "desc": "Alleen geauthenticeerde gebruikers van deze Woodpecker instantie kunnen dit project zien."
+            "desc": "Alleen geauthenticeerde gebruikers van deze Crow instantie kunnen dit project zien."
           },
           "private": {
             "private": "Privé"
@@ -113,5 +113,5 @@
     "internal_error": "Er is een interne fout opgetreden"
   },
   "username": "Gebruikersnaam",
-  "welcome": "Welkom bij Woodpecker"
+  "welcome": "Welkom bij Crow"
 }

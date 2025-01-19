@@ -363,7 +363,7 @@
                 },
                 "visibility": {
                     "internal": {
-                        "desc": "Tento projekt mohou vidět pouze ověření uživatelé instance programu Woodpecker.",
+                        "desc": "Tento projekt mohou vidět pouze ověření uživatelé instance programu Crow.",
                         "internal": "Interní"
                     },
                     "private": {
@@ -486,5 +486,5 @@
         }
     },
     "username": "Uživatelské jméno",
-    "welcome": "Vítejte ve Woodpecker"
+    "welcome": "Vítejte ve Crow"
 }

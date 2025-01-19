@@ -2,14 +2,14 @@
   "version": "0.2.0",
   "compounds": [
     {
-      "name": "Woodpecker CI",
-      "configurations": ["Woodpecker UI", "Woodpecker server", "Woodpecker agent"],
+      "name": "Crow CI",
+      "configurations": ["Crow UI", "Crow server", "Crow agent"],
       "stopAll": true
     }
   ],
   "configurations": [
     {
-      "name": "Woodpecker server",
+      "name": "Crow server",
       "type": "go",
       "request": "launch",
       "mode": "debug",
@@ -17,7 +17,7 @@
       "cwd": "${workspaceFolder}"
     },
     {
-      "name": "Woodpecker agent",
+      "name": "Crow agent",
       "type": "go",
       "request": "launch",
       "mode": "debug",
@@ -35,7 +35,7 @@
       "program": "${file}"
     },
     {
-      "name": "Woodpecker UI",
+      "name": "Crow UI",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
