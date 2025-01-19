@@ -1,8 +1,8 @@
 {
   "title": "Crow CI configuration file",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/woodpecker-ci/woodpecker/main/pipeline/frontend/yaml/linter/schema/schema.json",
-  "description": "Schema of a Crow pipeline file. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax",
+  "$id": "https://raw.githubusercontent.com/crowci/crow/main/pipeline/frontend/yaml/linter/schema/schema.json",
+  "description": "Schema of a Crow pipeline file",
   "type": "object",
   "required": ["steps"],
   "additionalProperties": false,
@@ -12,7 +12,7 @@
       "format": "uri"
     },
     "variables": {
-      "description": "Use yaml aliases to define variables. Read more: https://woodpecker-ci.org/docs/usage/advanced-usage"
+      "description": "Use yaml aliases to define variables"
     },
     "clone": {
       "$ref": "#/definitions/clone"
@@ -69,7 +69,7 @@
       ]
     },
     "clone": {
-      "description": "Configures the clone step. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#clone",
+      "description": "Configures the clone step",
       "oneOf": [
         {
           "type": "object",
@@ -98,7 +98,7 @@
       ]
     },
     "clone_settings": {
-      "description": "Change the settings of your clone plugin. Read more: https://woodpecker-ci.org/plugins/Git%20Clone",
+      "description": "Change the settings of your clone plugin",
       "type": "object",
       "properties": {
         "depth": {
@@ -129,7 +129,7 @@
       }
     },
     "step_list": {
-      "description": "The steps section defines a list of steps which will be executed serially, in the order in which they are defined. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#steps",
+      "description": "The steps section defines a list of steps which will be executed serially, in the order in which they are defined",
       "oneOf": [
         {
           "type": "object",
@@ -148,7 +148,7 @@
       ]
     },
     "workflow_when": {
-      "description": "Whole workflow can be skipped based on conditions. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#when---global-workflow-conditions",
+      "description": "Whole workflow can be skipped based on conditions",
       "oneOf": [
         {
           "type": "array",
@@ -167,36 +167,36 @@
       "additionalProperties": false,
       "properties": {
         "repo": {
-          "description": "Execute a step only on a specific repository. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#repo",
+          "description": "Execute a step only on a specific repository",
           "$ref": "#/definitions/constraint_list"
         },
         "branch": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#branch",
+          "description": "",
           "$ref": "#/definitions/constraint_list"
         },
         "event": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#event",
+          "description": "",
           "default": [],
           "$ref": "#/definitions/event_constraint_list"
         },
         "ref": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#ref",
+          "description": "",
           "type": "string"
         },
         "cron": {
-          "description": "filter cron by title. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#cron",
+          "description": "filter cron by title",
           "$ref": "#/definitions/constraint_list"
         },
         "platform": {
-          "description": "Execute a step only on a specific platform. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#platform",
+          "description": "Execute a step only on a specific platform",
           "$ref": "#/definitions/constraint_list"
         },
         "instance": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#instance",
+          "description": "",
           "$ref": "#/definitions/constraint_list"
         },
         "path": {
-          "description": "Execute a step only on commit with certain files added/removed/modified. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#path",
+          "description": "Execute a step only on commit with certain files added/removed/modified",
           "oneOf": [
             {
               "type": "string"
@@ -234,13 +234,13 @@
           ]
         },
         "evaluate": {
-          "description": "Execute a step only if the expression evaluates to true. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#evaluate",
+          "description": "Execute a step only if the expression evaluates to true",
           "type": "string"
         }
       }
     },
     "step": {
-      "description": "A step of your workflow executes either arbitrary commands or uses a plugin. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#steps",
+      "description": "A step of your workflow executes either arbitrary commands or uses a plugin",
       "anyOf": [
         {
           "$ref": "#/definitions/commands_step"
@@ -251,7 +251,7 @@
       ]
     },
     "commands_step": {
-      "description": "Every step of your pipeline executes arbitrary commands inside a specified docker container. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#steps",
+      "description": "Every step of your pipeline executes arbitrary commands inside a specified docker container.",
       "type": "object",
       "additionalProperties": false,
       "required": ["image"],
@@ -311,11 +311,11 @@
           "$ref": "#/definitions/string_or_string_slice"
         },
         "detach": {
-          "description": "Detach a step to run in background until pipeline finishes. Read more: https://woodpecker-ci.org/docs/usage/services#detachment",
+          "description": "Detach a step to run in background until pipeline finishes",
           "type": "boolean"
         },
         "failure": {
-          "description": "How to handle the failure of this step. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#failure",
+          "description": "How to handle the failure of this step",
           "type": "string",
           "enum": ["fail", "ignore"],
           "default": "fail"
@@ -328,17 +328,17 @@
           "$ref": "#/definitions/string_or_string_slice"
         },
         "dns": {
-          "description": "Change DNS server for step. Only allowed if 'Trusted Network' option is enabled in repo settings by an admin. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#dns",
+          "description": "Change DNS server for step. Only allowed if 'Trusted Network' option is enabled in repo settings by an admin",
           "$ref": "#/definitions/string_or_string_slice"
         },
         "dns_search": {
-          "description": "Change DNS lookup domain for step. Only allowed if 'Trusted Network' option is enabled in repo settings by an admin. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#dns",
+          "description": "Change DNS lookup domain for step. Only allowed if 'Trusted Network' option is enabled in repo settings by an admin",
           "$ref": "#/definitions/string_or_string_slice"
         }
       }
     },
     "plugin_step": {
-      "description": "Plugins let you execute predefined functions in a more secure context. Read more: https://woodpecker-ci.org/docs/usage/plugins/overview",
+      "description": "Plugins let you execute predefined functions in a more secure context",
       "type": "object",
       "additionalProperties": false,
       "required": ["image"],
@@ -373,11 +373,11 @@
           "$ref": "#/definitions/string_or_string_slice"
         },
         "detach": {
-          "description": "Detach a step to run in background until pipeline finishes. Read more: https://woodpecker-ci.org/docs/usage/services#detachment",
+          "description": "Detach a step to run in background until pipeline finishes",
           "type": "boolean"
         },
         "failure": {
-          "description": "How to handle the failure of this step. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#failure",
+          "description": "How to handle the failure of this step",
           "type": "string",
           "enum": ["fail", "ignore"],
           "default": "fail"
@@ -388,7 +388,7 @@
       }
     },
     "step_when": {
-      "description": "Steps can be skipped based on conditions. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#when---conditional-execution",
+      "description": "Steps can be skipped based on conditions",
       "oneOf": [
         {
           "type": "array",
@@ -407,27 +407,27 @@
       "additionalProperties": false,
       "properties": {
         "repo": {
-          "description": "Execute a step only on a specific repository. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#repo",
+          "description": "Execute a step only on a specific repository",
           "$ref": "#/definitions/constraint_list"
         },
         "branch": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#branch",
+          "description": "",
           "$ref": "#/definitions/constraint_list"
         },
         "event": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#event",
+          "description": "",
           "$ref": "#/definitions/event_constraint_list"
         },
         "ref": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#ref",
+          "description": "",
           "type": "string"
         },
         "cron": {
-          "description": "filter cron by title. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#cron",
+          "description": "filter cron by title",
           "$ref": "#/definitions/constraint_list"
         },
         "status": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#status",
+          "description": "",
           "oneOf": [
             {
               "type": "array",
@@ -444,22 +444,22 @@
           ]
         },
         "platform": {
-          "description": "Execute a step only on a specific platform. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#platform",
+          "description": "Execute a step only on a specific platform",
           "$ref": "#/definitions/constraint_list"
         },
         "matrix": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/matrix-workflows",
+          "description": "",
           "type": "object",
           "additionalProperties": {
             "type": ["boolean", "string", "number"]
           }
         },
         "instance": {
-          "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#instance",
+          "description": "",
           "$ref": "#/definitions/constraint_list"
         },
         "path": {
-          "description": "Execute a step only on commit with certain files added/removed/modified. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#path",
+          "description": "Execute a step only on commit with certain files added/removed/modified",
           "oneOf": [
             {
               "type": "string"
@@ -497,7 +497,7 @@
           ]
         },
         "evaluate": {
-          "description": "Execute a step only if the expression evaluates to true. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#evaluate",
+          "description": "Execute a step only if the expression evaluates to true",
           "type": "string"
         }
       }
@@ -568,20 +568,20 @@
       ]
     },
     "step_image": {
-      "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#image",
+      "description": "",
       "type": "string"
     },
     "step_privileged": {
-      "description": "Run the step in privileged mode. Read more: https://woodpecker-ci.org/docs/next/usage/workflow-syntax#privileged-mode",
+      "description": "Run the step in privileged mode",
       "type": "boolean",
       "default": false
     },
     "step_pull": {
-      "description": "Always pull the latest image on pipeline execution Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#image",
+      "description": "Always pull the latest image on pipeline execution",
       "type": "boolean"
     },
     "step_commands": {
-      "description": "Commands of every pipeline step are executed serially as if you would enter them into your local shell. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#commands",
+      "description": "Commands of every pipeline step are executed serially as if you would enter them into your local shell",
       "oneOf": [
         {
           "type": "array",
@@ -596,21 +596,21 @@
       ]
     },
     "step_environment": {
-      "description": "Pass environment variables to a pipeline step. Read more: https://woodpecker-ci.org/docs/usage/environment",
+      "description": "Pass environment variables to a pipeline step",
       "type": "object",
       "additionalProperties": {
         "type": ["boolean", "string", "number", "array", "object"]
       }
     },
     "step_settings": {
-      "description": "Change the settings of your plugin. Read more: https://woodpecker-ci.org/docs/usage/plugins/overview",
+      "description": "Change the settings of your plugin",
       "type": "object",
       "additionalProperties": {
         "type": ["boolean", "string", "number", "array", "object"]
       }
     },
     "step_volumes": {
-      "description": "Mount files or folders from the host machine into your step container. Read more: https://woodpecker-ci.org/docs/usage/volumes",
+      "description": "Mount files or folders from the host machine into your step container",
       "type": "array",
       "items": {
         "type": "string"
@@ -618,7 +618,7 @@
       "minLength": 1
     },
     "step_directory": {
-      "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#directory",
+      "description": "",
       "type": "string"
     },
     "step_backend_options": {
@@ -650,7 +650,7 @@
           "$ref": "#/definitions/step_backend_kubernetes_security_context"
         },
         "runtimeClassName": {
-          "description": "Read more: https://woodpecker-ci.org/docs/administration/backends/kubernetes#runtimeclassname",
+          "description": "",
           "type": "string"
         },
         "secrets": {
@@ -664,7 +664,7 @@
       }
     },
     "step_backend_kubernetes_resources": {
-      "description": "Resources for the kubernetes backend. Read more: https://woodpecker-ci.org/docs/administration/backends/kubernetes#job-specific-configuration",
+      "description": "Resources for the kubernetes backend",
       "type": "object",
       "properties": {
         "requests": {
@@ -676,7 +676,7 @@
       }
     },
     "step_backend_kubernetes_security_context": {
-      "description": "Pods / containers security context. Read more: https://woodpecker-ci.org/docs/administration/backends/kubernetes#securitycontext",
+      "description": "Pods / containers security context",
       "type": "object",
       "properties": {
         "privileged": {
@@ -703,7 +703,7 @@
       }
     },
     "step_backend_kubernetes_secprofile": {
-      "description": "Pods / containers security profile. Read more: https://woodpecker-ci.org/docs/administration/backends/kubernetes#job-specific-configuration",
+      "description": "Pods / containers security profile",
       "type": "object",
       "properties": {
         "type": {
@@ -722,7 +722,7 @@
       }
     },
     "step_backend_kubernetes_service_account": {
-      "description": "serviceAccountName to be use by job. Read more: https://woodpecker-ci.org/docs/administration/backends/kubernetes#serviceaccountname",
+      "description": "serviceAccountName to be use by job",
       "type": "object",
       "properties": {
         "requests": {
@@ -776,7 +776,7 @@
       ]
     },
     "services": {
-      "description": "Read more: https://woodpecker-ci.org/docs/usage/services",
+      "description": "",
       "oneOf": [
         {
           "type": "object",
@@ -795,7 +795,7 @@
       ]
     },
     "service": {
-      "description": "Read more: https://woodpecker-ci.org/docs/usage/services",
+      "description": "",
       "type": "object",
       "additionalProperties": false,
       "minProperties": 1,
@@ -853,12 +853,12 @@
       }
     },
     "workspace": {
-      "description": "Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#workspace",
+      "description": "",
       "type": "object",
       "additionalProperties": true
     },
     "matrix": {
-      "description": "Execute pipeline for each matrix combination. Read more: https://woodpecker-ci.org/docs/usage/matrix-workflows",
+      "description": "Execute pipeline for each matrix combination",
       "type": "object",
       "properties": {
         "include": {
@@ -878,7 +878,7 @@
       }
     },
     "labels": {
-      "description": "Configures the labels used for the agent selection. Read more: https://woodpecker-ci.org/docs/usage/workflow-syntax#labels",
+      "description": "Configures the labels used for the agent selection",
       "type": "object",
       "additionalProperties": {
         "type": ["boolean", "string", "number"]
