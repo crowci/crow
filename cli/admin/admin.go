@@ -15,11 +15,12 @@
 package admin
 
 import (
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/admin/loglevel"
 	"github.com/crowci/crow/v3/cli/admin/registry"
 	"github.com/crowci/crow/v3/cli/admin/secret"
 	"github.com/crowci/crow/v3/cli/admin/user"
-	"github.com/urfave/cli/v3"
 )
 
 // Command exports the admin command set.

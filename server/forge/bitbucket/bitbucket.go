@@ -24,6 +24,8 @@ import (
 	"path/filepath"
 	"strconv"
 
+	"golang.org/x/oauth2"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/bitbucket/internal"
@@ -31,7 +33,6 @@ import (
 	forge_types "github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
 	shared_utils "github.com/crowci/crow/v3/shared/utils"
-	"golang.org/x/oauth2"
 )
 
 // Bitbucket cloud endpoints.

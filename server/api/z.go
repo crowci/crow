@@ -17,11 +17,12 @@ package api
 import (
 	"net/http"
 
-	"github.com/crowci/crow/v3/server/store"
-	"github.com/crowci/crow/v3/version"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
+
+	"github.com/crowci/crow/v3/server/store"
+	"github.com/crowci/crow/v3/version"
 )
 
 // Health

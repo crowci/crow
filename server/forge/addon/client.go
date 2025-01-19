@@ -22,11 +22,12 @@ import (
 	"net/rpc"
 	"os/exec"
 
+	"github.com/hashicorp/go-plugin"
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/hashicorp/go-plugin"
-	"github.com/rs/zerolog/log"
 )
 
 // make sure RPC implements forge.Forge.

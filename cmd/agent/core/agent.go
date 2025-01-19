@@ -27,14 +27,6 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/crowci/crow/v3/agent"
-	agent_rpc "github.com/crowci/crow/v3/agent/rpc"
-	"github.com/crowci/crow/v3/pipeline/backend"
-	"github.com/crowci/crow/v3/pipeline/backend/types"
-	"github.com/crowci/crow/v3/pipeline/rpc"
-	"github.com/crowci/crow/v3/shared/logger"
-	"github.com/crowci/crow/v3/shared/utils"
-	"github.com/crowci/crow/v3/version"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
 	"golang.org/x/sync/errgroup"
@@ -45,6 +37,15 @@ import (
 	"google.golang.org/grpc/keepalive"
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
+
+	"github.com/crowci/crow/v3/agent"
+	agent_rpc "github.com/crowci/crow/v3/agent/rpc"
+	"github.com/crowci/crow/v3/pipeline/backend"
+	"github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/shared/logger"
+	"github.com/crowci/crow/v3/shared/utils"
+	"github.com/crowci/crow/v3/version"
 )
 
 const (

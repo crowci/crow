@@ -15,10 +15,11 @@
 package repo
 
 import (
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/repo/cron"
 	"github.com/crowci/crow/v3/cli/repo/registry"
 	"github.com/crowci/crow/v3/cli/repo/secret"
-	"github.com/urfave/cli/v3"
 )
 
 // Command exports the repository command.

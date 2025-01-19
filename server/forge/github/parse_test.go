@@ -22,10 +22,11 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/server/forge/github/fixtures"
 	"github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/stretchr/testify/assert"
 )
 
 const (

@@ -17,11 +17,12 @@ package loglevel
 import (
 	"context"
 
-	"github.com/crowci/crow/v3/cli/internal"
-	crow "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/cli/internal"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 // Command exports the log-level command used to change the servers log-level.

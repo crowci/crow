@@ -18,8 +18,9 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 func TestServiceName(t *testing.T) {

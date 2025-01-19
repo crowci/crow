@@ -17,8 +17,9 @@ package registry
 import (
 	"strconv"
 
-	crow "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
+
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 // Command exports the registry command set.

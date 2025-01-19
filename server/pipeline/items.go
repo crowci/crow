@@ -19,6 +19,8 @@ import (
 	"database/sql"
 	"errors"
 
+	"github.com/rs/zerolog/log"
+
 	pipeline_errors "github.com/crowci/crow/v3/pipeline/errors"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/compiler"
 	"github.com/crowci/crow/v3/server"
@@ -27,7 +29,6 @@ import (
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/pipeline/stepbuilder"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/rs/zerolog/log"
 )
 
 func parsePipeline(forge forge.Forge, store store.Store, currentPipeline *model.Pipeline, user *model.User, repo *model.Repo, yamls []*forge_types.FileMeta, envs map[string]string) ([]*stepbuilder.Item, error) {

@@ -3,8 +3,9 @@ package errors
 import (
 	"errors"
 
-	"github.com/crowci/crow/v3/pipeline/errors/types"
 	"go.uber.org/multierr"
+
+	"github.com/crowci/crow/v3/pipeline/errors/types"
 )
 
 type LinterErrorData struct {

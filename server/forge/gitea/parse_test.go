@@ -20,10 +20,11 @@ import (
 	"net/http"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/server/forge/gitea/fixtures"
 	"github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestGiteaParser(t *testing.T) {

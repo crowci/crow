@@ -19,9 +19,10 @@ import (
 	"fmt"
 	"text/template"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/rs/zerolog/log"
 )
 
 func GetPipelineStatusContext(repo *model.Repo, pipeline *model.Pipeline, workflow *model.Workflow) string {

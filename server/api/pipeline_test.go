@@ -20,6 +20,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+
 	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
 	"github.com/crowci/crow/v3/server"
 	forge_mocks "github.com/crowci/crow/v3/server/forge/mocks"
@@ -27,9 +31,6 @@ import (
 	mocks_manager "github.com/crowci/crow/v3/server/services/mocks"
 	store_mocks "github.com/crowci/crow/v3/server/store/mocks"
 	"github.com/crowci/crow/v3/server/store/types"
-	"github.com/gin-gonic/gin"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
 
 var fakePipeline = &model.Pipeline{

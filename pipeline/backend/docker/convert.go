@@ -21,9 +21,10 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/docker/docker/api/types/container"
+
 	"github.com/crowci/crow/v3/pipeline/backend/common"
 	"github.com/crowci/crow/v3/pipeline/backend/types"
-	"github.com/docker/docker/api/types/container"
 )
 
 // Valid container volumes must have at least two components, source and destination.

@@ -21,11 +21,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/shared/constant"
-	"github.com/rs/zerolog/log"
 )
 
 type forgeFetcher struct {

@@ -23,10 +23,11 @@ import (
 	"strconv"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/server/forge/gitlab/testdata"
 	"github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/stretchr/testify/assert"
 )
 
 func load(config string) *GitLab {

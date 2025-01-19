@@ -20,11 +20,12 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/google/tink/go/aead"
 	insecure_clear_text_keyset "github.com/google/tink/go/insecurecleartextkeyset"
 	"github.com/google/tink/go/keyset"
 	"github.com/rs/zerolog/log"
+
+	"github.com/crowci/crow/v3/server/store/types"
 )
 
 func (svc *tinkEncryptionService) loadKeyset() error {

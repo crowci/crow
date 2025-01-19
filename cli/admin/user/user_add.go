@@ -18,9 +18,10 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/internal"
 	crow "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
 )
 
 var userAddCmd = &cli.Command{

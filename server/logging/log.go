@@ -18,8 +18,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/crowci/crow/v3/server/model"
 	logger "github.com/rs/zerolog/log"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 // TODO: (bradrydzewski) writing to subscribers is currently a blocking

@@ -20,9 +20,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/crowci/crow/v3/server"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/crowci/crow/v3/server"
 )
 
 func Test_custom_file_returns_OK_and_empty_content_and_fitting_mimetype(t *testing.T) {

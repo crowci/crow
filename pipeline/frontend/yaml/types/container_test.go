@@ -17,11 +17,12 @@ package types
 import (
 	"testing"
 
-	"github.com/crowci/crow/v3/pipeline/frontend/yaml/constraint"
-	"github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 	"github.com/docker/docker/api/types/strslice"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v3"
+
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/constraint"
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 )
 
 var containerYaml = []byte(`

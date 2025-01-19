@@ -17,10 +17,11 @@ package pipeline
 import (
 	"context"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
 	crow "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
 )
 
 var pipelineLastCmd = &cli.Command{

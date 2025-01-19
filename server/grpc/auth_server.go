@@ -19,11 +19,12 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/pipeline/rpc/proto"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
 	"github.com/crowci/crow/v3/server/store/types"
-	"github.com/rs/zerolog/log"
 )
 
 type CrowAuthServer struct {

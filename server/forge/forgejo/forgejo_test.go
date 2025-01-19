@@ -21,13 +21,14 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+
 	"github.com/crowci/crow/v3/server/forge/forgejo/fixtures"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
 	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
-	"github.com/gin-gonic/gin"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
 
 func TestNew(t *testing.T) {

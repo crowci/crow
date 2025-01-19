@@ -19,12 +19,13 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/pipeline/errors"
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/mocks"
 	forge_types "github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestGlobalEnvsubst(t *testing.T) {

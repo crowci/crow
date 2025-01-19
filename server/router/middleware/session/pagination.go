@@ -17,8 +17,9 @@ package session
 import (
 	"strconv"
 
-	"github.com/crowci/crow/v3/server/model"
 	"github.com/gin-gonic/gin"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 const maxPageSize = 50

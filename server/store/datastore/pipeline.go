@@ -17,9 +17,10 @@ package datastore
 import (
 	"time"
 
-	"github.com/crowci/crow/v3/server/model"
 	"xorm.io/builder"
 	"xorm.io/xorm"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 func (s storage) GetPipeline(id int64) (*model.Pipeline, error) {

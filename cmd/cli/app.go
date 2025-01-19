@@ -15,6 +15,8 @@
 package main
 
 import (
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/admin"
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/exec"
@@ -26,7 +28,6 @@ import (
 	"github.com/crowci/crow/v3/cli/setup"
 	"github.com/crowci/crow/v3/cli/update"
 	"github.com/crowci/crow/v3/version"
-	"github.com/urfave/cli/v3"
 )
 
 //go:generate go run docs.go app.go

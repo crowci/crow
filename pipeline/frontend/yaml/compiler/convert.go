@@ -21,12 +21,13 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/oklog/ulid/v2"
+
 	backend_types "github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/compiler/settings"
 	yaml_types "github.com/crowci/crow/v3/pipeline/frontend/yaml/types"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/utils"
-	"github.com/oklog/ulid/v2"
 )
 
 const (

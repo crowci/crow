@@ -15,9 +15,10 @@
 package secret
 
 import (
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/internal"
 	crow "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
 )
 
 // Command exports the secret command.

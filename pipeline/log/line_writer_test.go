@@ -17,11 +17,12 @@ package log_test
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+
 	"github.com/crowci/crow/v3/pipeline/log"
 	"github.com/crowci/crow/v3/pipeline/rpc"
 	"github.com/crowci/crow/v3/pipeline/rpc/mocks"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
 
 func TestLineWriter(t *testing.T) {

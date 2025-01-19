@@ -19,10 +19,11 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/rs/zerolog/log"
 )
 
 // Decline updates the status to declined for blocked pipelines.

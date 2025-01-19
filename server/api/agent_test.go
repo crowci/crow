@@ -21,6 +21,10 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/queue"
@@ -28,9 +32,6 @@ import (
 	mocks_manager "github.com/crowci/crow/v3/server/services/mocks"
 	store_mocks "github.com/crowci/crow/v3/server/store/mocks"
 	"github.com/crowci/crow/v3/server/store/types"
-	"github.com/gin-gonic/gin"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
 
 var fakeAgent = &model.Agent{

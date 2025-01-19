@@ -17,12 +17,13 @@ package compiler
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	backend_types "github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
 	yaml_types "github.com/crowci/crow/v3/pipeline/frontend/yaml/types"
 	yaml_base_types "github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 	"github.com/crowci/crow/v3/shared/constant"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestSecretAvailable(t *testing.T) {

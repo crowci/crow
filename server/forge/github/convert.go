@@ -18,8 +18,9 @@ package github
 import (
 	"fmt"
 
-	"github.com/crowci/crow/v3/server/model"
 	"github.com/google/go-github/v68/github"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 const (

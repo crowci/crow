@@ -22,12 +22,13 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/server/forge/bitbucket/fixtures"
 	"github.com/crowci/crow/v3/server/forge/bitbucket/internal"
 	"github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/gin-gonic/gin"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestNew(t *testing.T) {

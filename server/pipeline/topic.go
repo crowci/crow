@@ -18,10 +18,11 @@ import (
 	"encoding/json"
 	"strconv"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/pubsub"
-	"github.com/rs/zerolog/log"
 )
 
 // publishToTopic publishes message to UI clients.

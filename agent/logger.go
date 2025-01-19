@@ -18,11 +18,12 @@ import (
 	"io"
 	"sync"
 
+	"github.com/rs/zerolog"
+
 	"github.com/crowci/crow/v3/pipeline"
 	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/crowci/crow/v3/pipeline/log"
 	"github.com/crowci/crow/v3/pipeline/rpc"
-	"github.com/rs/zerolog"
 )
 
 func (r *Runner) createLogger(_logger zerolog.Logger, uploads *sync.WaitGroup, workflow *rpc.Workflow) pipeline.Logger {

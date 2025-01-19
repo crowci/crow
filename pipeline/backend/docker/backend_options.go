@@ -1,8 +1,9 @@
 package docker
 
 import (
-	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/go-viper/mapstructure/v2"
+
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 // BackendOptions defines all the advanced options for the docker backend.

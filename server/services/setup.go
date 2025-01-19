@@ -23,14 +23,15 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/rs/zerolog/log"
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/services/config"
 	"github.com/crowci/crow/v3/server/services/registry"
 	"github.com/crowci/crow/v3/server/services/secret"
 	"github.com/crowci/crow/v3/server/store"
 	"github.com/crowci/crow/v3/server/store/types"
-	"github.com/rs/zerolog/log"
-	"github.com/urfave/cli/v3"
 )
 
 func setupRegistryService(store store.Store, dockerConfig string) registry.Service {

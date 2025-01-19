@@ -3,8 +3,9 @@ package kubernetes
 import (
 	"testing"
 
-	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/stretchr/testify/assert"
+
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 func Test_parseBackendOptions(t *testing.T) {

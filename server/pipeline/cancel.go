@@ -18,12 +18,13 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/queue"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/rs/zerolog/log"
 )
 
 // Cancel the pipeline and returns the status.

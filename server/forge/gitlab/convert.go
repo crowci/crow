@@ -21,9 +21,10 @@ import (
 	"net/http"
 	"strings"
 
+	gitlab "gitlab.com/gitlab-org/api/client-go"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/shared/utils"
-	gitlab "gitlab.com/gitlab-org/api/client-go"
 )
 
 const (

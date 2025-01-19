@@ -20,11 +20,12 @@ import (
 	"os"
 	"text/template"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/output"
 	"github.com/crowci/crow/v3/cli/pipeline/deploy"
 	"github.com/crowci/crow/v3/cli/pipeline/log"
 	crow "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
 )
 
 // Command exports the pipeline command set.

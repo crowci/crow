@@ -15,9 +15,10 @@
 package datastore
 
 import (
-	"github.com/crowci/crow/v3/server/model"
 	"xorm.io/builder"
 	"xorm.io/xorm"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 func (s storage) StepLoad(id int64) (*model.Step, error) {

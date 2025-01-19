@@ -17,9 +17,10 @@ package grpc
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/pipeline/rpc"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestCreateFilterFunc(t *testing.T) {

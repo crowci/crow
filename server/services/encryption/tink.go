@@ -18,10 +18,11 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"github.com/crowci/crow/v3/server/services/encryption/types"
-	"github.com/crowci/crow/v3/server/store"
 	"github.com/fsnotify/fsnotify"
 	"github.com/google/tink/go/tink"
+
+	"github.com/crowci/crow/v3/server/services/encryption/types"
+	"github.com/crowci/crow/v3/server/store"
 )
 
 type tinkEncryptionService struct {

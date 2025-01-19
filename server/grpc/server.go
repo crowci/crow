@@ -18,6 +18,10 @@ import (
 	"context"
 	"encoding/json"
 
+	"github.com/prometheus/client_golang/prometheus"
+	prometheus_auto "github.com/prometheus/client_golang/prometheus/promauto"
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/pipeline/rpc"
 	"github.com/crowci/crow/v3/pipeline/rpc/proto"
 	"github.com/crowci/crow/v3/server/logging"
@@ -25,9 +29,6 @@ import (
 	"github.com/crowci/crow/v3/server/queue"
 	"github.com/crowci/crow/v3/server/store"
 	"github.com/crowci/crow/v3/version"
-	"github.com/prometheus/client_golang/prometheus"
-	prometheus_auto "github.com/prometheus/client_golang/prometheus/promauto"
-	"github.com/rs/zerolog/log"
 )
 
 // WoodpeckerServer is a grpc server implementation.

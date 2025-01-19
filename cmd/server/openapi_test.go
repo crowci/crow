@@ -3,8 +3,9 @@ package main
 import (
 	"testing"
 
-	"github.com/crowci/crow/v3/cmd/server/openapi"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/crowci/crow/v3/cmd/server/openapi"
 )
 
 func TestSetupOpenApiStaticConfig(t *testing.T) {

@@ -17,11 +17,12 @@ package pipeline
 import (
 	"context"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/pipeline/stepbuilder"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/rs/zerolog/log"
 )
 
 // start a pipeline, make sure it was stored persistent in the store before.

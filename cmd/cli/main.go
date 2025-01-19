@@ -18,9 +18,10 @@ import (
 	"context"
 	"os"
 
-	"github.com/crowci/crow/v3/shared/utils"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/rs/zerolog/log"
+
+	"github.com/crowci/crow/v3/shared/utils"
 )
 
 func main() {

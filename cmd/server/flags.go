@@ -19,9 +19,10 @@ import (
 	"os"
 	"time"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/shared/constant"
 	"github.com/crowci/crow/v3/shared/logger"
-	"github.com/urfave/cli/v3"
 )
 
 var flags = append([]cli.Flag{
