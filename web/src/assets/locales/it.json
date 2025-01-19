@@ -310,7 +310,7 @@
             "general": {
                 "general": "Generale",
                 "pipeline_path": {
-                    "default": "Predefinito: .woodpecker/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
+                    "default": "Predefinito: .crow/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
                     "path": "Percorso della pipeline",
                     "desc": "Percorso per la configurazione della pipeline (ad esempio {0}). Le cartelle devono terminare con {1}.",
                     "desc_path_example": "mio/percorso/"
