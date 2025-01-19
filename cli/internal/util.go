@@ -45,12 +45,12 @@ func NewClient(ctx context.Context, c *cli.Command) (crow.Client, error) {
 	server = strings.TrimRight(server, "/")
 
 	// if no server url is provided we can default
-	// to the hosted Woodpecker service.
+	// to the hosted Crow service.
 	if len(server) == 0 {
-		return nil, fmt.Errorf("you must provide the Woodpecker server address")
+		return nil, fmt.Errorf("crow server address is missing")
 	}
 	if len(token) == 0 {
-		return nil, fmt.Errorf("you must provide your Woodpecker access token")
+		return nil, fmt.Errorf("crow access token is missing")
 	}
 
 	// attempt to find system CA certs

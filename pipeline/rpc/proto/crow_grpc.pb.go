@@ -568,7 +568,7 @@ func (UnimplementedCrowAuthServer) Auth(context.Context, *AuthRequest) (*AuthRes
 	return nil, status.Errorf(codes.Unimplemented, "method Auth not implemented")
 }
 func (UnimplementedCrowAuthServer) mustEmbedUnimplementedCrowAuthServer() {}
-func (UnimplementedCrowAuthServer) testEmbeddedByValue()                        {}
+func (UnimplementedCrowAuthServer) testEmbeddedByValue()                  {}
 
 // UnsafeCrowAuthServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to CrowAuthServer will
