@@ -53,14 +53,14 @@ onMounted(async () => {
 const address = `${window.location.protocol}//${window.location.host}${rootPath}`; // port is included in location.host
 
 const usageWithCurl = computed(() => {
-  let usage = `export WOODPECKER_SERVER="${address}"\n`;
-  usage += `export WOODPECKER_TOKEN="${token.value}"\n`;
+  let usage = `export CROW_SERVER="${address}"\n`;
+  usage += `export CROW_TOKEN="${token.value}"\n`;
   usage += `\n`;
-  usage += `# curl -i \${WOODPECKER_SERVER}/api/user -H "Authorization: Bearer \${WOODPECKER_TOKEN}"`;
+  usage += `# curl -i \${CROW_SERVER}/api/user -H "Authorization: Bearer \${CROW_TOKEN}"`;
   return usage;
 });
 
-const usageWithCli = `# woodpecker setup --server ${address}`;
+const usageWithCli = `# crow-cli setup --server ${address}`;
 
 const cliDownload = 'https://github.com/crowci/crow/releases';
 

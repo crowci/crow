@@ -38,7 +38,7 @@ func pinger(_ context.Context, c *cli.Command) error {
 		serverAddr = "localhost" + serverAddr
 	}
 
-	// if woodpecker do ssl on it's own
+	// if crow does ssl on it's own
 	if c.String("server-cert") != "" {
 		scheme = "https"
 	}

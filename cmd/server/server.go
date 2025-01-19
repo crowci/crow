@@ -74,20 +74,20 @@ func run(ctx context.Context, c *cli.Command) error {
 	}
 
 	if c.String("server-host") == "" {
-		return fmt.Errorf("WOODPECKER_HOST is not properly configured")
+		return fmt.Errorf("CROW_HOST is not properly configured")
 	}
 
 	if !strings.Contains(c.String("server-host"), "://") {
-		return fmt.Errorf("WOODPECKER_HOST must be <scheme>://<hostname> format")
+		return fmt.Errorf("CROW_HOST must be <scheme>://<hostname> format")
 	}
 
 	if _, err := url.Parse(c.String("server-host")); err != nil {
-		return fmt.Errorf("could not parse WOODPECKER_HOST: %w", err)
+		return fmt.Errorf("could not parse CROW_HOST: %w", err)
 	}
 
 	if strings.Contains(c.String("server-host"), "://localhost") {
 		log.Warn().Msg(
-			"WOODPECKER_HOST should probably be publicly accessible (not localhost)",
+			"CROW_HOST should probably be publicly accessible (not localhost)",
 		)
 	}
 
@@ -109,7 +109,7 @@ func run(ctx context.Context, c *cli.Command) error {
 	// wait for all services until one do stops with an error
 	serviceWaitingGroup := errgroup.Group{}
 
-	log.Info().Msgf("starting Woodpecker server with version '%s'", version.String())
+	log.Info().Msgf("starting Crow server with version '%s'", version.String())
 
 	serviceWaitingGroup.Go(func() error {
 		log.Info().Msg("starting cron service ...")

@@ -1,4 +1,4 @@
-// Copyright 2024 Woodpecker Authors
+// Copyright 2024 crow Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,37 +29,37 @@ import (
 
 func startMetricsCollector(ctx context.Context, _store store.Store) {
 	pendingSteps := prometheus_auto.NewGauge(prometheus.GaugeOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "pending_steps",
 		Help:      "Total number of pending pipeline steps.",
 	})
 	waitingSteps := prometheus_auto.NewGauge(prometheus.GaugeOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "waiting_steps",
 		Help:      "Total number of pipeline waiting on deps.",
 	})
 	runningSteps := prometheus_auto.NewGauge(prometheus.GaugeOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "running_steps",
 		Help:      "Total number of running pipeline steps.",
 	})
 	workers := prometheus_auto.NewGauge(prometheus.GaugeOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "worker_count",
 		Help:      "Total number of workers.",
 	})
 	pipelines := prometheus_auto.NewGauge(prometheus.GaugeOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "pipeline_total_count",
 		Help:      "Total number of pipelines.",
 	})
 	users := prometheus_auto.NewGauge(prometheus.GaugeOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "user_count",
 		Help:      "Total number of users.",
 	})
 	repos := prometheus_auto.NewGauge(prometheus.GaugeOpts{
-		Namespace: "woodpecker",
+		Namespace: "crow",
 		Name:      "repo_count",
 		Help:      "Total number of repos.",
 	})

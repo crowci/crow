@@ -61,7 +61,7 @@ func setupConfigService(c *cli.Command, privateSignatureKey ed25519.PrivateKey) 
 	timeout := c.Duration("forge-timeout")
 	retries := c.Uint("forge-retry")
 	if retries == 0 {
-		return nil, fmt.Errorf("WOODPECKER_FORGE_RETRY can not be 0")
+		return nil, fmt.Errorf("CROW_FORGE_RETRY can not be 0")
 	}
 	configFetcher := config.NewForge(timeout, uint(retries))
 

@@ -30,7 +30,7 @@ func main() {
 		panic(err)
 	}
 
-	fi, err := os.Create("../../docs/docs/40-cli.md")
+	fi, err := os.Create("/tmp/40-cli.md")
 	if err != nil {
 		panic(err)
 	}

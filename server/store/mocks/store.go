@@ -191,7 +191,7 @@ func (_m *Store) AgentUpdate(_a0 *model.Agent) error {
 	return r0
 }
 
-// Close provides a mock function with no fields
+// Close provides a mock function with given fields:
 func (_m *Store) Close() error {
 	ret := _m.Called()
 
@@ -778,7 +778,7 @@ func (_m *Store) GetPipelineBadge(_a0 *model.Repo, _a1 string) (*model.Pipeline,
 	return r0, r1
 }
 
-// GetPipelineCount provides a mock function with no fields
+// GetPipelineCount provides a mock function with given fields:
 func (_m *Store) GetPipelineCount() (int64, error) {
 	ret := _m.Called()
 
@@ -926,7 +926,7 @@ func (_m *Store) GetPipelineNumber(_a0 *model.Repo, _a1 int64) (*model.Pipeline,
 	return r0, r1
 }
 
-// GetPipelineQueue provides a mock function with no fields
+// GetPipelineQueue provides a mock function with given fields:
 func (_m *Store) GetPipelineQueue() ([]*model.Feed, error) {
 	ret := _m.Called()
 
@@ -986,7 +986,7 @@ func (_m *Store) GetRepo(_a0 int64) (*model.Repo, error) {
 	return r0, r1
 }
 
-// GetRepoCount provides a mock function with no fields
+// GetRepoCount provides a mock function with given fields:
 func (_m *Store) GetRepoCount() (int64, error) {
 	ret := _m.Called()
 
@@ -1134,7 +1134,7 @@ func (_m *Store) GetUser(_a0 int64) (*model.User, error) {
 	return r0, r1
 }
 
-// GetUserCount provides a mock function with no fields
+// GetUserCount provides a mock function with given fields:
 func (_m *Store) GetUserCount() (int64, error) {
 	ret := _m.Called()
 
@@ -1826,7 +1826,7 @@ func (_m *Store) PermUpsert(perm *model.Perm) error {
 	return r0
 }
 
-// Ping provides a mock function with no fields
+// Ping provides a mock function with given fields:
 func (_m *Store) Ping() error {
 	ret := _m.Called()
 
@@ -1958,7 +1958,7 @@ func (_m *Store) RegistryList(_a0 *model.Repo, _a1 bool, _a2 *model.ListOptions)
 	return r0, r1
 }
 
-// RegistryListAll provides a mock function with no fields
+// RegistryListAll provides a mock function with given fields:
 func (_m *Store) RegistryListAll() ([]*model.Registry, error) {
 	ret := _m.Called()
 
@@ -2192,7 +2192,7 @@ func (_m *Store) SecretList(_a0 *model.Repo, _a1 bool, _a2 *model.ListOptions) (
 	return r0, r1
 }
 
-// SecretListAll provides a mock function with no fields
+// SecretListAll provides a mock function with given fields:
 func (_m *Store) SecretListAll() ([]*model.Secret, error) {
 	ret := _m.Called()
 
@@ -2538,7 +2538,7 @@ func (_m *Store) TaskInsert(_a0 *model.Task) error {
 	return r0
 }
 
-// TaskList provides a mock function with no fields
+// TaskList provides a mock function with given fields:
 func (_m *Store) TaskList() ([]*model.Task, error) {
 	ret := _m.Called()
 

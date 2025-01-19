@@ -45,7 +45,7 @@ func NewJWTManager(secretKey string) *JWTManager {
 func (manager *JWTManager) Generate(agentID int64) (string, error) {
 	claims := AgentTokenClaims{
 		RegisteredClaims: jwt.RegisteredClaims{
-			Issuer:    "woodpecker",
+			Issuer:    "crow",
 			Subject:   fmt.Sprintf("%d", agentID),
 			Audience:  jwt.ClaimStrings{},
 			NotBefore: jwt.NewNumericDate(time.Now()),

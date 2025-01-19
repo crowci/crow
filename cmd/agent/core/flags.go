@@ -50,7 +50,7 @@ var flags = []cli.Flag{
 	&cli.BoolFlag{
 		Sources: cli.EnvVars("WOODPECKER_GRPC_VERIFY", "CROW_GRPC_VERIFY"),
 		Name:    "grpc-skip-insecure",
-		Usage:   "should the grpc server certificate be verified, only valid when WOODPECKER_GRPC_SECURE is true",
+		Usage:   "should the grpc server certificate be verified, only valid when CROW_GRPC_SECURE is true",
 		Value:   true,
 	},
 	&cli.StringFlag{

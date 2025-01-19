@@ -577,14 +577,14 @@ var flags = append([]cli.Flag{
 	},
 }, logger.GlobalLoggerFlags...)
 
-// If woodpecker is running inside a container the default value for
+// If crow is running inside a container the default value for
 // the datasource is different from running outside a container.
 func datasourceDefaultValue() string {
 	found := getFirstNonEmptyEnvVar("WOODPECKER_IN_CONTAINER", "CROW_IN_CONTAINER")
 	if found != "" {
-		return "/var/lib/woodpecker/woodpecker.sqlite"
+		return "/var/lib/crow/crow.sqlite"
 	}
-	return "woodpecker.sqlite"
+	return "crow.sqlite"
 }
 
 func getFirstNonEmptyEnvVar(envVars ...string) string {
