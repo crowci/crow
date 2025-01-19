@@ -28,25 +28,25 @@ import (
 
 var GlobalLoggerFlags = []cli.Flag{
 	&cli.StringFlag{
-		Sources: cli.EnvVars("WOODPECKER_LOG_LEVEL"),
+		Sources: cli.EnvVars("WOODPECKER_LOG_LEVEL", "CROW_LOG_LEVEL"),
 		Name:    "log-level",
 		Usage:   "set logging level",
 		Value:   "info",
 	},
 	&cli.StringFlag{
-		Sources: cli.EnvVars("WOODPECKER_LOG_FILE"),
+		Sources: cli.EnvVars("WOODPECKER_LOG_FILE", "CROW_LOG_FILE"),
 		Name:    "log-file",
 		Usage:   "Output destination for logs. 'stdout' and 'stderr' can be used as special keywords.",
 		Value:   "stderr",
 	},
 	&cli.BoolFlag{
-		Sources: cli.EnvVars("WOODPECKER_DEBUG_PRETTY"),
+		Sources: cli.EnvVars("WOODPECKER_DEBUG_PRETTY", "CROW_DEBUG_PRETTY"),
 		Name:    "pretty",
 		Usage:   "enable pretty-printed debug output",
 		Value:   isInteractiveTerminal(), // make pretty on interactive terminal by default
 	},
 	&cli.BoolFlag{
-		Sources: cli.EnvVars("WOODPECKER_DEBUG_NOCOLOR"),
+		Sources: cli.EnvVars("WOODPECKER_DEBUG_NOCOLOR", "CROW_DEBUG_NOCOLOR"),
 		Name:    "nocolor",
 		Usage:   "disable colored debug output, only has effect if pretty output is set too",
 		Value:   !isInteractiveTerminal(), // do color on interactive terminal by default

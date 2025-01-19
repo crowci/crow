@@ -20,11 +20,11 @@ import "time"
 // folders are indicated by supplying a trailing slash.
 var DefaultConfigOrder = [...]string{
 	".crow/",
-	".woodpecker.yaml",
-	".woodpecker.yml",
-	".crow/",
 	".crow.yaml",
 	".crow.yml",
+	".woodpecker/",
+	".woodpecker.yaml",
+	".woodpecker.yml",
 }
 
 const (
