@@ -24,6 +24,11 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/drone/envsubst"
+	"github.com/oklog/ulid/v2"
+	"github.com/rs/zerolog/log"
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/lint"
 	"github.com/crowci/crow/v3/pipeline"
@@ -40,10 +45,6 @@ import (
 	pipelineLog "github.com/crowci/crow/v3/pipeline/log"
 	"github.com/crowci/crow/v3/shared/constant"
 	"github.com/crowci/crow/v3/shared/utils"
-	"github.com/drone/envsubst"
-	"github.com/oklog/ulid/v2"
-	"github.com/rs/zerolog/log"
-	"github.com/urfave/cli/v3"
 )
 
 // Command exports the exec command.

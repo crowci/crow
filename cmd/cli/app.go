@@ -15,6 +15,8 @@
 package main
 
 import (
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/admin"
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/exec"
@@ -26,14 +28,13 @@ import (
 	"github.com/crowci/crow/v3/cli/setup"
 	"github.com/crowci/crow/v3/cli/update"
 	"github.com/crowci/crow/v3/version"
-	"github.com/urfave/cli/v3"
 )
 
 //go:generate go run docs.go app.go
 func newApp() *cli.Command {
 	app := &cli.Command{}
-	app.Name = "woodpecker-cli"
-	app.Description = "Woodpecker command line utility"
+	app.Name = "crow-cli"
+	app.Description = "Crow CI command line utility"
 	app.Version = version.String()
 	app.Usage = "command line utility"
 	app.Flags = common.GlobalFlags

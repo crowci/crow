@@ -15,8 +15,9 @@
 package gitlab
 
 import (
-	"github.com/crowci/crow/v3/server/model"
 	gitlab "gitlab.com/gitlab-org/api/client-go"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 // getStatus is a helper that converts a Woodpecker status to a Gitlab status.

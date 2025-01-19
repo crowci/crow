@@ -391,7 +391,7 @@
                     "netrc_only_trusted": "Только доверенные плагины клонирования"
                 },
                 "pipeline_path": {
-                    "default": "По умолчанию: .woodpecker/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
+                    "default": "По умолчанию: .crow/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
                     "desc": "Путь к конфигурации вашего конвейера (например: {0}). При указании директории путь должен заканчиваться символом {1}.",
                     "desc_path_example": "мой/путь/",
                     "path": "Конфигурация конвейера"

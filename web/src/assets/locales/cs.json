@@ -341,7 +341,7 @@
                     "netrc_only_trusted": "Pověření netrc vkládat pouze do důvěryhodných kontejnerů"
                 },
                 "pipeline_path": {
-                    "default": "Ve výchozím nastavení: .woodpecker/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
+                    "default": "Ve výchozím nastavení: .crow/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
                     "desc": "Cesta ke konfiguraci potrubí (například {0}). Složky by měly končit znakem {1}.",
                     "desc_path_example": "moje/cesta/",
                     "path": "Cesta potrubí"

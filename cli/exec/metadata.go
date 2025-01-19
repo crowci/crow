@@ -22,10 +22,11 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/matrix"
 	"github.com/crowci/crow/v3/version"
-	"github.com/urfave/cli/v3"
 )
 
 // return the metadata from the cli context.

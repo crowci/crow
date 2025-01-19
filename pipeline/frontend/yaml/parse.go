@@ -16,6 +16,7 @@ package yaml
 
 import (
 	"codeberg.org/6543/xyaml"
+
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/types"
 )
 

@@ -18,10 +18,11 @@ package queue
 import (
 	"context"
 
-	"github.com/crowci/crow/v3/server/model"
-	"github.com/crowci/crow/v3/server/store"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
+
+	"github.com/crowci/crow/v3/server/model"
+	"github.com/crowci/crow/v3/server/store"
 )
 
 // WithTaskStore returns a queue that is backed by the TaskStore. This

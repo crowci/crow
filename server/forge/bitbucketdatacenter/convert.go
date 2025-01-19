@@ -20,9 +20,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/crowci/crow/v3/server/model"
 	bb "github.com/neticdk/go-bitbucket/bitbucket"
 	"golang.org/x/oauth2"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 func convertStatus(status model.StatusValue) bb.BuildStatusState {

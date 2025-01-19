@@ -19,9 +19,10 @@ import (
 	"runtime"
 	"strings"
 
+	"xorm.io/xorm"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store/types"
-	"xorm.io/xorm"
 )
 
 // wrapGet return error if err not nil or if requested entry do not exist.

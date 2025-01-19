@@ -19,8 +19,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter/schema"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter/schema"
 )
 
 func TestSchema(t *testing.T) {
@@ -33,80 +34,80 @@ func TestSchema(t *testing.T) {
 	}{
 		{
 			name:     "Clone",
-			testFile: ".woodpecker/test-clone.yaml",
+			testFile: ".crow/test-clone.yaml",
 		},
 		{
 			name:     "Clone skip",
-			testFile: ".woodpecker/test-clone-skip.yaml",
+			testFile: ".crow/test-clone-skip.yaml",
 		},
 		{
 			name:     "Matrix",
-			testFile: ".woodpecker/test-matrix.yaml",
+			testFile: ".crow/test-matrix.yaml",
 		},
 		{
 			name:     "Multi Pipeline",
-			testFile: ".woodpecker/test-multi.yaml",
+			testFile: ".crow/test-multi.yaml",
 		},
 		{
 			name:     "Plugin",
-			testFile: ".woodpecker/test-plugin.yaml",
+			testFile: ".crow/test-plugin.yaml",
 		},
 		{
 			name:     "Run on",
-			testFile: ".woodpecker/test-run-on.yaml",
+			testFile: ".crow/test-run-on.yaml",
 		},
 		{
 			name:     "Service",
-			testFile: ".woodpecker/test-service.yaml",
+			testFile: ".crow/test-service.yaml",
 		},
 		{
 			name:     "Step",
-			testFile: ".woodpecker/test-step.yaml",
+			testFile: ".crow/test-step.yaml",
 		},
 		{
 			name:     "When",
-			testFile: ".woodpecker/test-when.yaml",
+			testFile: ".crow/test-when.yaml",
 		},
 		{
 			name:     "Workspace",
-			testFile: ".woodpecker/test-workspace.yaml",
+			testFile: ".crow/test-workspace.yaml",
 		},
 		{
 			name:     "Labels",
-			testFile: ".woodpecker/test-labels.yaml",
+			testFile: ".crow/test-labels.yaml",
 		},
 		{
-			name:     "Map and Sequence Merge", // https://woodpecker-ci.org/docs/next/usage/advanced-yaml-syntax
-			testFile: ".woodpecker/test-merge-map-and-sequence.yaml",
+			name:     "Map and Sequence Merge",
+			testFile: ".crow/test-merge-map-and-sequence.yaml",
 		},
 		{
 			name:     "Broken Config",
-			testFile: ".woodpecker/test-broken.yaml",
+			testFile: ".crow/test-broken.yaml",
 			fail:     true,
 		},
 		{
 			name:     "Array syntax",
-			testFile: ".woodpecker/test-array-syntax.yaml",
+			testFile: ".crow/test-array-syntax.yaml",
 			fail:     false,
 		},
 		{
 			name:     "Step DAG syntax",
-			testFile: ".woodpecker/test-dag.yaml",
+			testFile: ".crow/test-dag.yaml",
 			fail:     false,
 		},
 		{
 			name:     "Custom backend",
-			testFile: ".woodpecker/test-custom-backend.yaml",
+			testFile: ".crow/test-custom-backend.yaml",
 			fail:     false,
 		},
 		{
 			name:     "Broken Plugin by environment",
-			testFile: ".woodpecker/test-broken-plugin.yaml",
+			testFile: ".crow/test-broken-plugin.yaml",
 			fail:     true,
 		},
 		{
 			name:     "Broken Plugin by commands",
-			testFile: ".woodpecker/test-broken-plugin2.yaml",
+			testFile: ".crow/test-broken-plugin2.yaml",
 			fail:     true,
 		},
 	}

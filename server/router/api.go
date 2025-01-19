@@ -15,12 +15,13 @@
 package router
 
 import (
+	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/api"
 	"github.com/crowci/crow/v3/server/api/debug"
 	"github.com/crowci/crow/v3/server/router/middleware/session"
-	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog"
 )
 
 func apiRoutes(e *gin.RouterGroup) {

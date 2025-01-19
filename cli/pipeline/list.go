@@ -18,11 +18,12 @@ import (
 	"context"
 	"time"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 	shared_utils "github.com/crowci/crow/v3/shared/utils"
-	"github.com/urfave/cli/v3"
 )
 
 //nolint:mnd
@@ -84,14 +85,14 @@ func List(ctx context.Context, c *cli.Command) error {
 	return pipelineOutput(c, pipelines)
 }
 
-func pipelineList(c *cli.Command, client woodpecker.Client) ([]*woodpecker.Pipeline, error) {
+func pipelineList(c *cli.Command, client crow.Client) ([]*crow.Pipeline, error) {
 	repoIDOrFullName := c.Args().First()
 	repoID, err := internal.ParseRepo(client, repoIDOrFullName)
 	if err != nil {
 		return nil, err
 	}
 
-	opt := woodpecker.PipelineListOptions{}
+	opt := crow.PipelineListOptions{}
 
 	if before := c.Timestamp("before"); !before.IsZero() {
 		opt.Before = before
@@ -105,10 +106,10 @@ func pipelineList(c *cli.Command, client woodpecker.Client) ([]*woodpecker.Pipel
 	status := c.String("status")
 	limit := int(c.Int("limit"))
 
-	pipelines, err := shared_utils.Paginate(func(page int) ([]*woodpecker.Pipeline, error) {
+	pipelines, err := shared_utils.Paginate(func(page int) ([]*crow.Pipeline, error) {
 		return client.PipelineList(repoID,
-			woodpecker.PipelineListOptions{
-				ListOptions: woodpecker.ListOptions{
+			crow.PipelineListOptions{
+				ListOptions: crow.ListOptions{
 					Page: page,
 				},
 				Before: opt.Before,

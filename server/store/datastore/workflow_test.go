@@ -18,8 +18,9 @@ package datastore
 import (
 	"testing"
 
-	"github.com/crowci/crow/v3/server/model"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 func TestWorkflowLoad(t *testing.T) {

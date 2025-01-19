@@ -20,10 +20,11 @@ import (
 	"net/http"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/server/forge/gitea/fixtures"
 	"github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestGiteaParser(t *testing.T) {
@@ -68,12 +69,12 @@ func TestGiteaParser(t *testing.T) {
 				Commit:       "28c3613ae62640216bea5e7dc71aa65356e4298b",
 				Branch:       "fdsafdsa",
 				Ref:          "refs/heads/fdsafdsa",
-				Message:      "Delete '.woodpecker/.check.yml'\n",
+				Message:      "Delete '.crow/.check.yml'\n",
 				Sender:       "6543",
 				Avatar:       "https://codeberg.org/avatars/09a234c768cb9bca78f6b2f82d6af173",
 				Email:        "6543@obermui.de",
 				ForgeURL:     "https://codeberg.org/meisam/woodpecktester/commit/28c3613ae62640216bea5e7dc71aa65356e4298b",
-				ChangedFiles: []string{".woodpecker/.check.yml"},
+				ChangedFiles: []string{".crow/.check.yml"},
 			},
 		},
 		{

@@ -21,10 +21,11 @@ import (
 	"strings"
 	"testing"
 
-	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/system"
 	"github.com/stretchr/testify/assert"
+
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
 )
 
 func TestSplitVolumeParts(t *testing.T) {

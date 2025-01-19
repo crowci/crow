@@ -19,9 +19,10 @@ import (
 	"encoding/base64"
 	"fmt"
 
+	"github.com/google/tink/go/subtle/random"
+
 	"github.com/crowci/crow/v3/server/services/encryption/types"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/google/tink/go/subtle/random"
 )
 
 type aesEncryptionService struct {

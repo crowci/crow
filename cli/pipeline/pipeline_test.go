@@ -6,10 +6,11 @@ import (
 	"io"
 	"testing"
 
-	"github.com/crowci/crow/v3/cli/common"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/stretchr/testify/assert"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/cli/common"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 func TestPipelineOutput(t *testing.T) {
@@ -46,7 +47,7 @@ func TestPipelineOutput(t *testing.T) {
 		},
 	}
 
-	pipelines := []*woodpecker.Pipeline{
+	pipelines := []*crow.Pipeline{
 		{
 			Number:  1,
 			Status:  "success",

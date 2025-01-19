@@ -24,6 +24,10 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/rs/zerolog/log"
+	grpcMetadata "google.golang.org/grpc/metadata"
+
 	"github.com/crowci/crow/v3/pipeline/rpc"
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/forge"
@@ -33,9 +37,6 @@ import (
 	"github.com/crowci/crow/v3/server/pubsub"
 	"github.com/crowci/crow/v3/server/queue"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/rs/zerolog/log"
-	grpcMetadata "google.golang.org/grpc/metadata"
 )
 
 // updateAgentLastWorkDelay the delay before the LastWork info should be updated.

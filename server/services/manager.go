@@ -18,6 +18,9 @@ import (
 	"crypto"
 	"time"
 
+	"github.com/jellydator/ttlcache/v3"
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/services/config"
@@ -25,8 +28,6 @@ import (
 	"github.com/crowci/crow/v3/server/services/registry"
 	"github.com/crowci/crow/v3/server/services/secret"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/jellydator/ttlcache/v3"
-	"github.com/urfave/cli/v3"
 )
 
 //go:generate mockery --name Manager --output mocks --case underscore --note "+build test"

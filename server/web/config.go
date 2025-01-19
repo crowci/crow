@@ -20,12 +20,13 @@ import (
 	"strconv"
 	"text/template"
 
+	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/router/middleware/session"
 	"github.com/crowci/crow/v3/shared/token"
 	"github.com/crowci/crow/v3/version"
-	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog/log"
 )
 
 func Config(c *gin.Context) {

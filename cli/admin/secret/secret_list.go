@@ -20,10 +20,11 @@ import (
 	"os"
 	"strings"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var secretListCmd = &cli.Command{
@@ -44,7 +45,7 @@ func secretList(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	opt := woodpecker.SecretListOptions{}
+	opt := crow.SecretListOptions{}
 
 	list, err := client.GlobalSecretList(opt)
 	if err != nil {

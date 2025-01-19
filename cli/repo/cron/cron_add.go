@@ -19,10 +19,11 @@ import (
 	"html/template"
 	"os"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	"github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var cronCreateCmd = &cli.Command{
@@ -72,7 +73,7 @@ func cronCreate(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	cron := &woodpecker.Cron{
+	cron := &crow.Cron{
 		Name:     cronName,
 		Branch:   branch,
 		Schedule: schedule,

@@ -5,6 +5,8 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/addon"
 	"github.com/crowci/crow/v3/server/forge/bitbucket"
@@ -14,7 +16,6 @@ import (
 	"github.com/crowci/crow/v3/server/forge/github"
 	"github.com/crowci/crow/v3/server/forge/gitlab"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/rs/zerolog/log"
 )
 
 func Forge(forge *model.Forge) (forge.Forge, error) {

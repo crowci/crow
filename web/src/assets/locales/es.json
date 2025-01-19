@@ -354,7 +354,7 @@
                     "netrc_only_trusted": "Sólo inyectar credenciales netrc en contenedores de confianza"
                 },
                 "pipeline_path": {
-                    "default": "Por defecto: .woodpecker/*.yml -> .woodpecker.yml",
+                    "default": "Por defecto: .crow/*.yml -> .woodpecker.yml",
                     "desc": "Ruta a la configuración de su pipeline (por ejemplo {0}). Las carpetas deben terminar en {1}.",
                     "desc_path_example": "my/path/",
                     "path": "Pasos del pipeline"

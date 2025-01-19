@@ -22,10 +22,11 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/google/go-github/v68/github"
+
 	"github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/shared/utils"
-	"github.com/google/go-github/v68/github"
 )
 
 const (

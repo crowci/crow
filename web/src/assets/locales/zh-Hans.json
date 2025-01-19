@@ -356,7 +356,7 @@
                     "netrc_only_trusted": "仅将 .netrc 提供的凭据注入受信任的容器"
                 },
                 "pipeline_path": {
-                    "default": "默认: .woodpecker/*.yml -> .woodpecker.yml",
+                    "default": "默认: .crow/*.yml -> .woodpecker.yml",
                     "desc": "流水线配置文件的路径（例如 {0}）。文件夹路径应以 {1} 结尾。",
                     "desc_path_example": "my/path/",
                     "path": "流水线路径"

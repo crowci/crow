@@ -17,8 +17,9 @@ package common
 import (
 	"context"
 
-	"github.com/crowci/crow/v3/shared/logger"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/shared/logger"
 )
 
 func setupGlobalLogger(ctx context.Context, c *cli.Command) error {

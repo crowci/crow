@@ -19,12 +19,13 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/pipeline/errors"
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/mocks"
 	forge_types "github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestGlobalEnvsubst(t *testing.T) {
@@ -301,14 +302,14 @@ func TestPipelineName(t *testing.T) {
 		Regs:  []*model.Registry{},
 		Host:  "",
 		Yamls: []*forge_types.FileMeta{
-			{Name: ".woodpecker/lint.yml", Data: []byte(`
+			{Name: ".crow/lint.yml", Data: []byte(`
 when:
   event: push
 steps:
   build:
     image: scratch
 `)},
-			{Name: ".woodpecker/.test.yml", Data: []byte(`
+			{Name: ".crow/.test.yml", Data: []byte(`
 when:
   event: push
 steps:
@@ -591,7 +592,7 @@ func TestSanitizePath(t *testing.T) {
 		sanitizedPath string
 	}{
 		{
-			path:          ".woodpecker/test.yml",
+			path:          ".crow/test.yml",
 			sanitizedPath: "test",
 		},
 		{
@@ -603,7 +604,7 @@ func TestSanitizePath(t *testing.T) {
 			sanitizedPath: "test",
 		},
 		{
-			path:          ".woodpecker/test.yaml",
+			path:          ".crow/test.yaml",
 			sanitizedPath: "test",
 		},
 		{

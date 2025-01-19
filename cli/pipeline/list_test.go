@@ -6,11 +6,12 @@ import (
 	"io"
 	"testing"
 
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/crowci/crow/v3/crow-go/crow/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/urfave/cli/v3"
+
+	crow "github.com/crowci/crow/v3/crow-go/crow"
+	"github.com/crowci/crow/v3/crow-go/crow/mocks"
 )
 
 func TestPipelineList(t *testing.T) {
@@ -18,22 +19,22 @@ func TestPipelineList(t *testing.T) {
 		name        string
 		repoID      int64
 		repoErr     error
-		pipelines   []*woodpecker.Pipeline
+		pipelines   []*crow.Pipeline
 		pipelineErr error
 		args        []string
-		expected    []*woodpecker.Pipeline
+		expected    []*crow.Pipeline
 		wantErr     error
 	}{
 		{
 			name:   "success",
 			repoID: 1,
-			pipelines: []*woodpecker.Pipeline{
+			pipelines: []*crow.Pipeline{
 				{ID: 1, Branch: "main", Event: "push", Status: "success"},
 				{ID: 2, Branch: "develop", Event: "pull_request", Status: "running"},
 				{ID: 3, Branch: "main", Event: "push", Status: "failure"},
 			},
 			args: []string{"ls", "repo/name"},
-			expected: []*woodpecker.Pipeline{
+			expected: []*crow.Pipeline{
 				{ID: 1, Branch: "main", Event: "push", Status: "success"},
 				{ID: 2, Branch: "develop", Event: "pull_request", Status: "running"},
 				{ID: 3, Branch: "main", Event: "push", Status: "failure"},
@@ -42,13 +43,13 @@ func TestPipelineList(t *testing.T) {
 		{
 			name:   "limit results",
 			repoID: 1,
-			pipelines: []*woodpecker.Pipeline{
+			pipelines: []*crow.Pipeline{
 				{ID: 1, Branch: "main", Event: "push", Status: "success"},
 				{ID: 2, Branch: "develop", Event: "pull_request", Status: "running"},
 				{ID: 3, Branch: "main", Event: "push", Status: "failure"},
 			},
 			args: []string{"ls", "--limit", "2", "repo/name"},
-			expected: []*woodpecker.Pipeline{
+			expected: []*crow.Pipeline{
 				{ID: 1, Branch: "main", Event: "push", Status: "success"},
 				{ID: 2, Branch: "develop", Event: "pull_request", Status: "running"},
 			},
@@ -65,16 +66,16 @@ func TestPipelineList(t *testing.T) {
 	for _, tt := range testtases {
 		t.Run(tt.name, func(t *testing.T) {
 			mockClient := mocks.NewClient(t)
-			mockClient.On("PipelineList", mock.Anything, mock.Anything).Return(func(_ int64, opt woodpecker.PipelineListOptions) ([]*woodpecker.Pipeline, error) {
+			mockClient.On("PipelineList", mock.Anything, mock.Anything).Return(func(_ int64, opt crow.PipelineListOptions) ([]*crow.Pipeline, error) {
 				if tt.pipelineErr != nil {
 					return nil, tt.pipelineErr
 				}
 				if opt.Page == 1 {
 					return tt.pipelines, nil
 				}
-				return []*woodpecker.Pipeline{}, nil
+				return []*crow.Pipeline{}, nil
 			}).Maybe()
-			mockClient.On("RepoLookup", mock.Anything).Return(&woodpecker.Repo{ID: tt.repoID}, nil)
+			mockClient.On("RepoLookup", mock.Anything).Return(&crow.Repo{ID: tt.repoID}, nil)
 
 			command := buildPipelineListCmd()
 			command.Writer = io.Discard

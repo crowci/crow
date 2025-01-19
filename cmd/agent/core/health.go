@@ -21,10 +21,11 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/crowci/crow/v3/agent"
-	"github.com/crowci/crow/v3/version"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/agent"
+	"github.com/crowci/crow/v3/version"
 )
 
 // The file implements some basic healthcheck logic based on the
@@ -49,7 +50,7 @@ func handleVersion(w http.ResponseWriter, _ *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Header().Add("Content-Type", "text/json")
 	err := json.NewEncoder(w).Encode(versionResp{
-		Source:  "https://github.com/woodpecker-ci/woodpecker",
+		Source:  "https://github.com/crowci/crow",
 		Version: version.String(),
 	})
 	if err != nil {

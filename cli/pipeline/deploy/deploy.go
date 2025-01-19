@@ -21,10 +21,11 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 // Command exports the deploy command.
@@ -42,12 +43,12 @@ var Command = &cli.Command{
 		&cli.StringFlag{
 			Name:  "event",
 			Usage: "event filter",
-			Value: woodpecker.EventPush,
+			Value: crow.EventPush,
 		},
 		&cli.StringFlag{
 			Name:  "status",
 			Usage: "status filter",
-			Value: woodpecker.StatusSuccess,
+			Value: crow.StatusSuccess,
 		},
 		&cli.StringSliceFlag{
 			Name:    "param",
@@ -86,7 +87,7 @@ func deploy(ctx context.Context, c *cli.Command) error {
 	var number int64
 	if pipelineArg == "last" {
 		// Fetch the pipeline number from the last pipeline
-		pipelines, err := client.PipelineList(repoID, woodpecker.PipelineListOptions{})
+		pipelines, err := client.PipelineList(repoID, crow.PipelineListOptions{})
 		if err != nil {
 			return err
 		}
@@ -120,7 +121,7 @@ func deploy(ctx context.Context, c *cli.Command) error {
 		return fmt.Errorf("please specify the target environment (i.e. production)")
 	}
 
-	opt := woodpecker.DeployOptions{
+	opt := crow.DeployOptions{
 		DeployTo: env,
 		Params:   internal.ParseKeyPair(c.StringSlice("param")),
 	}

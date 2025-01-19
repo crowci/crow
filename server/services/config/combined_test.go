@@ -27,13 +27,14 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/yaronf/httpsign"
+
 	"github.com/crowci/crow/v3/server/forge/mocks"
 	forge_types "github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/services/config"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/yaronf/httpsign"
 )
 
 func TestFetchFromConfigService(t *testing.T) {
@@ -64,10 +65,10 @@ func TestFetchFromConfigService(t *testing.T) {
 			name:       "Default config - Additional sub-folders",
 			repoConfig: "",
 			files: []file{{
-				name: ".woodpecker/test.yml",
+				name: ".crow/test.yml",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/sub-folder/config.yml",
+				name: ".crow/sub-folder/config.yml",
 				data: dummyData,
 			}},
 			expectedFileNames: []string{"override1", "override2", "override3"},
@@ -77,7 +78,7 @@ func TestFetchFromConfigService(t *testing.T) {
 			name:       "Fetch empty",
 			repoConfig: " ",
 			files: []file{{
-				name: ".woodpecker/.keep",
+				name: ".crow/.keep",
 				data: dummyData,
 			}, {
 				name: ".woodpecker.yml",
@@ -93,7 +94,7 @@ func TestFetchFromConfigService(t *testing.T) {
 			name:       "Use old config",
 			repoConfig: ".my-ci-folder/",
 			files: []file{{
-				name: ".woodpecker/test.yml",
+				name: ".crow/test.yml",
 				data: dummyData,
 			}, {
 				name: ".woodpecker.yml",

@@ -17,9 +17,10 @@ package yaml
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
 	yaml_base_types "github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestParse(t *testing.T) {

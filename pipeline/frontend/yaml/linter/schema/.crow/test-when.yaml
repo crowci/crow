@@ -110,7 +110,7 @@ steps:
       - echo "test"
     when:
       path:
-        include: ['.woodpecker/*.yml', '*.ini']
+        include: ['.crow/*.yml', '*.ini']
         exclude: ['*.md', 'docs/**']
         ignore_message: '[ALL]'
         on_empty: true

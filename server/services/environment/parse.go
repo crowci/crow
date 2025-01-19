@@ -17,8 +17,9 @@ package environment
 import (
 	"strings"
 
-	"github.com/crowci/crow/v3/server/model"
 	"github.com/rs/zerolog/log"
+
+	"github.com/crowci/crow/v3/server/model"
 )
 
 type builtin struct {

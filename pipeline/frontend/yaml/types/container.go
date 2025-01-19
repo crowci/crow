@@ -17,10 +17,11 @@ package types
 import (
 	"fmt"
 
+	"gopkg.in/yaml.v3"
+
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/constraint"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/utils"
-	"gopkg.in/yaml.v3"
 )
 
 type (

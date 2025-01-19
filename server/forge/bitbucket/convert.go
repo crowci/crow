@@ -21,9 +21,10 @@ import (
 	"regexp"
 	"strings"
 
+	"golang.org/x/oauth2"
+
 	"github.com/crowci/crow/v3/server/forge/bitbucket/internal"
 	"github.com/crowci/crow/v3/server/model"
-	"golang.org/x/oauth2"
 )
 
 const (

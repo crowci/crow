@@ -25,6 +25,13 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gin-gonic/gin"
+	prometheus_http "github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
+	"github.com/urfave/cli/v3"
+	"golang.org/x/sync/errgroup"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/cron"
 	"github.com/crowci/crow/v3/server/router"
@@ -32,12 +39,6 @@ import (
 	"github.com/crowci/crow/v3/server/web"
 	"github.com/crowci/crow/v3/shared/logger"
 	"github.com/crowci/crow/v3/version"
-	"github.com/gin-gonic/gin"
-	prometheus_http "github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
-	"github.com/urfave/cli/v3"
-	"golang.org/x/sync/errgroup"
 )
 
 const (

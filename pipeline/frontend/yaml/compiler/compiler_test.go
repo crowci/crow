@@ -17,12 +17,13 @@ package compiler
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	backend_types "github.com/crowci/crow/v3/pipeline/backend/types"
 	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
 	yaml_types "github.com/crowci/crow/v3/pipeline/frontend/yaml/types"
 	yaml_base_types "github.com/crowci/crow/v3/pipeline/frontend/yaml/types/base"
 	"github.com/crowci/crow/v3/shared/constant"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestSecretAvailable(t *testing.T) {
@@ -94,9 +95,9 @@ func TestCompilerCompile(t *testing.T) {
 			Image:         constant.DefaultClonePlugin,
 			OnSuccess:     true,
 			Failure:       "fail",
-			Volumes:       []string{defaultVolume.Name + ":/woodpecker"},
-			WorkingDir:    "/woodpecker/src/github.com/octocat/hello-world",
-			WorkspaceBase: "/woodpecker",
+			Volumes:       []string{defaultVolume.Name + ":/crow"},
+			WorkingDir:    "/crow/src/github.com/octocat/hello-world",
+			WorkspaceBase: "/crow",
 			Networks:      []backend_types.Conn{{Name: "test_default", Aliases: []string{"clone"}}},
 			ExtraHosts:    []backend_types.HostAlias{},
 		}},
@@ -141,9 +142,9 @@ func TestCompilerCompile(t *testing.T) {
 						Image:         "dummy_img",
 						OnSuccess:     true,
 						Failure:       "fail",
-						Volumes:       []string{defaultVolume.Name + ":/woodpecker"},
-						WorkingDir:    "/woodpecker/src/github.com/octocat/hello-world",
-						WorkspaceBase: "/woodpecker",
+						Volumes:       []string{defaultVolume.Name + ":/crow"},
+						WorkingDir:    "/crow/src/github.com/octocat/hello-world",
+						WorkspaceBase: "/crow",
 						Networks:      []backend_types.Conn{{Name: "test_default", Aliases: []string{"dummy"}}},
 						ExtraHosts:    []backend_types.HostAlias{},
 					}},

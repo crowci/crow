@@ -23,9 +23,10 @@ import (
 	"net/http"
 	"net/url"
 
-	shared_utils "github.com/crowci/crow/v3/shared/utils"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/bitbucket"
+
+	shared_utils "github.com/crowci/crow/v3/shared/utils"
 )
 
 const (

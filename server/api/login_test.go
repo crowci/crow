@@ -9,6 +9,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/api"
 	mocks_forge "github.com/crowci/crow/v3/server/forge/mocks"
@@ -19,9 +23,6 @@ import (
 	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
 	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/crowci/crow/v3/shared/token"
-	"github.com/gin-gonic/gin"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
 
 func TestHandleAuth(t *testing.T) {

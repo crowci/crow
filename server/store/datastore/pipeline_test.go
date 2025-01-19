@@ -19,9 +19,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store/types"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestPipelines(t *testing.T) {

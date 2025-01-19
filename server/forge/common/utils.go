@@ -20,9 +20,10 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/rs/zerolog/log"
 )
 
 func ExtractHostFromCloneURL(cloneURL string) (string, error) {

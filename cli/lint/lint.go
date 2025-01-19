@@ -22,11 +22,12 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter"
 	"github.com/crowci/crow/v3/shared/constant"
-	"github.com/urfave/cli/v3"
 )
 
 // Command exports the info command.
@@ -37,18 +38,18 @@ var Command = &cli.Command{
 	Action:    lint,
 	Flags: []cli.Flag{
 		&cli.StringSliceFlag{
-			Sources: cli.EnvVars("WOODPECKER_PLUGINS_PRIVILEGED"),
+			Sources: cli.EnvVars("WOODPECKER_PLUGINS_PRIVILEGED", "CROW_PLUGINS_PRIVILEGED"),
 			Name:    "plugins-privileged",
-			Usage:   "allow plugins to run in privileged mode, if set empty, there is no",
+			Usage:   "plugins allowed to run 'privileged'",
 		},
 		&cli.StringSliceFlag{
-			Sources: cli.EnvVars("WOODPECKER_PLUGINS_TRUSTED_CLONE"),
+			Sources: cli.EnvVars("WOODPECKER_PLUGINS_TRUSTED_CLONE", "CROW_PLUGINS_TRUSTED_CLONE"),
 			Name:    "plugins-trusted-clone",
-			Usage:   "plugins that are trusted to handle Git credentials in cloning steps",
+			Usage:   "plugins that are trusted to handle Git credentials in clone steps",
 			Value:   constant.TrustedClonePlugins,
 		},
 		&cli.BoolFlag{
-			Sources: cli.EnvVars("WOODPECKER_LINT_STRICT"),
+			Sources: cli.EnvVars("WOODPECKER_LINT_STRICT", "CROW_LINT_STRICT"),
 			Name:    "strict",
 			Usage:   "treat warnings as errors",
 		},

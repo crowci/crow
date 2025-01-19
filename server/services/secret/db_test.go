@@ -17,11 +17,12 @@ package secret_test
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/services/secret"
 	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
 
 var (

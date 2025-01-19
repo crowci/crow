@@ -19,14 +19,15 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/gin-gonic/gin"
+	"github.com/gorilla/securecookie"
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/router/middleware/session"
 	"github.com/crowci/crow/v3/server/store"
 	"github.com/crowci/crow/v3/shared/token"
-	"github.com/gin-gonic/gin"
-	"github.com/gorilla/securecookie"
-	"github.com/rs/zerolog/log"
 )
 
 // GetSelf

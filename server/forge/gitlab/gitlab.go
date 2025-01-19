@@ -27,6 +27,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/rs/zerolog/log"
+	gitlab "gitlab.com/gitlab-org/api/client-go"
+	"golang.org/x/oauth2"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/common"
@@ -34,9 +38,6 @@ import (
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
 	"github.com/crowci/crow/v3/shared/utils"
-	"github.com/rs/zerolog/log"
-	gitlab "gitlab.com/gitlab-org/api/client-go"
-	"golang.org/x/oauth2"
 )
 
 const (

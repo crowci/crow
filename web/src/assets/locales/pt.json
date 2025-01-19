@@ -99,7 +99,7 @@
                 },
                 "pipeline_path": {
                     "path": "Caminho do pipeline",
-                    "default": "Por padrão: .woodpecker/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
+                    "default": "Por padrão: .crow/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
                     "desc": "Caminho para a configuração do pipeline (por exemplo, {0}). As pastas devem terminar com {1}.",
                     "desc_path_example": "my/path/"
                 }

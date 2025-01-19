@@ -19,9 +19,10 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/services/encryption/types"
-	"github.com/rs/zerolog/log"
 )
 
 type EncryptedSecretStore struct {

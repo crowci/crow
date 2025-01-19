@@ -21,12 +21,13 @@ import (
 	"context"
 	"os"
 
-	_ "github.com/crowci/crow/v3/cmd/server/openapi"
-	"github.com/crowci/crow/v3/shared/utils"
-	"github.com/crowci/crow/v3/version"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
+
+	_ "github.com/crowci/crow/v3/cmd/server/openapi"
+	"github.com/crowci/crow/v3/shared/utils"
+	"github.com/crowci/crow/v3/version"
 )
 
 func main() {
@@ -35,9 +36,9 @@ func main() {
 	})
 
 	app := cli.Command{}
-	app.Name = "woodpecker-server"
+	app.Name = "crow-server"
 	app.Version = version.String()
-	app.Usage = "woodpecker server"
+	app.Usage = "crow server"
 	app.Action = run
 	app.Commands = []*cli.Command{
 		{

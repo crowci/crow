@@ -27,6 +27,9 @@ import (
 	"time"
 
 	"codeberg.org/mvdkleijn/forgejo-sdk/forgejo"
+	"github.com/rs/zerolog/log"
+	"golang.org/x/oauth2"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/common"
@@ -34,8 +37,6 @@ import (
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
 	shared_utils "github.com/crowci/crow/v3/shared/utils"
-	"github.com/rs/zerolog/log"
-	"golang.org/x/oauth2"
 )
 
 const (

@@ -18,8 +18,9 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/crowci/crow/v3/server/store/types"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/crowci/crow/v3/server/store/types"
 )
 
 func TestWrapGet(t *testing.T) {

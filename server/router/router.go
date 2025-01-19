@@ -18,6 +18,11 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog/log"
+	openapi_files "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+
 	"github.com/crowci/crow/v3/cmd/server/openapi"
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/api"
@@ -26,10 +31,6 @@ import (
 	"github.com/crowci/crow/v3/server/router/middleware/session"
 	"github.com/crowci/crow/v3/server/router/middleware/token"
 	"github.com/crowci/crow/v3/server/web"
-	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog/log"
-	openapi_files "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 // Load loads the router.

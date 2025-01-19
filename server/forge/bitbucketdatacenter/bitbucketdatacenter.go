@@ -21,6 +21,10 @@ import (
 	"net/url"
 	"strings"
 
+	bb "github.com/neticdk/go-bitbucket/bitbucket"
+	"github.com/rs/zerolog/log"
+	"golang.org/x/oauth2"
+
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/bitbucketdatacenter/internal"
@@ -28,9 +32,6 @@ import (
 	forge_types "github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
-	bb "github.com/neticdk/go-bitbucket/bitbucket"
-	"github.com/rs/zerolog/log"
-	"golang.org/x/oauth2"
 )
 
 const listLimit = 250

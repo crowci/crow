@@ -19,10 +19,11 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/gin-gonic/gin"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
 	"github.com/crowci/crow/v3/server/store/types"
-	"github.com/gin-gonic/gin"
 )
 
 func Org(c *gin.Context) *model.Org {

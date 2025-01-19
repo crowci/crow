@@ -21,9 +21,10 @@ import (
 	"strconv"
 	"text/template"
 
-	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/cli/internal"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var logShowCmd = &cli.Command{
@@ -68,7 +69,7 @@ func logShow(ctx context.Context, c *cli.Command) error {
 	return stepLog(client, repoID, number, step)
 }
 
-func pipelineLog(client woodpecker.Client, repoID, number int64) error {
+func pipelineLog(client crow.Client, repoID, number int64) error {
 	pipeline, err := client.Pipeline(repoID, number)
 	if err != nil {
 		return err
@@ -94,7 +95,7 @@ func pipelineLog(client woodpecker.Client, repoID, number int64) error {
 	return nil
 }
 
-func stepLog(client woodpecker.Client, repoID, number, step int64) error {
+func stepLog(client crow.Client, repoID, number, step int64) error {
 	logs, err := client.StepLogEntries(repoID, number, step)
 	if err != nil {
 		return err

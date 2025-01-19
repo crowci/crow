@@ -20,13 +20,14 @@ import (
 	"fmt"
 	"regexp"
 
+	"github.com/rs/zerolog/log"
+
 	pipeline_errors "github.com/crowci/crow/v3/pipeline/errors"
 	"github.com/crowci/crow/v3/server"
 	"github.com/crowci/crow/v3/server/forge"
 	forge_types "github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/rs/zerolog/log"
 )
 
 var skipPipelineRegex = regexp.MustCompile(`\[(?i:ci *skip|skip *ci)\]`)

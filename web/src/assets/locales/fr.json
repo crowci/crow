@@ -377,7 +377,7 @@
                     "netrc_only_trusted": "Plugins de clonage personnalisés de confiance"
                 },
                 "pipeline_path": {
-                    "default": "Par défaut : .woodpecker/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
+                    "default": "Par défaut : .crow/*.{'{yaml,yml}'} -> .woodpecker.yaml -> .woodpecker.yml",
                     "desc": "Le chemin vers votre configuration de pipeline (par example {0}). Les dossiers doivent finir par {1}.",
                     "desc_path_example": "mon/chemin/",
                     "path": "Chemin vers le pipeline"

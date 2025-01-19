@@ -19,10 +19,11 @@ import (
 	"html/template"
 	"os"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var registryListCmd = &cli.Command{
@@ -49,7 +50,7 @@ func registryList(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	opt := woodpecker.RegistryListOptions{}
+	opt := crow.RegistryListOptions{}
 
 	list, err := client.RegistryList(repoID, opt)
 	if err != nil {

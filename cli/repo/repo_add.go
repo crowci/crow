@@ -19,9 +19,10 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/cli/internal"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var repoAddCmd = &cli.Command{
@@ -43,7 +44,7 @@ func repoAdd(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	opt := woodpecker.RepoPostOptions{
+	opt := crow.RepoPostOptions{
 		ForgeRemoteID: int64(forgeRemoteID),
 	}
 

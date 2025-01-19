@@ -21,9 +21,10 @@ import (
 	"sync"
 	"time"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/shared/constant"
-	"github.com/rs/zerolog/log"
 )
 
 type entry struct {

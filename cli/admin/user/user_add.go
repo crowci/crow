@@ -18,9 +18,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/cli/internal"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var userAddCmd = &cli.Command{
@@ -38,7 +39,7 @@ func userAdd(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	user, err := client.UserPost(&woodpecker.User{Login: login})
+	user, err := client.UserPost(&crow.User{Login: login})
 	if err != nil {
 		return err
 	}

@@ -19,9 +19,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/cli/internal"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var repoUpdateCmd = &cli.Command{
@@ -86,7 +87,7 @@ func repoUpdate(ctx context.Context, c *cli.Command) error {
 		unsafe          = c.Bool("unsafe")
 	)
 
-	patch := new(woodpecker.RepoPatch)
+	patch := new(crow.RepoPatch)
 	if c.IsSet("trusted") {
 		patch.IsTrusted = &trusted
 	}
@@ -97,7 +98,7 @@ func repoUpdate(ctx context.Context, c *cli.Command) error {
 	}
 
 	if c.IsSet("require-approval") {
-		if mode := woodpecker.ApprovalMode(requireApproval); mode.Valid() {
+		if mode := crow.ApprovalMode(requireApproval); mode.Valid() {
 			patch.RequireApproval = &mode
 		} else {
 			return fmt.Errorf("update approval mode failed: '%s' is no valid mode", mode)

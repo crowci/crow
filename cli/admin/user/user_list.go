@@ -19,10 +19,11 @@ import (
 	"os"
 	"text/template"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var userListCmd = &cli.Command{
@@ -39,7 +40,7 @@ func userList(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	opt := woodpecker.UserListOptions{}
+	opt := crow.UserListOptions{}
 
 	users, err := client.UserList(opt)
 	if err != nil || len(users) == 0 {

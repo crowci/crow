@@ -19,10 +19,11 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/jellydator/ttlcache/v3"
+
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/jellydator/ttlcache/v3"
 )
 
 // MembershipService is a service to check for user membership.

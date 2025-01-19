@@ -17,9 +17,10 @@ package compiler
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/pipeline/frontend/metadata"
 	"github.com/crowci/crow/v3/shared/constant"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestWithWorkspace(t *testing.T) {

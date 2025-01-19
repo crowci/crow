@@ -22,8 +22,6 @@ import (
 	"path/filepath"
 	"strings"
 
-	backend "github.com/crowci/crow/v3/pipeline/backend/types"
-	"github.com/crowci/crow/v3/shared/utils"
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/image"
 	"github.com/docker/docker/api/types/network"
@@ -36,6 +34,9 @@ import (
 	"github.com/moby/term"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
+
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/shared/utils"
 )
 
 type docker struct {

@@ -21,14 +21,15 @@ import (
 	"time"
 
 	"github.com/cenkalti/backoff/v5"
-	backend "github.com/crowci/crow/v3/pipeline/backend/types"
-	"github.com/crowci/crow/v3/pipeline/rpc"
-	"github.com/crowci/crow/v3/pipeline/rpc/proto"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	grpcproto "google.golang.org/protobuf/proto"
+
+	backend "github.com/crowci/crow/v3/pipeline/backend/types"
+	"github.com/crowci/crow/v3/pipeline/rpc"
+	"github.com/crowci/crow/v3/pipeline/rpc/proto"
 )
 
 const (
@@ -45,7 +46,7 @@ const (
 )
 
 type client struct {
-	client proto.WoodpeckerClient
+	client proto.CrowClient
 	conn   *grpc.ClientConn
 	logs   chan *proto.LogEntry
 }
@@ -53,7 +54,7 @@ type client struct {
 // NewGrpcClient returns a new grpc Client.
 func NewGrpcClient(ctx context.Context, conn *grpc.ClientConn) rpc.Peer {
 	client := new(client)
-	client.client = proto.NewWoodpeckerClient(conn)
+	client.client = proto.NewCrowClient(conn)
 	client.conn = conn
 	client.logs = make(chan *proto.LogEntry, 10) // max memory use: 10 lines * 1 MiB
 	go client.processLogs(ctx)

@@ -18,9 +18,10 @@ import (
 	"errors"
 	"fmt"
 
+	"xorm.io/xorm"
+
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/store/types"
-	"xorm.io/xorm"
 )
 
 func (s storage) GetUser(id int64) (*model.User, error) {

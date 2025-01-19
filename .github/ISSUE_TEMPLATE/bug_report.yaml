@@ -1,6 +1,6 @@
 # Credits to: https://github.com/vitejs/vite/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml
 name: "\U0001F41E Bug report"
-description: Report an issue with Woodpecker
+description: Report an issue with Crow
 labels: ['bug']
 body:
   - type: markdown
@@ -11,7 +11,7 @@ body:
     id: component
     attributes:
       label: Component
-      description: Which component of Woodpecker is affected by the issue?
+      description: Which component of Crow is affected by the issue?
       multiple: true
       options:
         - server
@@ -35,8 +35,8 @@ body:
       label: Steps to reproduce
       description: Steps to reproduce the behavior.
       placeholder: |
-        1. Install Woodpecker Server with the following configuration: ...
-        2. Install Woodpecker Agent with the configuration below: ...
+        1. Install Crow Server with the following configuration: ...
+        2. Install Crow Agent with the configuration below: ...
         3. Besides, set some settings in the forge: ...
         4. Run them all by the commands: ...
         5. Go to ..., click here and there, see next error: ...
@@ -57,7 +57,7 @@ body:
     id: system-info
     attributes:
       label: System Info
-      description: Output of `https://<your-woodpecker-instance>/version`
+      description: Output of `https://<url>/version`
       render: shell
       placeholder: Version info, docker-compose config, Kubernetes manifests
     validations:
@@ -80,11 +80,11 @@ body:
       label: Validations
       description: Before submitting the issue, please make sure you do the following
       options:
-        # - label: Follow our [Code of Conduct](https://github.com/woodpecker-ci/woodpecker/blob/main/CODE_OF_CONDUCT.md)
+        # - label: Follow our [Code of Conduct](https://github.com/crowci/crow/blob/main/CODE_OF_CONDUCT.md)
         #   required: true
-        - label: Read the [docs](https://woodpecker-ci.org/docs/intro).
+        - label: Read the [docs](https://crowci.dev).
           required: true
-        - label: Check that there isn't [already an issue](https://github.com/woodpecker-ci/woodpecker/issues) that reports the same bug to avoid creating a duplicate.
+        - label: Check that there isn't [already an issue](https://github.com/crowci/crow/issues) that reports the same bug to avoid creating a duplicate.
           required: true
-        - label: Checked that the bug isn't fixed in the `next` version already [https://woodpecker-ci.org/faq#which-version-of-woodpecker-should-i-use]
+        - label: Checked that the bug isn't fixed in the `dev` version already
           required: true

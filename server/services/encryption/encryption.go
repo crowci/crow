@@ -17,9 +17,10 @@ package encryption
 import (
 	"fmt"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/server/services/encryption/types"
 	"github.com/crowci/crow/v3/server/store"
-	"github.com/urfave/cli/v3"
 )
 
 type builder struct {

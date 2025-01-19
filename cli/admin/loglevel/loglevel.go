@@ -17,11 +17,12 @@ package loglevel
 import (
 	"context"
 
-	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/cli/internal"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 // Command exports the log-level command used to change the servers log-level.
@@ -38,14 +39,14 @@ func logLevel(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	var ll *woodpecker.LogLevel
+	var ll *crow.LogLevel
 	arg := c.Args().First()
 	if arg != "" {
 		lvl, err := zerolog.ParseLevel(arg)
 		if err != nil {
 			return err
 		}
-		ll, err = client.SetLogLevel(&woodpecker.LogLevel{
+		ll, err = client.SetLogLevel(&crow.LogLevel{
 			Level: lvl.String(),
 		})
 		if err != nil {

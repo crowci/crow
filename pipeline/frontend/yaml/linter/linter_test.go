@@ -17,10 +17,11 @@ package linter_test
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/crowci/crow/v3/pipeline/errors"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestLint(t *testing.T) {

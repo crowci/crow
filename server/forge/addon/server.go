@@ -20,9 +20,10 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/hashicorp/go-plugin"
+
 	"github.com/crowci/crow/v3/server/forge"
 	"github.com/crowci/crow/v3/server/forge/types"
-	"github.com/hashicorp/go-plugin"
 )
 
 func Serve(impl forge.Forge) {

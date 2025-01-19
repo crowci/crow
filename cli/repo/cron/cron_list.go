@@ -19,10 +19,11 @@ import (
 	"html/template"
 	"os"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var cronListCmd = &cli.Command{
@@ -52,7 +53,7 @@ func cronList(ctx context.Context, c *cli.Command) error {
 	if err != nil {
 		return err
 	}
-	opt := woodpecker.CronListOptions{}
+	opt := crow.CronListOptions{}
 	list, err := client.CronList(repoID, opt)
 	if err != nil {
 		return err

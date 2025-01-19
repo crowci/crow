@@ -8,10 +8,11 @@ import (
 	"path/filepath"
 	"strings"
 
+	logger "github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/pipeline"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/services/log"
-	logger "github.com/rs/zerolog/log"
 )
 
 const (

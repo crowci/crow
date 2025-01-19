@@ -18,13 +18,14 @@ import (
 	"fmt"
 
 	"codeberg.org/6543/xyaml"
+	"go.uber.org/multierr"
+
 	"github.com/crowci/crow/v3/pipeline/errors"
 	errorTypes "github.com/crowci/crow/v3/pipeline/errors/types"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/linter/schema"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/types"
 	"github.com/crowci/crow/v3/pipeline/frontend/yaml/utils"
 	"github.com/crowci/crow/v3/shared/constant"
-	"go.uber.org/multierr"
 )
 
 // A Linter lints a pipeline configuration.

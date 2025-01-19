@@ -18,10 +18,11 @@ import (
 	"context"
 	"strconv"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/common"
 	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var pipelineShowCmd = &cli.Command{
@@ -47,7 +48,7 @@ func pipelineShow(ctx context.Context, c *cli.Command) error {
 	var number int64
 	if pipelineArg == "last" || len(pipelineArg) == 0 {
 		// Fetch the pipeline number from the last pipeline
-		pipeline, err := client.PipelineLast(repoID, woodpecker.PipelineLastOptions{})
+		pipeline, err := client.PipelineLast(repoID, crow.PipelineLastOptions{})
 		if err != nil {
 			return err
 		}
@@ -64,5 +65,5 @@ func pipelineShow(ctx context.Context, c *cli.Command) error {
 		return err
 	}
 
-	return pipelineOutput(c, []*woodpecker.Pipeline{pipeline})
+	return pipelineOutput(c, []*crow.Pipeline{pipeline})
 }

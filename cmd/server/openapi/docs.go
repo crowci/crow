@@ -5792,7 +5792,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "/api",
 	Schemes:          []string{},
 	Title:            "Crow CI API",
-	Description:      "Crow CI is a lightweight, community-driven CI application for self-hosted environments.\nTo get a personal access token (PAT) for authentication, please log in,\nand go to you personal profile page, by clicking the user icon at the top right.",
+	Description:      "Crow CI is a lightweight, community-driven CI application for self-hosted environments.\nTo get a personal access token (PAT) for authentication, please log in\nand go to you personal profile page, by clicking the user icon at the top right.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

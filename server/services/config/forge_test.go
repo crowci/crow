@@ -21,12 +21,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+
 	"github.com/crowci/crow/v3/server/forge/mocks"
 	forge_types "github.com/crowci/crow/v3/server/forge/types"
 	"github.com/crowci/crow/v3/server/model"
 	"github.com/crowci/crow/v3/server/services/config"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
 
 func TestFetch(t *testing.T) {
@@ -47,60 +48,60 @@ func TestFetch(t *testing.T) {
 		expectedError     bool
 	}{
 		{
-			name:       "Default config - .woodpecker/",
+			name:       "Default config - .crow/",
 			repoConfig: "",
 			files: []file{{
-				name: ".woodpecker/text.txt",
+				name: ".crow/text.txt",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/release.yml",
+				name: ".crow/release.yml",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/image.png",
+				name: ".crow/image.png",
 				data: dummyData,
 			}},
 			expectedFileNames: []string{
-				".woodpecker/release.yml",
+				".crow/release.yml",
 			},
 			expectedError: false,
 		},
 		{
-			name:       "Default config with .yaml - .woodpecker/",
+			name:       "Default config with .yaml - .crow/",
 			repoConfig: "",
 			files: []file{{
-				name: ".woodpecker/text.txt",
+				name: ".crow/text.txt",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/release.yaml",
+				name: ".crow/release.yaml",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/image.png",
+				name: ".crow/image.png",
 				data: dummyData,
 			}},
 			expectedFileNames: []string{
-				".woodpecker/release.yaml",
+				".crow/release.yaml",
 			},
 			expectedError: false,
 		},
 		{
-			name:       "Default config with .yaml, .yml mix - .woodpecker/",
+			name:       "Default config with .yaml, .yml mix - .crow/",
 			repoConfig: "",
 			files: []file{{
-				name: ".woodpecker/text.txt",
+				name: ".crow/text.txt",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/release.yaml",
+				name: ".crow/release.yaml",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/other.yml",
+				name: ".crow/other.yml",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/image.png",
+				name: ".crow/image.png",
 				data: dummyData,
 			}},
 			expectedFileNames: []string{
-				".woodpecker/release.yaml",
-				".woodpecker/other.yml",
+				".crow/release.yaml",
+				".crow/other.yml",
 			},
 			expectedError: false,
 		},
@@ -154,14 +155,14 @@ func TestFetch(t *testing.T) {
 			name:       "Default config - Additional sub-folders",
 			repoConfig: "",
 			files: []file{{
-				name: ".woodpecker/test.yml",
+				name: ".crow/test.yml",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/sub-folder/config.yml",
+				name: ".crow/sub-folder/config.yml",
 				data: dummyData,
 			}},
 			expectedFileNames: []string{
-				".woodpecker/test.yml",
+				".crow/test.yml",
 			},
 			expectedError: false,
 		},
@@ -169,17 +170,17 @@ func TestFetch(t *testing.T) {
 			name:       "Default config - Additional none .yml files",
 			repoConfig: "",
 			files: []file{{
-				name: ".woodpecker/notes.txt",
+				name: ".crow/notes.txt",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/image.png",
+				name: ".crow/image.png",
 				data: dummyData,
 			}, {
-				name: ".woodpecker/test.yml",
+				name: ".crow/test.yml",
 				data: dummyData,
 			}},
 			expectedFileNames: []string{
-				".woodpecker/test.yml",
+				".crow/test.yml",
 			},
 			expectedError: false,
 		},
@@ -187,7 +188,7 @@ func TestFetch(t *testing.T) {
 			name:       "Default config - Empty Folder",
 			repoConfig: " ",
 			files: []file{{
-				name: ".woodpecker/.keep",
+				name: ".crow/.keep",
 				data: dummyData,
 			}, {
 				name: ".woodpecker.yml",
@@ -205,7 +206,7 @@ func TestFetch(t *testing.T) {
 			name:       "Special config - folder (ignoring default files)",
 			repoConfig: ".my-ci-folder/",
 			files: []file{{
-				name: ".woodpecker/test.yml",
+				name: ".crow/test.yml",
 				data: dummyData,
 			}, {
 				name: ".woodpecker.yml",

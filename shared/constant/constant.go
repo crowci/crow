@@ -19,7 +19,7 @@ import "time"
 // DefaultConfigOrder represent the priority in witch woodpecker search for a pipeline config by default
 // folders are indicated by supplying a trailing slash.
 var DefaultConfigOrder = [...]string{
-	".woodpecker/",
+	".crow/",
 	".woodpecker.yaml",
 	".woodpecker.yml",
 	".crow/",

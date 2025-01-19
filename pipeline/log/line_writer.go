@@ -21,9 +21,10 @@ import (
 	"sync"
 	"time"
 
+	"github.com/rs/zerolog/log"
+
 	"github.com/crowci/crow/v3/pipeline/rpc"
 	"github.com/crowci/crow/v3/pipeline/shared"
-	"github.com/rs/zerolog/log"
 )
 
 // LineWriter sends logs to the client.

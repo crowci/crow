@@ -19,9 +19,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/crowci/crow/v3/cli/internal"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
 	"github.com/urfave/cli/v3"
+
+	"github.com/crowci/crow/v3/cli/internal"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 var registryCreateCmd = &cli.Command{
@@ -56,7 +57,7 @@ func registryCreate(ctx context.Context, c *cli.Command) error {
 	if err != nil {
 		return err
 	}
-	registry := &woodpecker.Registry{
+	registry := &crow.Registry{
 		Address:  hostname,
 		Username: username,
 		Password: password,

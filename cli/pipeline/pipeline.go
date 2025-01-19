@@ -20,11 +20,12 @@ import (
 	"os"
 	"text/template"
 
+	"github.com/urfave/cli/v3"
+
 	"github.com/crowci/crow/v3/cli/output"
 	"github.com/crowci/crow/v3/cli/pipeline/deploy"
 	"github.com/crowci/crow/v3/cli/pipeline/log"
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/urfave/cli/v3"
+	crow "github.com/crowci/crow/v3/crow-go/crow"
 )
 
 // Command exports the pipeline command set.
@@ -49,7 +50,7 @@ var Command = &cli.Command{
 	},
 }
 
-func pipelineOutput(c *cli.Command, pipelines []*woodpecker.Pipeline, fd ...io.Writer) error {
+func pipelineOutput(c *cli.Command, pipelines []*crow.Pipeline, fd ...io.Writer) error {
 	outFmt, outOpt := output.ParseOutputOptions(c.String("output"))
 	noHeader := c.Bool("output-no-headers")
 

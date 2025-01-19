@@ -6,11 +6,12 @@ import (
 	"io"
 	"testing"
 
-	woodpecker "github.com/crowci/crow/v3/crow-go/crow"
-	"github.com/crowci/crow/v3/crow-go/crow/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/urfave/cli/v3"
+
+	crow "github.com/crowci/crow/v3/crow-go/crow"
+	"github.com/crowci/crow/v3/crow-go/crow/mocks"
 )
 
 func TestPipelinePurge(t *testing.T) {
@@ -18,8 +19,8 @@ func TestPipelinePurge(t *testing.T) {
 		name            string
 		repoID          int64
 		args            []string
-		pipelinesKeep   []*woodpecker.Pipeline
-		pipelines       []*woodpecker.Pipeline
+		pipelinesKeep   []*crow.Pipeline
+		pipelines       []*crow.Pipeline
 		mockDeleteError error
 		wantDelete      int
 		wantErr         error
@@ -28,19 +29,19 @@ func TestPipelinePurge(t *testing.T) {
 			name:   "success with no pipelines to purge",
 			repoID: 1,
 			args:   []string{"purge", "--older-than", "1h", "repo/name"},
-			pipelinesKeep: []*woodpecker.Pipeline{
+			pipelinesKeep: []*crow.Pipeline{
 				{Number: 1},
 			},
-			pipelines: []*woodpecker.Pipeline{},
+			pipelines: []*crow.Pipeline{},
 		},
 		{
 			name:   "success with pipelines to purge",
 			repoID: 1,
 			args:   []string{"purge", "--older-than", "1h", "repo/name"},
-			pipelinesKeep: []*woodpecker.Pipeline{
+			pipelinesKeep: []*crow.Pipeline{
 				{Number: 1},
 			},
-			pipelines: []*woodpecker.Pipeline{
+			pipelines: []*crow.Pipeline{
 				{Number: 1},
 				{Number: 2},
 				{Number: 3},
@@ -57,16 +58,16 @@ func TestPipelinePurge(t *testing.T) {
 			name:   "continue on 422 error",
 			repoID: 1,
 			args:   []string{"purge", "--older-than", "1h", "repo/name"},
-			pipelinesKeep: []*woodpecker.Pipeline{
+			pipelinesKeep: []*crow.Pipeline{
 				{Number: 1},
 			},
-			pipelines: []*woodpecker.Pipeline{
+			pipelines: []*crow.Pipeline{
 				{Number: 1},
 				{Number: 2},
 				{Number: 3},
 			},
 			wantDelete: 2,
-			mockDeleteError: &woodpecker.ClientError{
+			mockDeleteError: &crow.ClientError{
 				StatusCode: 422,
 				Message:    "test error",
 			},
@@ -76,15 +77,15 @@ func TestPipelinePurge(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			mockClient := mocks.NewClient(t)
-			mockClient.On("RepoLookup", mock.Anything).Maybe().Return(&woodpecker.Repo{ID: tt.repoID}, nil)
+			mockClient.On("RepoLookup", mock.Anything).Maybe().Return(&crow.Repo{ID: tt.repoID}, nil)
 
-			mockClient.On("PipelineList", mock.Anything, mock.Anything).Return(func(_ int64, opt woodpecker.PipelineListOptions) ([]*woodpecker.Pipeline, error) {
+			mockClient.On("PipelineList", mock.Anything, mock.Anything).Return(func(_ int64, opt crow.PipelineListOptions) ([]*crow.Pipeline, error) {
 				// Return keep pipelines for first call
 				if opt.Before.IsZero() {
 					if opt.Page == 1 {
 						return tt.pipelinesKeep, nil
 					}
-					return []*woodpecker.Pipeline{}, nil
+					return []*crow.Pipeline{}, nil
 				}
 
 				// Return pipelines to purge for calls with Before filter
@@ -92,10 +93,10 @@ func TestPipelinePurge(t *testing.T) {
 					if opt.Page == 1 {
 						return tt.pipelines, nil
 					}
-					return []*woodpecker.Pipeline{}, nil
+					return []*crow.Pipeline{}, nil
 				}
 
-				return []*woodpecker.Pipeline{}, nil
+				return []*crow.Pipeline{}, nil
 			}).Maybe()
 
 			if tt.mockDeleteError != nil {

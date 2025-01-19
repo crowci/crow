@@ -4,7 +4,7 @@ when:
     branch: ${CI_REPO_DEFAULT_BRANCH}
     path:
       - Justfile
-      - .woodpecker/binaries.yaml
+      - .crow/binaries.yaml
 
 variables:
   - &golang_image 'docker.io/golang:1.23-alpine3.21'

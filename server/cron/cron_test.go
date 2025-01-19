@@ -19,13 +19,14 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+
 	"github.com/crowci/crow/v3/server"
 	mocks_forge "github.com/crowci/crow/v3/server/forge/mocks"
 	"github.com/crowci/crow/v3/server/model"
 	mocks_manager "github.com/crowci/crow/v3/server/services/mocks"
 	mocks_store "github.com/crowci/crow/v3/server/store/mocks"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
 
 func TestCreatePipeline(t *testing.T) {

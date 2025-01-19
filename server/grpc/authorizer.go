@@ -81,7 +81,7 @@ func (a *Authorizer) UnaryInterceptor(ctx context.Context, req any, info *grpc.U
 
 func (a *Authorizer) authorize(ctx context.Context, fullMethod string) (context.Context, error) {
 	// bypass auth for token endpoint
-	if fullMethod == "/proto.WoodpeckerAuth/Auth" {
+	if fullMethod == "/proto.CrowAuth/Auth" {
 		return ctx, nil
 	}
 
