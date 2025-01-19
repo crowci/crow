@@ -31,6 +31,10 @@ fmt:
 
 test: test-agent test-server test-server-datastore test-cli test-lib
 
+## Run all code generations
+generate: generate-openapi
+	CGO_ENABLED=0 go generate ./...
+
 generate-openapi: install-tools
     go run github.com/swaggo/swag/cmd/swag fmt
     CGO_ENABLED=0 go generate cmd/server/openapi.go
