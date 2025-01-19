@@ -376,27 +376,27 @@ var flags = []cli.Flag{
 		Usage:   "Set the metadata environment variable \"CI_PREV_COMMIT_AUTHOR_EMAIL\".",
 	},
 	&cli.StringFlag{
-		Sources: cli.EnvVars("CI_WORKFLOW_NAME"),
+		Sources: cli.EnvVars("CI_WORKFLOW_NAME", "CROW_WORKFLOW_NAME"),
 		Name:    "workflow-name",
 		Usage:   "Set the metadata environment variable \"CI_WORKFLOW_NAME\".",
 	},
 	&cli.IntFlag{
-		Sources: cli.EnvVars("CI_WORKFLOW_NUMBER"),
+		Sources: cli.EnvVars("CI_WORKFLOW_NUMBER", "CROW_WORKFLOW_NUMBER"),
 		Name:    "workflow-number",
 		Usage:   "Set the metadata environment variable \"CI_WORKFLOW_NUMBER\".",
 	},
 	&cli.StringSliceFlag{
-		Sources: cli.EnvVars("CI_ENV"),
+		Sources: cli.EnvVars("CI_ENV", "CROW_ENV"),
 		Name:    "env",
 		Usage:   "Set the metadata environment variable \"CI_ENV\".",
 	},
 	&cli.StringFlag{
-		Sources: cli.EnvVars("CI_FORGE_TYPE"),
+		Sources: cli.EnvVars("CI_FORGE_TYPE", "CROW_FORGE_TYPE"),
 		Name:    "forge-type",
 		Usage:   "Set the metadata environment variable \"CI_FORGE_TYPE\".",
 	},
 	&cli.StringFlag{
-		Sources: cli.EnvVars("CI_FORGE_URL"),
+		Sources: cli.EnvVars("CI_FORGE_URL", "CROW_FORGE_URL"),
 		Name:    "forge-url",
 		Usage:   "Set the metadata environment variable \"CI_FORGE_URL\".",
 	},
